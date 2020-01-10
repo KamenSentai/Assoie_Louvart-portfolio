@@ -1,3 +1,7 @@
+html {
+  font-size: 62.5%;
+}
+
 html,
 body {
   width: 100%;
@@ -5,7 +9,14 @@ body {
 }
 
 body {
+  color: $dark;
   font-weight: 400;
   font-size: 1.6rem;
   font-family: $font-text;
+  background-color: $light;
+}
+
+::selection {
+  color: $light;
+  background-color: $dark;
 }
