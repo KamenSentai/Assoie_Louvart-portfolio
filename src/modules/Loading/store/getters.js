@@ -1,5 +1,5 @@
 export default {
-  isLoaded(state) {
+  isCompleted(state) {
     return state.progression === 1
   },
   progression(state) {

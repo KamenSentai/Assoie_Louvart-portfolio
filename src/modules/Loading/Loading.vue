@@ -1,5 +1,14 @@
 <template>
-  <div :class="$style.container">
+  <div
+    v-if="!isHidden"
+    :class="[
+      $style.container,
+      {
+        [$style.isCompleted]: isCompleted,
+      }
+    ]"
+    :style="transition"
+  >
     <div :class="$style.wrapper">
       <svg
         :class="$style.loader"
@@ -37,7 +46,10 @@ export default {
   name: 'Loading',
   data() {
     return {
+      delay: 500,
+      duration: 1000,
       circumference: 0,
+      isHidden: false,
       sizes: {
         xs: 125,
         sm: 150,
@@ -48,7 +60,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('loading', ['progression']),
+    ...mapGetters('loading', ['isCompleted', 'progression']),
     size() {
       const stroke = 1
       const radius = this.sizes[this.$mq]
@@ -71,6 +83,21 @@ export default {
         strokeDashoffset: `${offset}`,
       }
     },
+    transition() {
+      return {
+        transitionDelay: `${this.delay}ms`,
+        transitionDuration: `${this.duration}ms`,
+      }
+    },
+  },
+  watch: {
+    isCompleted(value) {
+      if (value) {
+        setTimeout(() => {
+          this.isHidden = true
+        }, this.delay + this.duration + 1)
+      }
+    },
   },
   mounted() {
     const radius = this.$refs.circle.r.baseVal.value
@@ -86,23 +113,34 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  overflow: hidden;
   color: $light;
   text-align: center;
   background-color: $dark;
+  transition: height ease-in-out;
 
   ::selection {
     color: $dark;
     background-color: $light;
   }
+
+  &.isCompleted {
+    height: 0;
+  }
 }
 
 .wrapper {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .loader {

@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.container">
     <ModuleLoading />
-    <router-view v-if="isLoaded" />
+    <router-view v-if="isCompleted" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   components: {
     ModuleLoading,
   },
-  computed: mapGetters('loading', ['isLoaded']),
+  computed: mapGetters('loading', ['isCompleted']),
 }
 </script>
 
