@@ -40,7 +40,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import resources from './utils/resources'
+import resources from '@/utils/resources'
 
 export default {
   name: 'Loading',
@@ -102,7 +102,7 @@ export default {
   mounted() {
     const radius = this.$refs.circle.r.baseVal.value
     this.circumference = radius * 2 * Math.PI
-    this.load(resources)
+    this.load(Object.values(resources))
   },
   methods: mapActions('loading', ['load']),
 }
@@ -114,6 +114,7 @@ export default {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1;
   height: 100%;
   overflow: hidden;
   color: $light;
