@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 $breakpoints: (
   xs: 0,
   sm: 720px,
@@ -75,5 +77,26 @@ $breakpoints: (
 
   @else {
     @warn "type-of $val must be a string or a list";
+  }
+}
+
+$colors: (
+  dark: ($dark $light),
+  light: ($light $dark),
+);
+
+@mixin selection($color) {
+
+  @if type-of($color) == "string" and map-has-key($colors, $color) {
+
+    ::selection {
+      color: nth(map-get($colors, $color), 1);
+      background-color: nth(map-get($colors, $color), 2);
+      @content;
+    }
+  }
+
+  @else {
+    @warn "type-of $color must be a string and it must be among the possible values";
   }
 }

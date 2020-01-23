@@ -32,7 +32,4 @@ a {
   text-decoration: none;
 }
 
-::selection {
-  color: $light;
-  background-color: $dark;
-}
+@include selection(light);

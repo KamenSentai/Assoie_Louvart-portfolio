@@ -122,10 +122,7 @@ export default {
   background-color: $dark;
   transition: height ease-in-out;
 
-  ::selection {
-    color: $dark;
-    background-color: $light;
-  }
+  @include selection(dark);
 
   &.isCompleted {
     height: 0;
