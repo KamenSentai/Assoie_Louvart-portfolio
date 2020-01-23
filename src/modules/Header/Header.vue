@@ -1,5 +1,12 @@
 <template>
-  <div :class="$style.container">
+  <div
+    :class="[
+      $style.container,
+      {
+        [$style.isFixed]: isHome,
+      }
+    ]"
+  >
     <component
       :is="isHome ? 'h1' : 'router-link'"
       :to="!isHome && { name: 'home' }"
@@ -38,6 +45,13 @@ export default {
 
   @include bp(sm) {
     padding: 3rem 2rem;
+  }
+
+  &.isFixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 }
 
