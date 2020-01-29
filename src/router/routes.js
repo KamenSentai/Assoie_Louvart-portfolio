@@ -16,12 +16,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '@/pages/About.vue'),
   },
   {
-    name: 'not-found',
-    path: '/:slug',
-    props: true,
-    component: () => import(/* webpackChunkName: "not-found" */ '@/pages/NotFound.vue'),
-  },
-  {
     name: 'project',
     path: '/:slug',
     props: true,

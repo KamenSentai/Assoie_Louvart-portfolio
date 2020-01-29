@@ -1,5 +1,5 @@
 export default {
-  displays(_, __, ___, rootGetters) {
+  landings(_, __, ___, rootGetters) {
     return rootGetters['site/projects'].map(({
       name,
       slug,
@@ -10,6 +10,19 @@ export default {
       slug,
       year,
       cover,
+    }))
+  },
+  heroes(_, __, ___, rootGetters) {
+    return rootGetters['site/projects'].map(({
+      name,
+      slug,
+      subject,
+      hero,
+    }) => ({
+      name,
+      slug,
+      subject,
+      hero,
     }))
   },
   projects(state) {

@@ -1,7 +1,9 @@
 <template>
   <div :class="$style.container">
     <ModuleLoading />
-    <ModuleHeader />
+    <ModuleJumbotron>
+      <ModuleHeader />
+    </ModuleJumbotron>
     <router-view v-if="isCompleted" />
   </div>
 </template>
@@ -9,20 +11,29 @@
 <script>
 import { mapGetters } from 'vuex'
 import ModuleHeader from '@/modules/Header'
+import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
 
 export default {
   name: 'App',
   components: {
     ModuleHeader,
+    ModuleJumbotron,
     ModuleLoading,
   },
-  computed: mapGetters('loading', ['isCompleted']),
+  computed: {
+    ...mapGetters('loading', ['isCompleted']),
+    hasHero() {
+      return this.$isHome || this.$isProject
+    },
+  },
 }
 </script>
 
 <style lang="scss" module>
 .container {
+  display: grid;
+  grid-template-rows: auto 1fr;
   width: 100%;
   height: 100%;
 }

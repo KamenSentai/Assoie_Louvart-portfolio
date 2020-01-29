@@ -13,6 +13,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isNotFound: false,
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       next(
@@ -29,6 +34,9 @@ export default {
     project() {
       return this.projects.find(project => project.slug === this.slug)
     },
+  },
+  created() {
+    this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
   },
 }
 </script>

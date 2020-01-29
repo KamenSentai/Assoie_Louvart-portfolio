@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'Loading',
+  name: 'Header',
 }
 </script>
 
@@ -26,6 +26,11 @@ export default {
 .container {
   display: flex;
   justify-content: space-between;
+  padding: 5rem 8rem;
+
+  @include bp(sm) {
+    padding: 3rem 2rem;
+  }
 }
 
 .title,
