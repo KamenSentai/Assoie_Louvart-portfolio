@@ -6,6 +6,7 @@ export default {
       name: 'Acne Studios',
       slug: 'acne-studios',
       position: 4,
+      type: 'E-commerce',
       year: 2019,
       cover: resources.AcneStudiosCover,
       subject: 'E-commerce',
@@ -27,6 +28,7 @@ export default {
       name: 'Mealthy',
       slug: 'mealthy',
       position: 3,
+      type: 'Application',
       year: 2019,
       cover: resources.MealthyCover,
       subject: 'Eat well',
@@ -53,6 +55,7 @@ export default {
       name: 'Pocket Nurse',
       slug: 'pocket-nurse',
       position: 2,
+      type: 'Tablet',
       year: 2019,
       cover: resources.PocketNurseCover,
       subject: 'Patient\'s care',
@@ -74,6 +77,7 @@ export default {
       name: 'Yukey',
       slug: 'yukey',
       position: 1,
+      type: 'Application',
       year: 2019,
       cover: resources.YukeyCover,
       subject: 'Real estate',
@@ -96,6 +100,25 @@ export default {
         resources.YukeyScreen9,
         resources.YukeyScreen10,
       ],
+      intro: {
+        title: 'Reinventing the experience of bringing together sellers and buyers of real estate in France',
+        roles: [
+          'Product Owner',
+          'UX Design',
+          'UI Design',
+        ],
+        text: 'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
+      },
+      sections: {
+        titles: [
+          'Redefining the buyer experience',
+          'Less than 20 min to seel your house',
+        ],
+        texts: [
+          'The application is based on transparency. This is why we decided to display the exact address of the property and replace the personal descriptions, usually exaggerated and too general with tags. The buyer can easily find the house that suits him and with the help of Yukey he can ask any question that will be visible to everyone and contact the seller for a visit.',
+          'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
+        ],
+      },
     },
   ],
 }
