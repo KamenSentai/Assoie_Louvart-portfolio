@@ -13,7 +13,7 @@
       <div :class="$style.cover">
         <div :class="$style.wrapper">
           <img
-            v-for="image in project.hero"
+            v-for="image in [...project.hero].reverse()"
             :key="`hero-${image}`"
             :src="image"
             :alt="project.name"
@@ -46,9 +46,9 @@ export default {
     ComponentIndicator,
   },
   computed: {
-    ...mapGetters('site', ['heroes']),
+    ...mapGetters('site', ['projects']),
     project() {
-      return this.heroes.find(hero => hero.slug === this.$route.params.slug)
+      return this.projects.find(project => project.slug === this.$route.params.slug)
     },
   },
 }
@@ -62,7 +62,7 @@ export default {
 .isFull {
   display: grid;
   grid-template-rows: auto 1fr;
-  height: 100vh;
+  min-height: 100vh;
   color: $white;
   background-color: $dark;
 
@@ -89,7 +89,7 @@ export default {
 }
 
 .image {
-  width: 380px;
+  width: 320px;
   user-select: none;
   $dx: 60px;
   $dy: 25px;
@@ -111,16 +111,14 @@ export default {
   }
 
   &:nth-of-type(1) {
-    z-index: 2;
-    transform: translateY(-$dy);
+    transform: translate(-$dx * 2, $dy);
 
     @include bp(sm) {
-      transform: translateY(-$smdy);
+      transform: translate(-$smdx * 2, $smdy);
     }
   }
 
   &:nth-of-type(2) {
-    z-index: 1;
     transform: translateX(-$dx);
 
     @include bp(sm) {
@@ -129,11 +127,10 @@ export default {
   }
 
   &:nth-of-type(3) {
-    z-index: 0;
-    transform: translate(-$dx * 2, $dy);
+    transform: translateY(-$dy);
 
     @include bp(sm) {
-      transform: translate(-$smdx * 2, $smdy);
+      transform: translateY(-$smdy);
     }
   }
 }
