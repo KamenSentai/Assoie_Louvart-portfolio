@@ -57,17 +57,6 @@ export default {
       isNotFound: false,
     }
   },
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      next(
-        vm.$store.getters['site/projects']
-          .map(project => project.slug)
-          .includes(to.params.slug)
-          ? undefined
-          : { name: 'not-found', params: { slug: to.params.slug } },
-      )
-    })
-  },
   computed: {
     ...mapGetters('site', ['projects']),
     project() {
