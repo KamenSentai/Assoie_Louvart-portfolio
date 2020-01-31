@@ -32,4 +32,8 @@ a {
   text-decoration: none;
 }
 
+.font-null {
+  font-size: 0;
+}
+
 @include selection(light);

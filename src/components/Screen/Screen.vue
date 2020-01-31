@@ -1,18 +1,25 @@
 <template>
-  <div />
+  <img
+    v-if="src"
+    :class="$style.image"
+    :src="src"
+  >
 </template>
 
 <script>
 export default {
-  name: 'NotFound',
+  name: 'Screen',
   props: {
-    slug: {
+    src: {
       type: String,
-      required: true,
+      default: '',
     },
   },
 }
 </script>
 
 <style lang="scss" module>
+.image {
+  width: 100%;
+}
 </style>

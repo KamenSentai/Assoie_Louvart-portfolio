@@ -1,18 +1,11 @@
 <template>
-  <div
-    :class="[
-      $style.container,
-      {
-        [$style.isFixed]: isHome,
-      }
-    ]"
-  >
+  <div :class="$style.container">
     <component
-      :is="isHome ? 'h1' : 'router-link'"
-      :to="!isHome && { name: 'home' }"
+      :is="$isHome ? 'h1' : 'router-link'"
+      :to="!$isHome && { name: 'home' }"
       :class="$style.title"
     >
-      {{ isHome || isAbout ? 'Assoïe Louvart' : 'Back to my projects' }}
+      {{ $isHome || $isAbout ? 'Assoïe Louvart' : 'Back to my projects' }}
     </component>
     <router-link
       :to="{ name: 'about' }"
@@ -25,15 +18,7 @@
 
 <script>
 export default {
-  name: 'Loading',
-  computed: {
-    isHome() {
-      return this.$route.name === 'home'
-    },
-    isAbout() {
-      return this.$route.name === 'about'
-    },
-  },
+  name: 'Header',
 }
 </script>
 
@@ -45,13 +30,6 @@ export default {
 
   @include bp(sm) {
     padding: 3rem 2rem;
-  }
-
-  &.isFixed {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
   }
 }
 

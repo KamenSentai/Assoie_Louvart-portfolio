@@ -1,5 +1,5 @@
 export default {
-  displays(_, __, ___, rootGetters) {
+  landings(_, __, ___, rootGetters) {
     return rootGetters['site/projects'].map(({
       name,
       slug,
