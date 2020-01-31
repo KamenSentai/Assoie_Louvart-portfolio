@@ -48,7 +48,6 @@ export default {
     return {
       delay: 500,
       duration: 1000,
-      circumference: 0,
       isHidden: false,
       sizes: {
         xs: 125,
@@ -61,6 +60,9 @@ export default {
   },
   computed: {
     ...mapGetters('loading', ['isCompleted', 'progression']),
+    circumference() {
+      return this.size.radius * 2 * Math.PI
+    },
     size() {
       const stroke = 1
       const radius = this.sizes[this.$mq]
@@ -100,8 +102,6 @@ export default {
     },
   },
   mounted() {
-    const radius = this.$refs.circle.r.baseVal.value
-    this.circumference = radius * 2 * Math.PI
     this.load(Object.values(resources))
   },
   methods: mapActions('loading', ['load']),
