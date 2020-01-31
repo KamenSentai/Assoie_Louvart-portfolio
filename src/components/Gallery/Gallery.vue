@@ -7,8 +7,14 @@
       :style="{ gridAutoColumns: `minmax(auto, ${size}px)` }"
     >
       <template v-for="(medium, j) in row">
+        <img
+          v-if="isImage(medium)"
+          :key="`image-${j}`"
+          :src="medium"
+          :class="$style.medium"
+        >
         <video
-          v-if="isVideo(medium)"
+          v-else-if="isVideo(medium)"
           :key="`video-${j}`"
           :src="medium"
           :class="$style.medium"
@@ -16,18 +22,14 @@
           loop
           muted
         />
-        <img
-          v-else
-          :key="`image-${j}`"
-          :src="medium"
-          :class="$style.medium"
-        >
       </template>
     </div>
   </div>
 </template>
 
 <script>
+import { imageTypes, videoTypes } from '@/utils/types'
+
 export default {
   name: 'Gallery',
   props: {
@@ -41,8 +43,11 @@ export default {
     },
   },
   computed: {
+    isImage() {
+      return medium => Object.keys(imageTypes).includes(`.${medium.split('.').splice(-1)[0]}`)
+    },
     isVideo() {
-      return medium => medium.split('.').splice(-1)[0] === 'mp4'
+      return medium => Object.keys(videoTypes).includes(`.${medium.split('.').splice(-1)[0]}`)
     },
   },
 }
