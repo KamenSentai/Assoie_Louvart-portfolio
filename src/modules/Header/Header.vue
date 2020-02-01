@@ -4,16 +4,18 @@
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
       :class="$style.title"
+      :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
     >
       <!-- Raw text -->
       {{ $isHome || $isAbout ? 'Assoïe Louvart' : 'Back to my projects' }}
     </component>
     <router-link
-      :to="{ name: 'about' }"
+      :to="{ name: $isAbout ? 'home' : 'about' }"
       :class="$style.link"
+      :title="$isAbout ? 'Assoïe Louvart' : 'About'"
     >
       <!-- Raw text -->
-      About
+      {{ $isAbout ? 'All projects' : 'About' }}
     </router-link>
   </div>
 </template>

@@ -7,7 +7,10 @@
         v-for="landing in landings"
         :key="landing.slug"
       >
-        <router-link :to="{ name: 'project', params: { slug: landing.slug } }">
+        <router-link
+          :title="name"
+          :to="{ name: 'project', params: { slug: landing.slug } }"
+        >
           {{ landing.name }}
         </router-link>
       </li>

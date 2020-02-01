@@ -2,6 +2,7 @@
   <router-link
     :to="{ name: 'project', params: { slug } }"
     :class="$style.container"
+    :title="name"
   >
     <img
       :src="cover"
