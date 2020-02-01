@@ -80,7 +80,7 @@ export default {
 
 .text {
   z-index: 1;
-  color: $white;
+  color: $light;
   font-weight: 700;
   font-size: 8rem;
   font-family: $font-title;

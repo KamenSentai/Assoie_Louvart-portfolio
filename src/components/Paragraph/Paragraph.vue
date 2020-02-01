@@ -23,7 +23,7 @@ export default {
 .container {
   font-weight: 400;
   font-size: 1.8rem;
-  line-height: 1.25;
+  line-height: 1.5;
 
   @include bp(sm) {
     font-size: 1.6rem;
