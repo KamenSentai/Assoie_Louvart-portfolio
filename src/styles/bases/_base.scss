@@ -9,11 +9,10 @@ body {
 }
 
 body {
-  color: $dark;
   font-weight: 400;
   font-size: 1.6rem;
   font-family: $font-text;
-  background-color: $light;
+  @include theme(light);
 }
 
 h1,
@@ -28,7 +27,7 @@ a {
 }
 
 a {
-  color: $dark;
+  color: unset;
   text-decoration: none;
 }
 
@@ -36,4 +35,10 @@ a {
   font-size: 0;
 }
 
-@include selection(light);
+.is-dark {
+  @include theme(dark);
+}
+
+.is-light {
+  @include theme(light);
+}

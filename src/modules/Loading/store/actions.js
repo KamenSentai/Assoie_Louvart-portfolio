@@ -1,3 +1,5 @@
+import { types } from '@/utils/types'
+
 export default {
   load({ commit }, resources) {
     const { length } = resources
@@ -9,12 +11,18 @@ export default {
     }
 
     resources.forEach((resource) => {
-      const image = new Image()
+      const type = `.${resource.split('.').splice(-1)[0]}`
 
-      image.addEventListener('load', update)
-      image.addEventListener('error', update)
+      if (Object.keys(types).includes(type)) {
+        const image = new Image()
 
-      image.src = resource
+        image.addEventListener('load', update)
+        image.addEventListener('error', update)
+
+        image.src = resource
+      } else {
+        update()
+      }
     })
   },
 }

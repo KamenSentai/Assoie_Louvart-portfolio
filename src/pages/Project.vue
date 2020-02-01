@@ -171,10 +171,7 @@ export default {
   }
 
   &:not(:last-of-type):nth-of-type(2n) {
-    color: $white;
-    background-color: $dark;
-
-    @include selection(dark);
+    @include theme(dark);
   }
 }
 </style>

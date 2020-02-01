@@ -1,5 +1,8 @@
 <template>
-  <div />
+  <div
+    class="is-dark"
+    :class="$style.container"
+  />
 </template>
 
 <script>
@@ -9,4 +12,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+.container {
+
+}
 </style>

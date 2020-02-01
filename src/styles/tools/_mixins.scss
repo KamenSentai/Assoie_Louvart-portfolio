@@ -85,14 +85,17 @@ $colors: (
   light: ($light $dark),
 );
 
-@mixin selection($color) {
+@mixin theme($color) {
 
   @if type-of($color) == "string" and map-has-key($colors, $color) {
+    color: nth(map-get($colors, $color), 2);
+    background-color: nth(map-get($colors, $color), 1);
+    @content;
 
-    ::selection {
+    &::selection,
+    *::selection {
       color: nth(map-get($colors, $color), 1);
       background-color: nth(map-get($colors, $color), 2);
-      @content;
     }
   }
 

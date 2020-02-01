@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="!isHidden"
+    class="is-dark"
     :class="[
       $style.container,
       {
@@ -96,12 +97,14 @@ export default {
     isCompleted(value) {
       if (value) {
         setTimeout(() => {
+          document.documentElement.style.overflow = 'auto'
           this.isHidden = true
         }, this.delay + this.duration + 1)
       }
     },
   },
   mounted() {
+    document.documentElement.style.overflow = 'hidden'
     this.load(Object.values(resources))
   },
   methods: mapActions('loading', ['load']),
@@ -117,12 +120,8 @@ export default {
   z-index: 100;
   height: 100%;
   overflow: hidden;
-  color: $light;
   text-align: center;
-  background-color: $dark;
   transition: height ease-in-out;
-
-  @include selection(dark);
 
   &.isCompleted {
     height: 0;
