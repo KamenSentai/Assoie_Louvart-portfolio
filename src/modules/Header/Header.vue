@@ -5,12 +5,14 @@
       :to="!$isHome && { name: 'home' }"
       :class="$style.title"
     >
+      <!-- Raw text -->
       {{ $isHome || $isAbout ? 'Assoïe Louvart' : 'Back to my projects' }}
     </component>
     <router-link
       :to="{ name: 'about' }"
       :class="$style.link"
     >
+      <!-- Raw text -->
       About
     </router-link>
   </div>

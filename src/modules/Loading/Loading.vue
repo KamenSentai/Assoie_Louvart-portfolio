@@ -27,9 +27,11 @@
         />
       </svg>
       <div :class="$style.title">
+        <!-- Raw text -->
         Assoïe Louvart
       </div>
       <div :class="$style.subtitle">
+        <!-- Raw text -->
         Digital designer
       </div>
       <div :class="$style.tag">

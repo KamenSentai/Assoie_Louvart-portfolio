@@ -4,6 +4,7 @@
     class="font-null"
   >
     <section :class="$style.intro">
+      <!-- Raw text -->
       <ComponentTag text="Intro" />
       <ComponentTitle
         :class="$style.title"
@@ -85,11 +86,11 @@ export default {
     lists() {
       return [
         {
-          title: 'Role',
+          title: 'Role', // Raw text
           items: this.project.intro.roles,
         },
         {
-          title: 'What',
+          title: 'What', // Raw text
           items: [this.project.type, this.project.year.toString()],
         },
       ]
