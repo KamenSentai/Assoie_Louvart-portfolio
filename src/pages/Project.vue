@@ -7,6 +7,8 @@
       <!-- Raw text -->
       <ComponentTag text="Intro" />
       <ComponentTitle
+        small
+        tag="h2"
         :class="$style.title"
         :text="project.intro.title"
       />

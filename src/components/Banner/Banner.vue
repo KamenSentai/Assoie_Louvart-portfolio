@@ -3,7 +3,10 @@
     v-if="content.title || content.text"
     :class="$style.container"
   >
-    <ComponentTitle :text="content.title" />
+    <ComponentTitle
+      tag="h2"
+      :text="content.title"
+    />
     <ComponentParagraph :text="content.text" />
   </div>
 </template>
