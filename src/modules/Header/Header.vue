@@ -14,7 +14,7 @@
       <!-- Raw text -->
       <span :class="$style.link">
         {{
-          ($mq !== 'xs' || $isHome)
+          (!$isMobile || $isHome)
             && ($isHome || $isAbout ? 'Assoïe Louvart' : 'Back to my projects')
             || null
         }}
