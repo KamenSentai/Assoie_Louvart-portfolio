@@ -7,17 +7,16 @@
       :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
     >
       <ComponentIcon
-        v-if="!$isHome"
+        v-if="$isProject || ($isMobile && $isAbout)"
         name="Arrow"
         width="20px"
       />
       <!-- Raw text -->
-      <span :class="$style.link">
-        {{
-          (!$isMobile || $isHome)
-            && ($isHome || $isAbout ? 'Assoïe Louvart' : 'Back to my projects')
-            || null
-        }}
+      <span
+        v-if="$isHome || !$isMobile"
+        :class="$style.link"
+      >
+        {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
       </span>
     </component>
     <router-link

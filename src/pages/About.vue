@@ -80,7 +80,12 @@ export default {
     ComponentParagraph,
     ComponentTitle,
   },
-  computed: mapGetters('site', ['about']),
+  computed: {
+    ...mapGetters('site', ['about']),
+    social() {
+      return this.about.find(section => section.isSocial)
+    },
+  },
 }
 </script>
 
