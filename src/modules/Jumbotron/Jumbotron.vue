@@ -4,11 +4,12 @@
     :class="[
       $style.container,
       {
+        ['is-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
       }
     ]"
   >
-    <slot />
+    <ModuleHeader />
     <ComponentHero v-if="$isProject">
       <div :class="$style.cover">
         <div :class="$style.wrapper">
@@ -36,12 +37,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ModuleHeader from '@/modules/Header'
 import { Hero as ComponentHero } from '@/components/Hero'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
 
 export default {
   name: 'Jumbotron',
   components: {
+    ModuleHeader,
     ComponentHero,
     ComponentIndicator,
   },
@@ -63,14 +66,6 @@ export default {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
-  color: $white;
-  background-color: $dark;
-
-  @include selection(dark);
-
-  * {
-    color: $white;
-  }
 }
 
 .cover {

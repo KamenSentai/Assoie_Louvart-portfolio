@@ -2,6 +2,7 @@
   <router-link
     :to="{ name: 'project', params: { slug } }"
     :class="$style.container"
+    :title="name"
   >
     <img
       :src="cover"
@@ -79,7 +80,7 @@ export default {
 
 .text {
   z-index: 1;
-  color: $white;
+  color: $light;
   font-weight: 700;
   font-size: 8rem;
   font-family: $font-title;

@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="!isHidden"
+    class="is-dark"
     :class="[
       $style.container,
       {
@@ -26,9 +27,11 @@
         />
       </svg>
       <div :class="$style.title">
+        <!-- Raw text -->
         Assoïe Louvart
       </div>
       <div :class="$style.subtitle">
+        <!-- Raw text -->
         Digital designer
       </div>
       <div :class="$style.tag">
@@ -48,7 +51,6 @@ export default {
     return {
       delay: 500,
       duration: 1000,
-      circumference: 0,
       isHidden: false,
       sizes: {
         xs: 125,
@@ -61,6 +63,9 @@ export default {
   },
   computed: {
     ...mapGetters('loading', ['isCompleted', 'progression']),
+    circumference() {
+      return this.size.radius * 2 * Math.PI
+    },
     size() {
       const stroke = 1
       const radius = this.sizes[this.$mq]
@@ -94,14 +99,14 @@ export default {
     isCompleted(value) {
       if (value) {
         setTimeout(() => {
+          document.documentElement.style.overflow = 'auto'
           this.isHidden = true
         }, this.delay + this.duration + 1)
       }
     },
   },
   mounted() {
-    const radius = this.$refs.circle.r.baseVal.value
-    this.circumference = radius * 2 * Math.PI
+    document.documentElement.style.overflow = 'hidden'
     this.load(Object.values(resources))
   },
   methods: mapActions('loading', ['load']),
@@ -117,12 +122,8 @@ export default {
   z-index: 100;
   height: 100%;
   overflow: hidden;
-  color: $light;
   text-align: center;
-  background-color: $dark;
   transition: height ease-in-out;
-
-  @include selection(dark);
 
   &.isCompleted {
     height: 0;

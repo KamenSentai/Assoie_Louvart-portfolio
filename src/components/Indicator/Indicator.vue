@@ -3,6 +3,7 @@
     :class="$style.container"
     :data-color="color"
   >
+    <!-- Raw text -->
     Scroll
   </span>
 </template>

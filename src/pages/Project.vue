@@ -4,8 +4,11 @@
     class="font-null"
   >
     <section :class="$style.intro">
+      <!-- Raw text -->
       <ComponentTag text="Intro" />
       <ComponentTitle
+        small
+        tag="h2"
         :class="$style.title"
         :text="project.intro.title"
       />
@@ -85,11 +88,11 @@ export default {
     lists() {
       return [
         {
-          title: 'Role',
+          title: 'Role', // Raw text
           items: this.project.intro.roles,
         },
         {
-          title: 'What',
+          title: 'What', // Raw text
           items: [this.project.type, this.project.year.toString()],
         },
       ]
@@ -171,10 +174,7 @@ export default {
   }
 
   &:not(:last-of-type):nth-of-type(2n) {
-    color: $white;
-    background-color: $dark;
-
-    @include selection(dark);
+    @include theme(dark);
   }
 }
 </style>

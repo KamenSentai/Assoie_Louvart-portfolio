@@ -1,23 +1,19 @@
 <template>
   <div :class="$style.container">
     <ModuleLoading />
-    <ModuleJumbotron>
-      <ModuleHeader />
-    </ModuleJumbotron>
+    <ModuleJumbotron />
     <router-view v-if="isCompleted" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import ModuleHeader from '@/modules/Header'
 import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
 
 export default {
   name: 'App',
   components: {
-    ModuleHeader,
     ModuleJumbotron,
     ModuleLoading,
   },

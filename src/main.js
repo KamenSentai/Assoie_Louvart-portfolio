@@ -5,7 +5,7 @@ import store from './store'
 import App from './App.vue'
 
 import 'normalize.css'
-import '@/mixins/routes'
+import '@/mixins/global'
 import '@/plugins/mq'
 import '@/styles/main.scss'
 

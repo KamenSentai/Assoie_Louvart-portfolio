@@ -1,3 +1,16 @@
-$dark: #041D23;
-$light: #F5F7FA;
-$white: #FDFDFE;
+$colors: (
+  dark: #041D23,
+  light: #F5F7FA,
+  white: #FDFDFE,
+);
+
+$dark: map-get($colors, dark);
+$light: map-get($colors, light);
+$white: map-get($colors, white);
+
+@each $name, $color in $colors {
+
+  .text-#{$name} {
+    color: $color;
+  }
+}
