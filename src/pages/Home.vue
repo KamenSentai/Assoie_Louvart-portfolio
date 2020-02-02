@@ -8,7 +8,7 @@
         :key="landing.slug"
       >
         <router-link
-          :title="name"
+          :title="landing.name"
           :to="{ name: 'project', params: { slug: landing.slug } }"
         >
           {{ landing.name }}
