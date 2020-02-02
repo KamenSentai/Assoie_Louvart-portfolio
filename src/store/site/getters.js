@@ -1,4 +1,7 @@
 export default {
+  about(state) {
+    return state.about
+  },
   landings(_, __, ___, rootGetters) {
     return rootGetters['site/projects'].map(({
       name,
