@@ -55,7 +55,27 @@
     <aside
       v-if="!$isMobile"
       :class="$style.navigation"
-    />
+    >
+      <div :class="$style.limiter">
+        <span
+          v-for="i in marks"
+          :key="`page-${i}`"
+          :class="[
+            $style.mark,
+            {
+              [$style.isActive]: page(i - 1).isCurrent,
+              [$style.isAround]: page(i - 1).isAround,
+            }
+          ]"
+          :style="!$isMobile && navigation(i - 1)"
+          @click="wheel({ deltaY: page(i - 1).scroll })"
+        >
+          <span :class="$style.page">
+            {{ page(i - 1).digits }}
+          </span>
+        </span>
+      </div>
+    </aside>
     <ComponentIndicator
       v-if="!$isMobile"
       :class="$style.indicator"
@@ -79,13 +99,94 @@ export default {
       currentIndex: 0,
       duration: 1000,
       delay: 500,
+      navigated: 0,
       isWheeling: false,
     }
   },
   computed: {
     ...mapGetters('site', ['landings']),
+    digits() {
+      return this.landings.length.toString().length + 1
+    },
     isCarousel() {
       return this.landings.length > 2
+    },
+    marks() {
+      return this.landings.length + 2
+    },
+    navigation() {
+      return (index) => {
+        const { duration } = this
+        const {
+          isVisible,
+          top,
+        } = this.page(index)
+
+        return {
+          top: `${top}%`,
+          transition: `
+            top ${duration}ms,
+            opacity ${duration / 2}ms ${isVisible ? duration / 2 : 0}ms
+          `,
+          pointerEvents: isVisible ? 'auto' : 'none',
+        }
+      }
+    },
+    page() {
+      return (index) => {
+        const {
+          currentIndex,
+          navigated,
+          marks,
+          landings: { length },
+        } = this
+
+        let isAround = false
+        let isCurrent = false
+        let page = 0
+        let scroll = 0
+        let top
+
+        switch (this.$mod(index - navigated, marks)) {
+          case 0:
+            isCurrent = true
+            page = currentIndex
+            top = 50
+            break
+          case 1:
+            isAround = true
+            page = this.$mod(currentIndex + 1, length)
+            scroll = 1
+            top = 100
+            break
+          case 2:
+            top = 150
+            break
+          case marks - 2:
+            top = -50
+            break
+          case marks - 1:
+            isAround = true
+            page = this.$mod(currentIndex - 1, length)
+            scroll = -1
+            top = 0
+            break
+          default:
+            top = 50
+        }
+
+        const isVisible = isCurrent || isAround
+        const digits = '0'.repeat(this.digits - (page + 1).toString().length) + (page + 1)
+
+        return {
+          digits,
+          isAround,
+          isCurrent,
+          isVisible,
+          scroll,
+          top,
+        }
+      }
     },
     translation() {
       return (index) => {
@@ -121,9 +222,7 @@ export default {
             transform ${duration}ms,
             opacity ${duration / 2}ms ${isCurrent ? duration / 2 : 0}ms
           `,
-          transitionTimingFunction: 'ease-in-out',
           pointerEvents: isCurrent ? 'auto' : 'none',
-          willChange: 'transform, opacity',
         }
       }
     },
@@ -151,16 +250,28 @@ export default {
     wheel({ deltaY }) {
       if (!this.isWheeling) {
         if (deltaY !== 0) {
-          const { currentIndex, isCarousel, landings: { length } } = this
+          const {
+            currentIndex,
+            isCarousel,
+            navigated,
+            marks,
+            landings: { length },
+          } = this
 
           if (deltaY > 0) {
             this.currentIndex = isCarousel
               ? this.$mod(currentIndex + 1, length)
               : Math.min(length - 1, currentIndex + 1)
+            this.navigated = isCarousel
+              ? this.$mod(navigated + 1, marks)
+              : Math.min(marks - 1, navigated + 1)
           } else if (deltaY < 0) {
             this.currentIndex = isCarousel
               ? this.$mod(currentIndex - 1, length)
               : Math.max(0, currentIndex - 1)
+            this.navigated = isCarousel
+              ? this.$mod(navigated - 1, marks)
+              : Math.max(0, navigated - 1)
           }
 
           this.isWheeling = true
@@ -209,6 +320,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-timing-function: ease-in-out;
+  will-change: transform, opacity;
 
   @include bp(sm) {
     position: static;
@@ -308,9 +421,49 @@ export default {
 }
 
 .navigation {
+  display: grid;
   grid-row: span 2;
+  padding: 8rem 1rem;
   overflow: hidden;
   background-color: $white;
+}
+
+.limiter {
+  position: relative;
+}
+
+.mark {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2em;
+  font-size: 1.8rem;
+  text-align: center;
+  word-break: break-all;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0;
+  transition-timing-function: ease-in-out;
+  user-select: none;
+  will-change: opacity;
+
+  &.isActive,
+  &.isAround {
+    opacity: 1;
+  }
+
+  &.isActive .page,
+  &.isAround:hover .page {
+    opacity: 1;
+  }
+}
+
+.page {
+  opacity: .25;
+  transition: opacity .5s ease-in-out;
+  will-change: opacity;
 }
 
 .indicator {
