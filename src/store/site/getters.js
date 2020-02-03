@@ -6,11 +6,13 @@ export default {
     return rootGetters['site/projects'].map(({
       name,
       slug,
+      subject,
       year,
       cover,
     }) => ({
       name,
       slug,
+      subject,
       year,
       cover,
     }))

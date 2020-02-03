@@ -1,7 +1,9 @@
 <template>
   <ComponentHero :class="$style.container">
-    <!-- TODO -->
-    <aside :class="$style.aside">
+    <aside
+      v-if="!$isMobile"
+      :class="$style.wrapper"
+    >
       <div
         v-for="(landing, index) in landings"
         :key="landing.slug"
@@ -13,21 +15,51 @@
         </span>
       </div>
     </aside>
-    <ul>
-      <li
-        v-for="landing in landings"
+    <div :class="$style.wrapper">
+      <div
+        v-for="(landing, index) in landings"
         :key="landing.slug"
+        :class="$style.bloc"
+        :style="!$isMobile && translation(index)"
       >
         <router-link
           :title="landing.name"
           :to="{ name: 'project', params: { slug: landing.slug } }"
+          :class="$style.link"
         >
-          {{ landing.name }}
+          <img
+            :class="$style.cover"
+            :src="landing.cover"
+            :alt="landing.name"
+          >
+          <div :class="$style.frame">
+            <span
+              v-if="$isMobile"
+              :class="$style.tag"
+            >
+              {{ landing.year }}
+            </span>
+            <h2 :class="$style.title">
+              {{ landing.name }}
+            </h2>
+            <p
+              v-if="$isMobile"
+              :class="$style.text"
+            >
+              {{ landing.subject }}
+            </p>
+          </div>
         </router-link>
-      </li>
-    </ul>
-    <aside :class="$style.navigation" />
-    <ComponentIndicator :class="$style.indicator" />
+      </div>
+    </div>
+    <aside
+      v-if="!$isMobile"
+      :class="$style.navigation"
+    />
+    <ComponentIndicator
+      v-if="!$isMobile"
+      :class="$style.indicator"
+    />
   </ComponentHero>
 </template>
 
@@ -114,11 +146,25 @@ export default {
 .container {
   grid-gap: 0 10rem;
   grid-template-columns: 12rem 1fr 12rem;
-  overflow: hidden;
+
+  @include bp(lg) {
+    grid-gap: 0 8rem;
+  }
+
+  @include bp(md) {
+    grid-gap: 0 6rem;
+  }
+
+  @include bp(sm) {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
 }
 
-.aside {
+.wrapper {
   position: relative;
+  display: grid;
+  grid-gap: 2rem;
 }
 
 .bloc {
@@ -130,6 +176,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include bp(sm) {
+    position: static;
+  }
 }
 
 .tag {
@@ -139,6 +189,89 @@ export default {
   letter-spacing: .5rem;
   transform: rotate(-90deg);
   transform-origin: center;
+}
+
+.link {
+  position: relative;
+  display: contents;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+
+  @include bp(sm) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cover {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.frame {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $light;
+  text-align: center;
+  text-shadow: 0 5px 10px rgba($dark, .25);
+
+  @include bp(sm) {
+    right: 0;
+    left: 0;
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 1rem;
+
+    .tag {
+      grid-area: span 2 / 1;
+      justify-self: flex-start;
+      transform: rotate(-90deg) translateX(-50%) translateY(50%);
+      transform-origin: 0 center;
+    }
+
+    .title {
+      grid-area: 1 / 2;
+      align-self: flex-end;
+    }
+
+    .text {
+      grid-area: 2 / 2;
+      align-self: flex-start;
+    }
+
+    &::after {
+      grid-area: span 2 / 3;
+      content: "";
+    }
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 8rem;
+  font-family: $font-title;
+
+  @include bp(lg) {
+    font-size: 6rem;
+  }
+
+  @include bp(md) {
+    font-size: 4rem;
+  }
+
+  @include bp(sm) {
+    font-size: 3.5rem;
+  }
+}
+
+.text {
+  font-size: 1.5rem;
 }
 
 .navigation {

@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" module>
 .container {
-  width: 100%;
+  z-index: 1;
 }
 
 .isFull {

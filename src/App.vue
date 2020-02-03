@@ -1,5 +1,12 @@
 <template>
-  <div :class="$style.container">
+  <div
+    :class="[
+      $style.container,
+      {
+        [$style.isScreen]: $isHome,
+      }
+    ]"
+  >
     <ModuleLoading />
     <ModuleJumbotron />
     <router-view v-if="isCompleted" />
@@ -32,5 +39,9 @@ export default {
   grid-template-rows: auto 1fr;
   width: 100%;
   min-height: 100%;
+
+  &.isScreen {
+    overflow: hidden;
+  }
 }
 </style>
