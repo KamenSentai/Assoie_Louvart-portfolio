@@ -13,6 +13,9 @@ const routes = [
   {
     name: 'about',
     path: '/about',
+    meta: {
+      isDark: true,
+    },
     component: () => import(/* webpackChunkName: "about" */ '@/pages/About.vue'),
   },
   {

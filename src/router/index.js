@@ -13,4 +13,14 @@ const router = new VueRouter({
   scrollBehavior,
 })
 
+router.beforeEach((to, _, next) => {
+  if (to.meta && to.meta.isDark) {
+    document.documentElement.classList.add('theme-dark')
+  } else {
+    document.documentElement.classList.remove('theme-dark')
+  }
+
+  next()
+})
+
 export default router

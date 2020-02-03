@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!isHidden"
-    class="is-dark"
+    class="theme-dark"
     :class="[
       $style.container,
       {
@@ -99,7 +99,9 @@ export default {
     isCompleted(value) {
       if (value) {
         setTimeout(() => {
-          document.documentElement.style.overflow = 'auto'
+          if (this.$route.name !== 'home' || this.$isMobile) {
+            document.documentElement.style.overflow = 'auto'
+          }
           this.isHidden = true
         }, this.delay + this.duration + 1)
       }

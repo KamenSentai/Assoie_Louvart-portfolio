@@ -1,6 +1,6 @@
 <template>
   <div
-    class="is-dark"
+    class="theme-dark"
     :class="$style.container"
   >
     <div v-if="!$isMobile" />

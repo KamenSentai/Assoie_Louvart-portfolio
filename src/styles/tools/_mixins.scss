@@ -80,26 +80,44 @@ $breakpoints: (
   }
 }
 
-$colors: (
+$themes: (
   dark: ($dark $light),
   light: ($light $dark),
+  white: ($white $dark),
 );
 
-@mixin theme($color) {
+@mixin theme($theme) {
 
-  @if type-of($color) == "string" and map-has-key($colors, $color) {
-    color: nth(map-get($colors, $color), 2);
-    background-color: nth(map-get($colors, $color), 1);
-    @content;
+  @if type-of($theme) == "string" or type-of($theme) == "color" {
+    @if map-has-key($themes, $theme) {
+      color: nth(map-get($themes, $theme), 2);
+      background-color: nth(map-get($themes, $theme), 1);
+      @content;
 
-    &::selection,
-    *::selection {
-      color: nth(map-get($colors, $color), 1);
-      background-color: nth(map-get($colors, $color), 2);
+      &::selection,
+      *::selection {
+        color: nth(map-get($themes, $theme), 1);
+        background-color: nth(map-get($themes, $theme), 2);
+      }
     }
   }
 
   @else {
-    @warn "type-of $color must be a string and it must be among the possible values";
+    @warn "type-of $theme must be a string";
+  }
+}
+
+@each $name, $color in $colors {
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+
+  .text-#{$name} {
+    color: $color;
+  }
+
+  .theme-#{$name} {
+    @include theme($name);
   }
 }

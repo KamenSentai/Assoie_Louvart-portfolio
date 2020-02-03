@@ -103,6 +103,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('loading', ['isCompleted']),
     ...mapGetters('site', ['landings', 'savedIndex']),
     digits() {
       return this.landings.length.toString().length + 1
@@ -227,10 +228,12 @@ export default {
     },
   },
   mounted() {
+    document.documentElement.style.overflow = this.isCompleted && this.$isMobile ? 'auto' : 'hidden'
     window.addEventListener('wheel', this.wheel)
     window.addEventListener('keydown', this.press)
   },
   destroyed() {
+    document.documentElement.style.overflow = 'auto'
     window.removeEventListener('wheel', this.wheel)
     window.removeEventListener('keydown', this.press)
   },

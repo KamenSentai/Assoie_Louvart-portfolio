@@ -4,7 +4,7 @@
     :class="[
       $style.container,
       {
-        ['is-dark']: $isAbout || $isProject,
+        ['theme-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
       }
     ]"

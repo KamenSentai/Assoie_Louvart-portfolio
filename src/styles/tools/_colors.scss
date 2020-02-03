@@ -7,10 +7,3 @@ $colors: (
 $dark: map-get($colors, dark);
 $light: map-get($colors, light);
 $white: map-get($colors, white);
-
-@each $name, $color in $colors {
-
-  .text-#{$name} {
-    color: $color;
-  }
-}
