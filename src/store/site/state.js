@@ -337,4 +337,5 @@ export default {
       ],
     },
   ],
+  savedIndex: 0,
 }

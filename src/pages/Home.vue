@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import { Hero as ComponentHero } from '@/components/Hero'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
 
@@ -96,7 +96,6 @@ export default {
   },
   data() {
     return {
-      currentIndex: 0,
       duration: 1000,
       delay: 500,
       navigated: 0,
@@ -104,7 +103,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('site', ['landings']),
+    ...mapGetters('site', ['landings', 'savedIndex']),
     digits() {
       return this.landings.length.toString().length + 1
     },
@@ -135,7 +134,7 @@ export default {
     page() {
       return (index) => {
         const {
-          currentIndex,
+          savedIndex,
           navigated,
           marks,
           landings: { length },
@@ -150,12 +149,12 @@ export default {
         switch (this.$mod(index - navigated, marks)) {
           case 0:
             isCurrent = true
-            page = currentIndex
+            page = savedIndex
             top = 50
             break
           case 1:
             isAround = true
-            page = this.$mod(currentIndex + 1, length)
+            page = this.$mod(savedIndex + 1, length)
             scroll = 1
             top = 100
             break
@@ -167,7 +166,7 @@ export default {
             break
           case marks - 1:
             isAround = true
-            page = this.$mod(currentIndex - 1, length)
+            page = this.$mod(savedIndex - 1, length)
             scroll = -1
             top = 0
             break
@@ -191,16 +190,16 @@ export default {
     translation() {
       return (index) => {
         const {
-          currentIndex,
+          savedIndex,
           duration,
           isCarousel,
           landings: { length },
         } = this
-        const isCurrent = index === currentIndex
+        const isCurrent = index === savedIndex
         let translate
 
         if (isCarousel) {
-          switch (this.$mod(index - currentIndex, length)) {
+          switch (this.$mod(index - savedIndex, length)) {
             case length - 1:
               translate = -1
               break
@@ -212,7 +211,7 @@ export default {
               break
           }
         } else {
-          translate = index - currentIndex
+          translate = index - savedIndex
         }
 
         return {
@@ -236,6 +235,7 @@ export default {
     window.removeEventListener('keydown', this.press)
   },
   methods: {
+    ...mapActions('site', ['updateIndex']),
     press({ keyCode }) {
       switch (keyCode) {
         case 38:
@@ -251,7 +251,7 @@ export default {
       if (!this.isWheeling) {
         if (deltaY !== 0) {
           const {
-            currentIndex,
+            savedIndex,
             isCarousel,
             navigated,
             marks,
@@ -259,16 +259,16 @@ export default {
           } = this
 
           if (deltaY > 0) {
-            this.currentIndex = isCarousel
-              ? this.$mod(currentIndex + 1, length)
-              : Math.min(length - 1, currentIndex + 1)
+            this.updateIndex(isCarousel
+              ? this.$mod(savedIndex + 1, length)
+              : Math.min(length - 1, savedIndex + 1))
             this.navigated = isCarousel
               ? this.$mod(navigated + 1, marks)
               : Math.min(marks - 1, navigated + 1)
           } else if (deltaY < 0) {
-            this.currentIndex = isCarousel
-              ? this.$mod(currentIndex - 1, length)
-              : Math.max(0, currentIndex - 1)
+            this.updateIndex(isCarousel
+              ? this.$mod(savedIndex - 1, length)
+              : Math.max(0, savedIndex - 1))
             this.navigated = isCarousel
               ? this.$mod(navigated - 1, marks)
               : Math.max(0, navigated - 1)

@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import ModuleFooter from '@/modules/Footer'
 import { Banner as ComponentBanner } from '@/components/Banner'
 import { Gallery as ComponentGallery } from '@/components/Gallery'
@@ -101,9 +101,19 @@ export default {
       return this.projects[(this.projects.indexOf(this.project) + 1) % this.projects.length]
     },
   },
+  watch: {
+    project({ index }) {
+      this.updateIndex(index)
+    },
+  },
   created() {
     this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
+
+    if (!this.isNotFound) {
+      this.updateIndex(this.project.index)
+    }
   },
+  methods: mapActions('site', ['updateIndex']),
 }
 </script>
 
