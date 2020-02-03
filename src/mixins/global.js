@@ -15,4 +15,9 @@ Vue.mixin({
       return this.$route.name === 'project'
     },
   },
+  methods: {
+    $mod(n, m) {
+      return ((n % m) + m) % m
+    },
+  },
 })

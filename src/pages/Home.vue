@@ -84,19 +84,48 @@ export default {
   },
   computed: {
     ...mapGetters('site', ['landings']),
+    isCarousel() {
+      return this.landings.length > 2
+    },
     translation() {
-      const { currentIndex, duration } = this
+      return (index) => {
+        const {
+          currentIndex,
+          duration,
+          isCarousel,
+          landings: { length },
+        } = this
+        const isCurrent = index === currentIndex
+        let translate
 
-      return index => ({
-        transform: `translateY(${(index - currentIndex) * 100}vh)`,
-        opacity: currentIndex === index ? 1 : 0,
-        transition: `
-          transform ${duration}ms,
-          opacity ${duration / 2}ms ${currentIndex === index ? duration / 2 : 0}ms
-        `,
-        transitionTimingFunction: 'ease-in-out',
-        willChange: 'transform, opacity',
-      })
+        if (isCarousel) {
+          switch (this.$mod(index - currentIndex, length)) {
+            case length - 1:
+              translate = -1
+              break
+            case 1:
+              translate = 1
+              break
+            default:
+              translate = 0
+              break
+          }
+        } else {
+          translate = index - currentIndex
+        }
+
+        return {
+          transform: `translateY(${(translate) * 100}vh)`,
+          opacity: isCurrent ? 1 : 0,
+          transition: `
+            transform ${duration}ms,
+            opacity ${duration / 2}ms ${isCurrent ? duration / 2 : 0}ms
+          `,
+          transitionTimingFunction: 'ease-in-out',
+          pointerEvents: isCurrent ? 'auto' : 'none',
+          willChange: 'transform, opacity',
+        }
+      }
     },
   },
   mounted() {
@@ -122,12 +151,16 @@ export default {
     wheel({ deltaY }) {
       if (!this.isWheeling) {
         if (deltaY !== 0) {
-          const { currentIndex, landings: { length } } = this
+          const { currentIndex, isCarousel, landings: { length } } = this
 
           if (deltaY > 0) {
-            this.currentIndex = Math.min(length - 1, currentIndex + 1)
+            this.currentIndex = isCarousel
+              ? this.$mod(currentIndex + 1, length)
+              : Math.min(length - 1, currentIndex + 1)
           } else if (deltaY < 0) {
-            this.currentIndex = Math.max(0, currentIndex - 1)
+            this.currentIndex = isCarousel
+              ? this.$mod(currentIndex - 1, length)
+              : Math.max(0, currentIndex - 1)
           }
 
           this.isWheeling = true
@@ -276,6 +309,7 @@ export default {
 
 .navigation {
   grid-row: span 2;
+  overflow: hidden;
   background-color: $white;
 }
 
