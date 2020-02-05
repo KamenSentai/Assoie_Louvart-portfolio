@@ -78,7 +78,12 @@
     </aside>
     <ComponentIndicator
       v-if="!$isMobile"
-      :class="$style.indicator"
+      :class="[
+        $style.indicator,
+        {
+          [$style.isHidden]: hasScrolled,
+        }
+      ]"
     />
   </ComponentHero>
 </template>
@@ -100,6 +105,7 @@ export default {
       delay: 500,
       navigated: 0,
       isWheeling: false,
+      hasScrolled: false,
     }
   },
   computed: {
@@ -268,7 +274,7 @@ export default {
             this.navigated = isCarousel
               ? this.$mod(navigated + 1, marks)
               : Math.min(marks - 1, navigated + 1)
-          } else if (deltaY < 0) {
+          } else {
             this.updateIndex(isCarousel
               ? this.$mod(savedIndex - 1, length)
               : Math.max(0, savedIndex - 1))
@@ -278,6 +284,7 @@ export default {
           }
 
           this.isWheeling = true
+          this.hasScrolled = true
 
           setTimeout(() => {
             this.isWheeling = false
@@ -366,7 +373,7 @@ export default {
   justify-content: center;
   color: $light;
   text-align: center;
-  text-shadow: 0 5px 10px rgba($dark, .25);
+  text-shadow: 0 5px 25px rgba($dark, .25);
 
   @include bp(sm) {
     right: 0;
@@ -471,5 +478,11 @@ export default {
 
 .indicator {
   grid-area: 2 / 2;
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+
+  &.isHidden {
+    opacity: 0;
+  }
 }
 </style>
