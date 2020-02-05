@@ -63,7 +63,7 @@ export default {
 }
 
 .link {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.8rem;
   cursor: pointer;
 }

@@ -31,7 +31,11 @@
           :to="{ name: 'project', params: { slug: landing.slug } }"
           :class="$style.link"
         >
-          <div :class="$style.frame">
+          <div
+            :class="$style.frame"
+            @mouseover="show"
+            @mouseout="hide"
+          >
             <img
               :class="$style.cover"
               :src="landing.cover"
@@ -237,6 +241,10 @@ export default {
       }
     },
   },
+  beforeRouteLeave(_, __, next) {
+    this.hide()
+    next()
+  },
   mounted() {
     document.documentElement.style.overflow = this.isCompleted && this.$isMobile ? 'auto' : 'hidden'
     window.addEventListener('wheel', this.wheel)
@@ -248,6 +256,7 @@ export default {
     window.removeEventListener('keydown', this.press)
   },
   methods: {
+    ...mapActions('pin', ['hide', 'show']),
     ...mapActions('site', ['updateIndex']),
     press({ keyCode }) {
       switch (keyCode) {
@@ -313,14 +322,14 @@ export default {
 <style lang="scss" module>
 .container {
   grid-gap: 0 10rem;
-  grid-template-columns: 12rem 1fr 12rem;
+  grid-template-columns: 10rem 1fr 10rem;
 
   @include bp(lg) {
-    grid-gap: 0 8rem;
+    grid-gap: 0 6rem;
   }
 
   @include bp(md) {
-    grid-gap: 0 6rem;
+    grid-gap: 0 4rem;
   }
 
   @include bp(sm) {
@@ -393,6 +402,11 @@ export default {
 
 .frame {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
   overflow: hidden;
 
   &::after {
@@ -403,7 +417,7 @@ export default {
     left: 0;
     background-color: rgba($dark, .6);
     opacity: 0;
-    transition: opacity .5s ease-in-out;
+    transition: opacity $smooth;
     content: "";
     will-change: opacity;
   }
@@ -412,7 +426,7 @@ export default {
 .cover {
   max-width: 100%;
   max-height: 100%;
-  transition: transform .5s ease-in-out;
+  transition: transform $smooth;
 }
 
 .modal {
@@ -424,6 +438,7 @@ export default {
   color: $light;
   text-align: center;
   text-shadow: 0 5px 25px rgba($dark, .25);
+  pointer-events: none;
 
   @include bp(sm) {
     right: 0;
@@ -478,9 +493,7 @@ export default {
   font-size: 2.5rem;
   transform: translateY(25%);
   opacity: 0;
-  transition-timing-function: ease-in-out;
-  transition-duration: .5s;
-  transition-property: transform, opacity;
+  transition: transform $smooth, opacity $smooth;
 
   @include bp(lg) {
     font-size: 2.2rem;
@@ -507,6 +520,7 @@ export default {
 
 .limiter {
   position: relative;
+  font-weight: 400;
 }
 
 .mark {
@@ -539,14 +553,14 @@ export default {
 
 .page {
   opacity: .25;
-  transition: opacity .5s ease-in-out;
+  transition: opacity $smooth;
   will-change: opacity;
 }
 
 .indicator {
   grid-area: 2 / 2;
   opacity: 1;
-  transition: opacity .25s ease-in-out;
+  transition: opacity $smooth-quicker;
 
   &.isHidden {
     opacity: 0;

@@ -89,6 +89,8 @@ export default {
 }
 
 .medium {
-  width: 100%;
+  justify-self: center;
+  max-width: 100%;
+  max-height: calc(100vh - 8rem);
 }
 </style>

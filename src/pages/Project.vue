@@ -42,6 +42,8 @@
       :cover="next.cover"
       :name="next.name"
       :slug="next.slug"
+      @mouseover="show"
+      @mouseout="hide"
     />
   </div>
 </template>
@@ -103,6 +105,7 @@ export default {
   },
   watch: {
     project({ index }) {
+      this.hide()
       this.updateIndex(index)
     },
   },
@@ -113,7 +116,10 @@ export default {
       this.updateIndex(this.project.index)
     }
   },
-  methods: mapActions('site', ['updateIndex']),
+  methods: {
+    ...mapActions('pin', ['hide', 'show']),
+    ...mapActions('site', ['updateIndex']),
+  },
 }
 </script>
 

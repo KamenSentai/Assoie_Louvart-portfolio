@@ -8,10 +8,10 @@
       :src="cover"
       :alt="name"
       :class="$style.cover"
+      @mouseover="$emit('mouseover', $event)"
+      @mouseout="$emit('mouseout', $event)"
     >
-    <span :class="$style.text">
-      {{ name }}
-    </span>
+    <span :class="$style.text">{{ name }}</span>
   </router-link>
 </template>
 
@@ -55,12 +55,13 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(4, 29, 35, .4);
+    background-color: rgba($dark, .4);
     content: "";
+    pointer-events: none;
   }
 
   &:hover .cover {
-    transform: scale(1.5);
+    transform: scale(1.375);
   }
 }
 
@@ -74,7 +75,7 @@ export default {
   height: 100%;
   object-fit: cover;
   transform: scale(1.25);
-  transition: transform .5s ease-in-out;
+  transition: transform $smooth;
   will-change: transform;
 }
 
@@ -84,6 +85,7 @@ export default {
   font-weight: 700;
   font-size: 8rem;
   font-family: $font-title;
+  pointer-events: none;
 
   @include bp(md) {
     font-size: 6rem;
