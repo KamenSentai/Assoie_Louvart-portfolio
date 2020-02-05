@@ -1,5 +1,9 @@
 <template>
-  <ComponentHero :class="$style.container">
+  <ComponentHero
+    :class="$style.container"
+    @touchstart="touchStart"
+    @touchmove="toucheMove"
+  >
     <aside
       v-if="!$isMobile"
       :class="$style.wrapper"
@@ -105,6 +109,7 @@ export default {
       navigated: 0,
       isWheeling: false,
       hasScrolled: false,
+      touchPosition: 0,
     }
   },
   computed: {
@@ -254,6 +259,16 @@ export default {
           break
         // no default
       }
+    },
+    toucheMove({ touches }) {
+      const [{ clientY: y }] = touches
+      const movementY = y - this.touchPosition
+      this.touchPosition = y
+      this.wheel({ deltaY: -movementY })
+    },
+    touchStart({ touches }) {
+      const [{ clientY: y }] = touches
+      this.touchPosition = y
     },
     wheel({ deltaY }) {
       if (!this.isWheeling) {

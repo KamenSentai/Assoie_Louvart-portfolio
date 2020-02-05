@@ -1,5 +1,9 @@
 <template>
-  <div :class="$style.container">
+  <div
+    :class="$style.container"
+    @touchstart="$emit('touchstart', $event)"
+    @touchmove="$emit('touchmove', $event)"
+  >
     <slot />
   </div>
 </template>
