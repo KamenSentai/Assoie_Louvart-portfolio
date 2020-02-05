@@ -105,9 +105,12 @@ export default {
   },
   watch: {
     project({ index }) {
-      this.hide()
       this.updateIndex(index)
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.hide()
+    this.cover(next)
   },
   created() {
     this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
@@ -117,7 +120,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('pin', ['hide', 'show']),
+    ...mapActions('pin', ['cover', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
   },
 }

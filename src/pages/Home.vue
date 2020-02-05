@@ -241,9 +241,14 @@ export default {
       }
     },
   },
-  beforeRouteLeave(_, __, next) {
+  beforeRouteLeave(to, __, next) {
     this.hide()
-    next()
+
+    if (to.name === 'project') {
+      this.cover(next)
+    } else {
+      next()
+    }
   },
   mounted() {
     document.documentElement.style.overflow = this.isCompleted && this.$isMobile ? 'auto' : 'hidden'
@@ -256,7 +261,7 @@ export default {
     window.removeEventListener('keydown', this.press)
   },
   methods: {
-    ...mapActions('pin', ['hide', 'show']),
+    ...mapActions('pin', ['cover', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
     press({ keyCode }) {
       switch (keyCode) {
@@ -538,7 +543,6 @@ export default {
   opacity: 0;
   transition-timing-function: ease-in-out;
   user-select: none;
-  will-change: opacity;
 
   &.isActive,
   &.isAround {
@@ -554,7 +558,6 @@ export default {
 .page {
   opacity: .25;
   transition: opacity $smooth;
-  will-change: opacity;
 }
 
 .indicator {

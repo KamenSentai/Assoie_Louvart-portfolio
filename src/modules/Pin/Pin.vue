@@ -3,6 +3,7 @@
     :class="[
       $style.container,
       {
+        [$style.isCovering]: isCovering,
         [$style.isDisplayed]: isDisplayed,
       }
     ]"
@@ -30,7 +31,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('pin', ['isDisplayed']),
+    ...mapGetters('pin', ['isCovering', 'isDisplayed']),
     mousePosition() {
       return {
         transform: `translate(${this.position.x}px, ${this.position.y}px)`,
@@ -70,8 +71,18 @@ export default {
   position: fixed;
   will-change: transform;
 
+  &.isCovering,
   &.isDisplayed {
     z-index: 1;
+  }
+
+  &.isCovering .wrapper {
+    width: calc(2 * (100vw + 100vh));
+    height: calc(2 * (100vw + 100vh));
+    transition: width $smooth-lower, height $smooth-lower, border-width $smooth-quicker;
+  }
+
+  &.isDisplayed {
 
     .wrapper {
       width: 10rem;
