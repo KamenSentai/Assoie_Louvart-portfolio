@@ -27,12 +27,14 @@
           :to="{ name: 'project', params: { slug: landing.slug } }"
           :class="$style.link"
         >
-          <img
-            :class="$style.cover"
-            :src="landing.cover"
-            :alt="landing.name"
-          >
           <div :class="$style.frame">
+            <img
+              :class="$style.cover"
+              :src="landing.cover"
+              :alt="landing.name"
+            >
+          </div>
+          <div :class="$style.modal">
             <span
               v-if="$isMobile"
               :class="$style.tag"
@@ -42,10 +44,7 @@
             <h2 :class="$style.title">
               {{ landing.name }}
             </h2>
-            <p
-              v-if="$isMobile"
-              :class="$style.text"
-            >
+            <p :class="$style.text">
               {{ landing.subject }}
             </p>
           </div>
@@ -359,16 +358,52 @@ export default {
     align-items: center;
     justify-content: center;
   }
+
+  &:hover {
+
+    .frame::after {
+      opacity: 1;
+    }
+
+    .cover {
+      transform: scale(1.125);
+    }
+
+    .text {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($dark, .6);
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    content: "";
+    will-change: opacity;
+  }
 }
 
 .cover {
   max-width: 100%;
   max-height: 100%;
+  transition: transform .5s ease-in-out;
 }
 
-.frame {
+.modal {
   position: absolute;
-  display: flex;
+  display: grid;
+  grid-gap: .5rem;
   align-items: center;
   justify-content: center;
   color: $light;
@@ -378,8 +413,6 @@ export default {
   @include bp(sm) {
     right: 0;
     left: 0;
-    display: grid;
-    grid-gap: .5rem;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr auto 1fr;
     padding: 1rem;
@@ -427,7 +460,26 @@ export default {
 }
 
 .text {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  transform: translateY(25%);
+  opacity: 0;
+  transition-timing-function: ease-in-out;
+  transition-duration: .5s;
+  transition-property: transform, opacity;
+
+  @include bp(lg) {
+    font-size: 2.2rem;
+  }
+
+  @include bp(md) {
+    font-size: 1.8rem;
+  }
+
+  @include bp(sm) {
+    font-size: 1.5rem;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .navigation {
