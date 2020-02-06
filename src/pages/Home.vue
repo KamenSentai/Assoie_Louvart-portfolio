@@ -577,7 +577,7 @@ export default {
 .indicator {
   grid-area: 2 / 2;
   opacity: 1;
-  transition: transform $smooth 1s, opacity $smooth 1s;
+  transition: transform $smooth .75s, opacity $smooth .75s;
 
   &.isDisappeared {
     transform: translateY(50%);

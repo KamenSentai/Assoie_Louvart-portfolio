@@ -134,7 +134,7 @@ export default {
   display: grid;
   grid-gap: 9rem;
   align-content: flex-start;
-  padding: 20rem 0 4rem;
+  padding: 16rem 0 4rem;
 
   @include bp(lg) {
     grid-gap: 7.5rem;
