@@ -42,6 +42,8 @@
       :cover="next.cover"
       :name="next.name"
       :slug="next.slug"
+      @mouseover="show"
+      @mouseout="hide"
     />
   </div>
 </template>
@@ -106,6 +108,10 @@ export default {
       this.updateIndex(index)
     },
   },
+  beforeRouteUpdate(to, from, next) {
+    this.hide()
+    this.cover(next)
+  },
   created() {
     this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
 
@@ -113,7 +119,10 @@ export default {
       this.updateIndex(this.project.index)
     }
   },
-  methods: mapActions('site', ['updateIndex']),
+  methods: {
+    ...mapActions('pin', ['cover', 'hide', 'show']),
+    ...mapActions('site', ['updateIndex']),
+  },
 }
 </script>
 

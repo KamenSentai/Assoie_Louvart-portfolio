@@ -9,26 +9,22 @@
   >
     <ModuleLoading />
     <ModuleJumbotron />
-    <router-view v-if="isCompleted" />
+    <router-view />
+    <ModulePin />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import ModulePin from '@/modules/Pin'
 import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
 
 export default {
   name: 'App',
   components: {
+    ModulePin,
     ModuleJumbotron,
     ModuleLoading,
-  },
-  computed: {
-    ...mapGetters('loading', ['isCompleted']),
-    hasHero() {
-      return this.$isHome || this.$isProject
-    },
   },
 }
 </script>

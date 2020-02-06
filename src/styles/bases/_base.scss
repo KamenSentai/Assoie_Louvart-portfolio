@@ -34,11 +34,3 @@ a {
 .font-null {
   font-size: 0;
 }
-
-.is-dark {
-  @include theme(dark);
-}
-
-.is-light {
-  @include theme(light);
-}

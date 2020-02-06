@@ -4,7 +4,7 @@
     :class="[
       $style.container,
       {
-        ['is-dark']: $isAbout || $isProject,
+        ['theme-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
       }
     ]"
@@ -133,8 +133,9 @@ export default {
 .bloc {
   position: absolute;
   top: 5rem;
-  left: calc(100% - 1rem);
+  left: calc(100% - 3rem);
   z-index: 3;
+  text-shadow: 0 5px 25px rgba($dark, .25);
 }
 
 .title {

@@ -1,5 +1,9 @@
 <template>
-  <ComponentHero :class="$style.container">
+  <ComponentHero
+    :class="$style.container"
+    @touchstart="touchStart"
+    @touchmove="toucheMove"
+  >
     <aside
       v-if="!$isMobile"
       :class="$style.wrapper"
@@ -27,12 +31,18 @@
           :to="{ name: 'project', params: { slug: landing.slug } }"
           :class="$style.link"
         >
-          <img
-            :class="$style.cover"
-            :src="landing.cover"
-            :alt="landing.name"
+          <div
+            :class="$style.frame"
+            @mouseover="show"
+            @mouseout="hide"
           >
-          <div :class="$style.frame">
+            <img
+              :class="$style.cover"
+              :src="landing.cover"
+              :alt="landing.name"
+            >
+          </div>
+          <div :class="$style.modal">
             <span
               v-if="$isMobile"
               :class="$style.tag"
@@ -42,10 +52,7 @@
             <h2 :class="$style.title">
               {{ landing.name }}
             </h2>
-            <p
-              v-if="$isMobile"
-              :class="$style.text"
-            >
+            <p :class="$style.text">
               {{ landing.subject }}
             </p>
           </div>
@@ -78,7 +85,12 @@
     </aside>
     <ComponentIndicator
       v-if="!$isMobile"
-      :class="$style.indicator"
+      :class="[
+        $style.indicator,
+        {
+          [$style.isHidden]: hasScrolled,
+        }
+      ]"
     />
   </ComponentHero>
 </template>
@@ -100,9 +112,12 @@ export default {
       delay: 500,
       navigated: 0,
       isWheeling: false,
+      hasScrolled: false,
+      touchPosition: 0,
     }
   },
   computed: {
+    ...mapGetters('loading', ['isCompleted']),
     ...mapGetters('site', ['landings', 'savedIndex']),
     digits() {
       return this.landings.length.toString().length + 1
@@ -226,15 +241,27 @@ export default {
       }
     },
   },
+  beforeRouteLeave(to, __, next) {
+    this.hide()
+
+    if (to.name === 'project') {
+      this.cover(next)
+    } else {
+      next()
+    }
+  },
   mounted() {
+    document.documentElement.style.overflow = this.isCompleted && this.$isMobile ? 'auto' : 'hidden'
     window.addEventListener('wheel', this.wheel)
     window.addEventListener('keydown', this.press)
   },
   destroyed() {
+    document.documentElement.style.overflow = 'auto'
     window.removeEventListener('wheel', this.wheel)
     window.removeEventListener('keydown', this.press)
   },
   methods: {
+    ...mapActions('pin', ['cover', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
     press({ keyCode }) {
       switch (keyCode) {
@@ -246,6 +273,16 @@ export default {
           break
         // no default
       }
+    },
+    toucheMove({ touches }) {
+      const [{ clientY: y }] = touches
+      const movementY = y - this.touchPosition
+      this.touchPosition = y
+      this.wheel({ deltaY: -movementY })
+    },
+    touchStart({ touches }) {
+      const [{ clientY: y }] = touches
+      this.touchPosition = y
     },
     wheel({ deltaY }) {
       if (!this.isWheeling) {
@@ -265,7 +302,7 @@ export default {
             this.navigated = isCarousel
               ? this.$mod(navigated + 1, marks)
               : Math.min(marks - 1, navigated + 1)
-          } else if (deltaY < 0) {
+          } else {
             this.updateIndex(isCarousel
               ? this.$mod(savedIndex - 1, length)
               : Math.max(0, savedIndex - 1))
@@ -275,6 +312,7 @@ export default {
           }
 
           this.isWheeling = true
+          this.hasScrolled = true
 
           setTimeout(() => {
             this.isWheeling = false
@@ -289,14 +327,14 @@ export default {
 <style lang="scss" module>
 .container {
   grid-gap: 0 10rem;
-  grid-template-columns: 12rem 1fr 12rem;
+  grid-template-columns: 10rem 1fr 10rem;
 
   @include bp(lg) {
-    grid-gap: 0 8rem;
+    grid-gap: 0 6rem;
   }
 
   @include bp(md) {
-    grid-gap: 0 6rem;
+    grid-gap: 0 4rem;
   }
 
   @include bp(sm) {
@@ -349,27 +387,67 @@ export default {
     align-items: center;
     justify-content: center;
   }
+
+  &:hover {
+
+    .frame::after {
+      opacity: 1;
+    }
+
+    .cover {
+      transform: scale(1.125);
+    }
+
+    .text {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($dark, .6);
+    opacity: 0;
+    transition: opacity $smooth;
+    content: "";
+    will-change: opacity;
+  }
 }
 
 .cover {
   max-width: 100%;
   max-height: 100%;
+  transition: transform $smooth;
 }
 
-.frame {
+.modal {
   position: absolute;
-  display: flex;
+  display: grid;
+  grid-gap: .5rem;
   align-items: center;
   justify-content: center;
   color: $light;
   text-align: center;
-  text-shadow: 0 5px 10px rgba($dark, .25);
+  text-shadow: 0 5px 25px rgba($dark, .25);
+  pointer-events: none;
 
   @include bp(sm) {
     right: 0;
     left: 0;
-    display: grid;
-    grid-gap: .5rem;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr auto 1fr;
     padding: 1rem;
@@ -417,7 +495,24 @@ export default {
 }
 
 .text {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  transform: translateY(25%);
+  opacity: 0;
+  transition: transform $smooth, opacity $smooth;
+
+  @include bp(lg) {
+    font-size: 2.2rem;
+  }
+
+  @include bp(md) {
+    font-size: 1.8rem;
+  }
+
+  @include bp(sm) {
+    font-size: 1.5rem;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .navigation {
@@ -430,6 +525,7 @@ export default {
 
 .limiter {
   position: relative;
+  font-weight: 400;
 }
 
 .mark {
@@ -447,7 +543,6 @@ export default {
   opacity: 0;
   transition-timing-function: ease-in-out;
   user-select: none;
-  will-change: opacity;
 
   &.isActive,
   &.isAround {
@@ -462,11 +557,16 @@ export default {
 
 .page {
   opacity: .25;
-  transition: opacity .5s ease-in-out;
-  will-change: opacity;
+  transition: opacity $smooth;
 }
 
 .indicator {
   grid-area: 2 / 2;
+  opacity: 1;
+  transition: opacity $smooth-quicker;
+
+  &.isHidden {
+    opacity: 0;
+  }
 }
 </style>

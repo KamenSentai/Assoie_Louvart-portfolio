@@ -8,7 +8,7 @@
     >
       <ComponentIcon
         v-if="$isProject || ($isMobile && $isAbout)"
-        name="Arrow"
+        name="Return"
         width="20px"
       />
       <!-- Raw text -->
@@ -46,7 +46,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5rem 8rem;
+  padding: 4rem 8rem;
 
   @include bp(sm) {
     padding: 3rem 2rem;
@@ -63,7 +63,7 @@ export default {
 }
 
 .link {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.8rem;
   cursor: pointer;
 }
