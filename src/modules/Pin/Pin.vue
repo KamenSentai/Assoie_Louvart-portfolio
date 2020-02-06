@@ -79,7 +79,7 @@ export default {
   &.isCovering .wrapper {
     width: calc(2 * (100vw + 100vh));
     height: calc(2 * (100vw + 100vh));
-    transition: width $smooth-lower, height $smooth-lower, border-width $smooth-quicker;
+    transition: width $smooth-slower, height $smooth-slower, border-width $smooth-quick;
   }
 
   &.isDisplayed {
@@ -120,6 +120,6 @@ export default {
 
 .text {
   opacity: 0;
-  transition: opacity $smooth-quicker;
+  transition: opacity $smooth-quick;
 }
 </style>

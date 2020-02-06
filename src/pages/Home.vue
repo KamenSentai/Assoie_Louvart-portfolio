@@ -19,7 +19,14 @@
         </span>
       </div>
     </aside>
-    <div :class="$style.wrapper">
+    <div
+      :class="[
+        $style.wrapper,
+        {
+          [$style.isHidden]: !isCompleted,
+        }
+      ]"
+    >
       <div
         v-for="(landing, index) in landings"
         :key="landing.slug"
@@ -88,7 +95,8 @@
       :class="[
         $style.indicator,
         {
-          [$style.isHidden]: hasScrolled,
+          [$style.isDisappeared]: hasScrolled,
+          [$style.isHidden]: !isCompleted,
         }
       ]"
     />
@@ -117,7 +125,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('loading', ['isCompleted']),
+    ...mapGetters('loading', ['isCompleted', 'isLoaded']),
     ...mapGetters('site', ['landings', 'savedIndex']),
     digits() {
       return this.landings.length.toString().length + 1
@@ -251,7 +259,7 @@ export default {
     }
   },
   mounted() {
-    document.documentElement.style.overflow = this.isCompleted && this.$isMobile ? 'auto' : 'hidden'
+    document.documentElement.style.overflow = this.isLoaded && this.$isMobile ? 'auto' : 'hidden'
     window.addEventListener('wheel', this.wheel)
     window.addEventListener('keydown', this.press)
   },
@@ -285,7 +293,7 @@ export default {
       this.touchPosition = y
     },
     wheel({ deltaY }) {
-      if (!this.isWheeling) {
+      if (!this.isWheeling && this.isCompleted) {
         if (deltaY !== 0) {
           const {
             savedIndex,
@@ -347,6 +355,12 @@ export default {
   position: relative;
   display: grid;
   grid-gap: 2rem;
+  transition: transform $smooth-slow, opacity $smooth-slow;
+
+  &.isHidden {
+    transform: translateY(12.5%);
+    opacity: 0;
+  }
 }
 
 .bloc {
@@ -563,10 +577,18 @@ export default {
 .indicator {
   grid-area: 2 / 2;
   opacity: 1;
-  transition: opacity $smooth-quicker;
+  transition: transform $smooth 1s, opacity $smooth 1s;
+
+  &.isDisappeared {
+    transform: translateY(50%);
+    opacity: 0;
+    transition-delay: 0s;
+  }
 
   &.isHidden {
+    transform: translateY(-50%);
     opacity: 0;
+    transition-delay: 0s;
   }
 }
 </style>

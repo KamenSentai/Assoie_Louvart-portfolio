@@ -5,7 +5,7 @@
     :class="[
       $style.container,
       {
-        [$style.isCompleted]: isCompleted,
+        [$style.isLoaded]: isLoaded,
       }
     ]"
     :style="transition"
@@ -62,7 +62,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('loading', ['isCompleted', 'progression']),
+    ...mapGetters('loading', ['isLoaded', 'progression']),
     circumference() {
       return this.size.radius * 2 * Math.PI
     },
@@ -96,13 +96,14 @@ export default {
     },
   },
   watch: {
-    isCompleted(value) {
+    isLoaded(value) {
       if (value) {
         setTimeout(() => {
           if (this.$route.name !== 'home' || this.$isMobile) {
             document.documentElement.style.overflow = 'auto'
           }
           this.isHidden = true
+          this.complete()
         }, this.delay + this.duration + 1)
       }
     },
@@ -111,7 +112,7 @@ export default {
     document.documentElement.style.overflow = 'hidden'
     this.load(Object.values(resources))
   },
-  methods: mapActions('loading', ['load']),
+  methods: mapActions('loading', ['complete', 'load']),
 }
 </script>
 
@@ -127,7 +128,7 @@ export default {
   text-align: center;
   transition: height ease-in-out;
 
-  &.isCompleted {
+  &.isLoaded {
     height: 0;
   }
 }
