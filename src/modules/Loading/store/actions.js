@@ -1,6 +1,9 @@
 import { types } from '@/utils/types'
 
 export default {
+  complete({ commit }) {
+    commit('complete')
+  },
   load({ commit }, resources) {
     const { length } = resources
     let loaded = 0
