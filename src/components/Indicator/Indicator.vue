@@ -3,7 +3,7 @@
     <ComponentIcon
       :color="color"
       name="Arrow"
-      width="20px"
+      width="15px"
     />
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" module>
 .container {
-  margin: 4rem 8rem;
+  margin: 2rem 8rem 3rem;
   text-align: center;
 }
 </style>
