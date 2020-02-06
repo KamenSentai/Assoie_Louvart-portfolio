@@ -66,11 +66,6 @@ export default {
             link: 'mailto:louvartassoie@gmail.com',
           },
           {
-            name: 'LinkedIn',
-            title: 'Assoïe Louvart',
-            link: 'https://www.linkedin.com/in/asso%C3%AFe-louvart-8333049b/',
-          },
-          {
             name: 'Dribbble',
             title: 'Assoïe Louvart',
             link: 'https://dribbble.com/AssoyeL',
@@ -81,6 +76,12 @@ export default {
             link: 'https://www.behance.net/AssoieLouvart',
           },
           {
+            name: 'LinkedIn',
+            title: 'Assoïe Louvart',
+            link: 'https://www.linkedin.com/in/asso%C3%AFe-louvart-8333049b/',
+          },
+          {
+            name: 'Resume',
             icon: 'Download',
             title: 'Download my resume',
             link: '/static/Assoie_Louvart-resume.pdf',
