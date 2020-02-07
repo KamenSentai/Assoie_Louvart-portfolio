@@ -4,6 +4,9 @@ export default {
   complete({ commit }) {
     commit('complete')
   },
+  destroy({ commit }) {
+    commit('destroy')
+  },
   load({ commit }, resources) {
     const { length } = resources
     let loaded = 0
@@ -27,5 +30,8 @@ export default {
         update()
       }
     })
+  },
+  mount({ commit }) {
+    commit('mount')
   },
 }

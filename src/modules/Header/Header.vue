@@ -1,12 +1,5 @@
 <template>
-  <div
-    :class="[
-      $style.container,
-      {
-        [$style.isHidden]: !isCompleted,
-      }
-    ]"
-  >
+  <div :class="$style.container">
     <component
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
@@ -38,7 +31,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { Icon as ComponentIcon } from '@/components/Icon'
 
 export default {
@@ -46,7 +38,6 @@ export default {
   components: {
     ComponentIcon,
   },
-  computed: mapGetters('loading', ['isCompleted']),
 }
 </script>
 
@@ -56,15 +47,9 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 4rem 8rem;
-  transition: transform $smooth-slow, opacity $smooth-slow;
 
   @include bp(sm) {
     padding: 3rem 2rem;
-  }
-
-  &.isHidden {
-    transform: translateY(-25%);
-    opacity: 0;
   }
 }
 

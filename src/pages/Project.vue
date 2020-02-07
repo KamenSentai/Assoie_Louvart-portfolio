@@ -18,6 +18,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import ModuleFooter from '@/modules/Footer'
 import ModuleProject from '@/modules/Project'
+import MixinMount from '@/mixins/pages/mount'
 
 export default {
   name: 'Project',
@@ -25,6 +26,7 @@ export default {
     ModuleFooter,
     ModuleProject,
   },
+  mixins: [MixinMount],
   props: {
     slug: {
       type: String,
@@ -48,6 +50,9 @@ export default {
   watch: {
     project({ index }) {
       this.updateIndex(index)
+      this.$nextTick(() => {
+        this.mount()
+      })
     },
   },
   beforeRouteUpdate(to, from, next) {
@@ -62,6 +67,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('loading', ['mount']),
     ...mapActions('pin', ['cover', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
   },

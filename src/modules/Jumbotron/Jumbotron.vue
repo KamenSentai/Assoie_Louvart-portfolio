@@ -6,10 +6,11 @@
       {
         ['theme-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
+        [$style.isInactive]: !isCompleted || !isMounted,
       }
     ]"
   >
-    <ModuleHeader />
+    <ModuleHeader :class="$style.header" />
     <ComponentHero v-if="$isProject">
       <div :class="$style.cover">
         <div :class="$style.wrapper">
@@ -30,7 +31,10 @@
           </div>
         </div>
       </div>
-      <ComponentIndicator color="light" />
+      <ComponentIndicator
+        :class="$style.indicator"
+        color="light"
+      />
     </ComponentHero>
   </div>
 </template>
@@ -49,6 +53,7 @@ export default {
     ComponentIndicator,
   },
   computed: {
+    ...mapGetters('loading', ['isCompleted', 'isMounted']),
     ...mapGetters('site', ['projects']),
     project() {
       return this.projects.find(project => project.slug === this.$route.params.slug)
@@ -68,6 +73,49 @@ export default {
   min-height: 100vh;
 }
 
+.isInactive {
+
+  .header,
+  .title,
+  .subtitle,
+  .indicator,
+  .image {
+    opacity: 0;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+
+  .header {
+    transform: translateY(-25%);
+    opacity: 0;
+    transition-duration: 0s;
+  }
+
+  .title,
+  .subtitle {
+    transform: translateX(-3rem);
+  }
+
+  .indicator {
+    transform: translateY(-50%);
+  }
+
+  .image:not(:nth-of-type(3)) {
+    transform: translate(60px, -25px);
+
+    @include bp(sm) {
+      transform: translate(20px, -10px);
+    }
+  }
+}
+
+.header,
+.title,
+.subtitle,
+.image {
+  transition: transform $smooth-slow, opacity $smooth-slow;
+}
+
 .cover {
   display: flex;
   align-items: center;
@@ -81,15 +129,12 @@ export default {
 
 .wrapper {
   position: relative;
+  transform: translateY(-2.5rem);
 }
 
 .image {
   width: 320px;
   user-select: none;
-  $dx: 60px;
-  $dy: 25px;
-  $smdx: 20px;
-  $smdy: 10px;
 
   @include bp(md) {
     width: 240px;
@@ -99,40 +144,42 @@ export default {
     width: 160px;
   }
 
-  &:not(:first-of-type) {
+  &:nth-of-type(1),
+  &:nth-of-type(2) {
     position: absolute;
-    top: 0;
-    left: 0;
+    z-index: -1;
   }
 
   &:nth-of-type(1) {
-    transform: translate(-$dx * 2, $dy);
+    top: 50px;
+    right: 120px;
+    transition-delay: 1s;
 
     @include bp(sm) {
-      transform: translate(-$smdx * 2, $smdy);
+      top: 20px;
+      right: 40px;
     }
   }
 
   &:nth-of-type(2) {
-    transform: translateX(-$dx);
+    top: 25px;
+    right: 60px;
+    transition-delay: .5s;
 
     @include bp(sm) {
-      transform: translateX(-$smdx);
+      top: 10px;
+      right: 20px;
     }
   }
 
   &:nth-of-type(3) {
-    transform: translateY(-$dy);
-
-    @include bp(sm) {
-      transform: translateY(-$smdy);
-    }
+    transition-delay: 0s;
   }
 }
 
 .bloc {
   position: absolute;
-  top: 5rem;
+  top: 7.5rem;
   left: calc(100% - 3rem);
   z-index: 3;
   text-shadow: 0 5px 25px rgba($dark, .25);
@@ -142,6 +189,7 @@ export default {
   font-weight: 700;
   font-size: 8.5rem;
   font-family: $font-title;
+  transition-delay: 2s;
 
   @include bp(md) {
     font-size: 6rem;
@@ -157,6 +205,7 @@ export default {
   font-size: 2.5rem;
   line-height: 2.5;
   text-align: right;
+  transition-delay: 2.25s;
 
   @include bp(md) {
     font-size: 2rem;
@@ -165,5 +214,10 @@ export default {
   @include bp(sm) {
     font-size: 1.6rem;
   }
+}
+
+.indicator {
+  transition: transform $smooth, opacity $smooth;
+  transition-delay: 3s;
 }
 </style>
