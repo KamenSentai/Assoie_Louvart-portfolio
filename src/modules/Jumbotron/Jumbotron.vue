@@ -6,7 +6,7 @@
       {
         ['theme-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
-        [$style.isInactive]: !isCompleted || !isMounted,
+        [$style.isInactive]: !isCompleted || !isMounted || !areLoaded,
       }
     ]"
   >
@@ -15,11 +15,12 @@
       <div :class="$style.cover">
         <div :class="$style.wrapper">
           <img
-            v-for="image in [...project.hero].reverse()"
+            v-for="(image, index) in [...project.hero].reverse()"
             :key="`hero-${image}`"
             :src="image"
             :alt="project.name"
             :class="$style.image"
+            @load="load(index)"
           >
           <div :class="$style.bloc">
             <h1 :class="$style.title">
@@ -52,11 +53,31 @@ export default {
     ComponentHero,
     ComponentIndicator,
   },
+  data() {
+    return {
+      loaded: [],
+    }
+  },
   computed: {
     ...mapGetters('loading', ['isCompleted', 'isMounted']),
     ...mapGetters('site', ['projects']),
+    areLoaded() {
+      return !this.$isProject || this.loaded.length === this.project.hero.length
+    },
     project() {
       return this.projects.find(project => project.slug === this.$route.params.slug)
+    },
+  },
+  watch: {
+    project() {
+      this.loaded = []
+    },
+  },
+  methods: {
+    load(index) {
+      if (!this.loaded.includes(index)) {
+        this.loaded.push(index)
+      }
     },
   },
 }
@@ -113,7 +134,7 @@ export default {
 .title,
 .subtitle,
 .image {
-  transition: transform $smooth-slow, opacity $smooth-slow;
+  transition: transform $smooth, opacity $smooth;
 }
 
 .cover {
@@ -153,7 +174,7 @@ export default {
   &:nth-of-type(1) {
     top: 50px;
     right: 120px;
-    transition-delay: 1s;
+    transition-delay: .5s;
 
     @include bp(sm) {
       top: 20px;
@@ -164,7 +185,7 @@ export default {
   &:nth-of-type(2) {
     top: 25px;
     right: 60px;
-    transition-delay: .5s;
+    transition-delay: .25s;
 
     @include bp(sm) {
       top: 10px;
@@ -189,7 +210,7 @@ export default {
   font-weight: 700;
   font-size: 8.5rem;
   font-family: $font-title;
-  transition-delay: 2s;
+  transition-delay: 1s;
 
   @include bp(md) {
     font-size: 6rem;
@@ -205,7 +226,7 @@ export default {
   font-size: 2.5rem;
   line-height: 2.5;
   text-align: right;
-  transition-delay: 2.25s;
+  transition-delay: 1.25s;
 
   @include bp(md) {
     font-size: 2rem;
@@ -218,6 +239,6 @@ export default {
 
 .indicator {
   transition: transform $smooth, opacity $smooth;
-  transition-delay: 3s;
+  transition-delay: 1.5s;
 }
 </style>
