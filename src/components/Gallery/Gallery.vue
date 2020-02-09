@@ -91,6 +91,6 @@ export default {
 .medium {
   justify-self: center;
   max-width: 100%;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100vh - 2rem);
 }
 </style>

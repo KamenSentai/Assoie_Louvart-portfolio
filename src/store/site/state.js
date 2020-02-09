@@ -68,12 +68,12 @@ export default {
           {
             name: 'Dribbble',
             title: 'Assoïe Louvart',
-            link: 'https://dribbble.com/AssoyeL',
+            link: 'https://dribbble.com/alouvart',
           },
           {
             name: 'Behance',
             title: 'Assoïe Louvart',
-            link: 'https://www.behance.net/AssoieLouvart',
+            link: 'https://www.behance.net/alouvart',
           },
           {
             name: 'LinkedIn',
