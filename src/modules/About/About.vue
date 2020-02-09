@@ -41,14 +41,14 @@ export default {
   display: grid;
   grid-auto-columns: 48rem;
   grid-auto-flow: column;
-  grid-gap: 20rem;
+  grid-gap: 16rem;
   justify-content: center;
   padding: 4rem;
   padding-bottom: 12rem;
 
   @include bp(lg) {
     grid-auto-columns: 40rem;
-    grid-gap: 10rem;
+    grid-gap: 8rem;
     padding-bottom: 10rem;
   }
 
