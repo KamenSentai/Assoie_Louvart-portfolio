@@ -67,7 +67,7 @@ export default {
       return this.size.radius * 2 * Math.PI
     },
     size() {
-      const stroke = 1
+      const stroke = 2
       const radius = this.sizes[this.$mq]
       const position = radius + stroke
       const total = position * 2
@@ -174,6 +174,5 @@ export default {
 .tag {
   font-weight: 700;
   font-size: 2rem;
-  font-family: $font-title;
 }
 </style>
