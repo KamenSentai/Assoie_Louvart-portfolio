@@ -35,6 +35,7 @@
       <ComponentIndicator
         :class="$style.indicator"
         color="light"
+        @click="scroll"
       />
     </ComponentHero>
   </div>
@@ -45,6 +46,7 @@ import { mapGetters } from 'vuex'
 import ModuleHeader from '@/modules/Header'
 import { Hero as ComponentHero } from '@/components/Hero'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
+import { easings, scrollTo } from '@/utils/scroll'
 
 export default {
   name: 'Jumbotron',
@@ -77,6 +79,11 @@ export default {
     load(index) {
       if (!this.loaded.includes(index)) {
         this.loaded.push(index)
+      }
+    },
+    scroll() {
+      if (this.$isProject) {
+        scrollTo(window.innerHeight, 1000, easings.easeInOutQuad)
       }
     },
   },

@@ -7,6 +7,8 @@
         [$style.isHidden]: !isCompleted,
       }
     ]"
+    :is-clickable="!hasScrolled"
+    @click="$emit('click')"
   />
 </template>
 
