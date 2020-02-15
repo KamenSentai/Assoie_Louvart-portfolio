@@ -48,12 +48,14 @@ export default {
         this.mount()
       } else {
         this.$nextTick(() => {
-          this.isEntering = false
-        })
+          setTimeout(() => {
+            this.isEntering = false
+          })
 
-        setTimeout(() => {
-          this.mount()
-        }, this.duration)
+          setTimeout(() => {
+            this.mount()
+          }, this.duration)
+        }, 0)
       }
     })
   },
