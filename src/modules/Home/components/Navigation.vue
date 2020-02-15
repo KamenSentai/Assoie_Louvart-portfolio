@@ -11,7 +11,7 @@
             [$style.isAround]: page(i - 1).isAround,
           }
         ]"
-        :style="!$isMobile && navigation(i - 1)"
+        :style="!$isMobile && navigationStyle(i - 1)"
         @click="$emit('click', { deltaY: page(i - 1).scroll })"
       >
         <span :class="$style.page">
@@ -51,7 +51,7 @@ export default {
     digits() {
       return this.length.toString().length + 1
     },
-    navigation() {
+    navigationStyle() {
       return (index) => {
         const { duration } = this
         const { isVisible, top } = this.page(index)
