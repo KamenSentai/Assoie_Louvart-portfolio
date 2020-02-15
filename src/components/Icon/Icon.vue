@@ -1,8 +1,8 @@
 <template>
   <component
     :is="icon"
-    :class="`text-${color}`"
     v-bind="$attrs"
+    :class="`text-${color}`"
   />
 </template>
 

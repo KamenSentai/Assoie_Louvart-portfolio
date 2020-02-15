@@ -79,6 +79,7 @@ export default {
     window.addEventListener('wheel', this.wheel)
     window.addEventListener('keydown', this.press)
     window.addEventListener('resize', this.resize)
+    this.resize()
   },
   destroyed() {
     document.documentElement.style.overflow = 'auto'
