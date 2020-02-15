@@ -114,19 +114,15 @@ export default {
 
   .title,
   .subtitle {
-    transform: translateX(-3rem);
+    transform: translateY(25%);
   }
 
   .indicator {
     transform: translateY(-50%);
   }
 
-  .image:not(:nth-of-type(3)) {
-    transform: translate(60px, -25px);
-
-    @include bp(sm) {
-      transform: translate(20px, -10px);
-    }
+  .image:not(:last-of-type) {
+    transform: translate(0);
   }
 }
 
@@ -134,7 +130,7 @@ export default {
 .title,
 .subtitle,
 .image {
-  transition: transform $smooth, opacity $smooth;
+  transition: transform $smooth-slow, opacity $smooth-slow;
 }
 
 .cover {
@@ -144,17 +140,19 @@ export default {
   padding: 0 6rem;
 
   @include bp(sm) {
-    justify-content: flex-start;
+    padding: 0 3rem;
   }
 }
 
 .wrapper {
   position: relative;
-  transform: translateY(-2.5rem);
+  margin-top: 2rem;
 }
 
 .image {
   width: 320px;
+  transform-origin: center;
+  transition-delay: 0s;
   user-select: none;
 
   @include bp(md) {
@@ -172,37 +170,28 @@ export default {
   }
 
   &:nth-of-type(1) {
-    top: 50px;
-    right: 120px;
-    transition-delay: .5s;
-
-    @include bp(sm) {
-      top: 20px;
-      right: 40px;
-    }
+    transform: rotate(-5deg) scale(.8375) translate(32.5%, -22.5%);
+    transition-delay: .75s;
   }
 
   &:nth-of-type(2) {
-    top: 25px;
-    right: 60px;
-    transition-delay: .25s;
-
-    @include bp(sm) {
-      top: 10px;
-      right: 20px;
-    }
-  }
-
-  &:nth-of-type(3) {
-    transition-delay: 0s;
+    transform: rotate(5deg) scale(.8375) translate(-27.5%, 12.5%);
+    transition-delay: .375s;
   }
 }
 
 .bloc {
   position: absolute;
-  top: 7.5rem;
-  left: calc(100% - 3rem);
-  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
   text-shadow: 0 5px 25px rgba($dark, .25);
 }
 
@@ -225,7 +214,6 @@ export default {
   font-weight: 400;
   font-size: 2.5rem;
   line-height: 2.5;
-  text-align: right;
   transition-delay: 1.25s;
 
   @include bp(md) {
