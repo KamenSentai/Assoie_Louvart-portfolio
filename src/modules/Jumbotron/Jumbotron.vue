@@ -150,10 +150,14 @@ export default {
 }
 
 .image {
-  width: 320px;
+  width: 400px;
   transform-origin: center;
   transition-delay: 0s;
   user-select: none;
+
+  @include bp(lg) {
+    width: 320px;
+  }
 
   @include bp(md) {
     width: 240px;
@@ -201,6 +205,10 @@ export default {
   font-family: $font-title;
   transition-delay: 1s;
 
+  @include bp(lg) {
+    font-size: 7rem;
+  }
+
   @include bp(md) {
     font-size: 6rem;
   }
@@ -215,6 +223,10 @@ export default {
   font-size: 2.5rem;
   line-height: 2.5;
   transition-delay: 1.25s;
+
+  @include bp(lg) {
+    font-size: 2.2rem;
+  }
 
   @include bp(md) {
     font-size: 2rem;
