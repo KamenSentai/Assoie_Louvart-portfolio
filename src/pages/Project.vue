@@ -11,6 +11,10 @@
       @mouseover="show"
       @mouseout="hide"
     />
+    <ComponentOverlay
+      :duration="duration"
+      :is-leaving="isLeaving"
+    />
   </div>
 </template>
 
@@ -18,7 +22,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import ModuleFooter from '@/modules/Footer'
 import ModuleProject from '@/modules/Project'
-import MixinMount from '@/mixins/pages/mount'
+import MixinPage from '@/mixins/pages/page'
 
 export default {
   name: 'Project',
@@ -26,7 +30,7 @@ export default {
     ModuleFooter,
     ModuleProject,
   },
-  mixins: [MixinMount],
+  mixins: [MixinPage],
   props: {
     slug: {
       type: String,
@@ -55,7 +59,7 @@ export default {
       })
     },
   },
-  beforeRouteUpdate(to, from, next) {
+  beforeRouteUpdate(_, __, next) {
     this.hide()
     this.cover(next)
   },

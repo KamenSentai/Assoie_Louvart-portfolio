@@ -7,7 +7,10 @@
       tag="h2"
       :text="content.title"
     />
-    <ComponentParagraph :text="content.text" />
+    <ComponentParagraph
+      :text="content.text"
+      :class="$style.paragraph"
+    />
   </div>
 </template>
 
@@ -47,5 +50,9 @@ export default {
     grid-auto-flow: row;
     margin: 0 3.5rem 4rem;
   }
+}
+
+.paragraph {
+  padding-top: 2rem;
 }
 </style>

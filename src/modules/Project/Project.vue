@@ -26,7 +26,12 @@
       />
       <section
         :key="`section-${index}`"
-        :class="$style.section"
+        :class="[
+          $style.section,
+          {
+            [$style.isContaining]: section.media && section.media.length,
+          }
+        ]"
       >
         <ComponentBanner :content="section.contents" />
         <ComponentGallery
@@ -137,6 +142,22 @@ export default {
 }
 
 .section {
+  padding: 10rem 0;
+
+  @include bp(md) {
+    padding: 4rem 0;
+  }
+
+  @include bp(sm) {
+    padding: 3rem 0;
+  }
+
+  &:not(:last-of-type):nth-of-type(2n) {
+    @include theme(dark);
+  }
+}
+
+.isContaining {
   padding: 20rem 0;
 
   @include bp(md) {
@@ -145,10 +166,6 @@ export default {
 
   @include bp(sm) {
     padding: 6rem 0;
-  }
-
-  &:not(:last-of-type):nth-of-type(2n) {
-    @include theme(dark);
   }
 }
 </style>

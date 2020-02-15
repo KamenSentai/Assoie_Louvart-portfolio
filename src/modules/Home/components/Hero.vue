@@ -11,7 +11,7 @@
       v-for="(landing, index) in landings"
       :key="landing.slug"
       :class="$style.wrapper"
-      :style="!$isMobile && translation(index)"
+      :style="!$isMobile && translationStyle(index)"
     >
       <router-link
         :title="landing.name"

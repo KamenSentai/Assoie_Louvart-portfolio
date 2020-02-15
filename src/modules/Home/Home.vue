@@ -14,7 +14,7 @@
     <HomeHero
       :duration="duration"
       :is-carousel="isCarousel"
-      :is-completed="isCompleted"
+      :is-completed="isMounted && isCompleted"
       :landings="landings"
       :saved-index="savedIndex"
     />
@@ -30,8 +30,9 @@
     <HomeIndicator
       v-if="!$isMobile"
       :has-scrolled="hasScrolled"
-      :is-completed="isCompleted"
+      :is-completed="isMounted && isCompleted"
     />
+    <slot name="overlay" />
   </ComponentHero>
 </template>
 
@@ -65,7 +66,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('loading', ['isCompleted', 'isLoaded']),
+    ...mapGetters('loading', ['isCompleted', 'isLoaded', 'isMounted']),
     ...mapGetters('site', ['landings', 'savedIndex']),
     isCarousel() {
       return this.landings.length > 2

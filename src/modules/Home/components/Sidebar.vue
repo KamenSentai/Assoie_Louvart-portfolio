@@ -4,7 +4,7 @@
       v-for="(landing, index) in landings"
       :key="landing.slug"
       :class="$style.wrapper"
-      :style="translation(index)"
+      :style="translationStyle(index)"
     >
       <span :class="$style.tag">
         {{ landing.year }}

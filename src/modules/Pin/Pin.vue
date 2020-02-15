@@ -7,7 +7,7 @@
         [$style.isDisplayed]: isDisplayed,
       }
     ]"
-    :style="mousePosition"
+    :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
   >
     <div
       class="theme-dark"
@@ -30,14 +30,7 @@ export default {
       position: { x: 0, y: 0 },
     }
   },
-  computed: {
-    ...mapGetters('pin', ['isCovering', 'isDisplayed']),
-    mousePosition() {
-      return {
-        transform: `translate(${this.position.x}px, ${this.position.y}px)`,
-      }
-    },
-  },
+  computed: mapGetters('pin', ['isCovering', 'isDisplayed']),
   created() {
     const widthCenter = window.innerWidth / 2
     const heightCenter = window.innerHeight / 2

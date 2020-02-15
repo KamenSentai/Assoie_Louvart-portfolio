@@ -11,12 +11,6 @@
 <script>
 export default {
   name: 'Hero',
-  props: {
-    unilateral: {
-      type: Boolean,
-      default: false,
-    },
-  },
 }
 </script>
 

@@ -18,7 +18,7 @@ export default {
     },
   },
   computed: {
-    translation() {
+    translationStyle() {
       return (index) => {
         const {
           duration,

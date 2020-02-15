@@ -8,7 +8,10 @@
         [$style.isLoaded]: isLoaded,
       }
     ]"
-    :style="transition"
+    :style="{
+      transitionDelay: `${delay}ms`,
+      transitionDuration: `${duration}ms`,
+    }"
   >
     <div :class="$style.wrapper">
       <svg
@@ -19,7 +22,7 @@
         <circle
           ref="circle"
           :class="$style.circle"
-          :style="style"
+          :style="strokeStyle"
           :stroke-width="size.stroke"
           :r="size.radius"
           :cx="size.position"
@@ -67,7 +70,7 @@ export default {
       return this.size.radius * 2 * Math.PI
     },
     size() {
-      const stroke = 1
+      const stroke = 2
       const radius = this.sizes[this.$mq]
       const position = radius + stroke
       const total = position * 2
@@ -79,19 +82,13 @@ export default {
         total,
       }
     },
-    style() {
+    strokeStyle() {
       const { circumference, progression } = this
       const offset = (1 - progression / 100) * circumference
 
       return {
         strokeDasharray: `${circumference} ${circumference}`,
         strokeDashoffset: `${offset}`,
-      }
-    },
-    transition() {
-      return {
-        transitionDelay: `${this.delay}ms`,
-        transitionDuration: `${this.duration}ms`,
       }
     },
   },
@@ -174,6 +171,5 @@ export default {
 .tag {
   font-weight: 700;
   font-size: 2rem;
-  font-family: $font-title;
 }
 </style>

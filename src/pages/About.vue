@@ -1,16 +1,22 @@
 <template>
-  <ModuleAbout class="theme-dark" />
+  <ModuleAbout class="theme-dark">
+    <ComponentOverlay
+      slot="overlay"
+      :duration="duration"
+      :is-leaving="isLeaving"
+    />
+  </ModuleAbout>
 </template>
 
 <script>
 import ModuleAbout from '@/modules/About'
-import MixinMount from '@/mixins/pages/mount'
+import MixinPage from '@/mixins/pages/page'
 
 export default {
   name: 'About',
   components: {
     ModuleAbout,
   },
-  mixins: [MixinMount],
+  mixins: [MixinPage],
 }
 </script>

@@ -1,5 +1,8 @@
 <template>
-  <div :class="$style.container">
+  <div
+    v-if="media && media.length"
+    :class="$style.container"
+  >
     <div
       v-for="(row, i) in media"
       :key="`row-${i}`"
@@ -39,7 +42,7 @@ export default {
     },
     media: {
       type: Array,
-      required: true,
+      default: () => [],
     },
   },
   computed: {

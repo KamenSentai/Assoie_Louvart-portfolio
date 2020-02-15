@@ -14,6 +14,7 @@
         />
       </template>
     </div>
+    <slot name="overlay" />
   </div>
 </template>
 
