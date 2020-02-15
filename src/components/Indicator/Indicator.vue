@@ -3,7 +3,7 @@
     <ComponentIcon
       :color="color"
       name="Arrow"
-      width="15px"
+      width="20px"
     />
   </div>
 </template>

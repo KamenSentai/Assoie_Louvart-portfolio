@@ -62,6 +62,7 @@ export default {
 <style lang="scss" module>
 .container {
   position: fixed;
+  user-select: none;
   will-change: transform;
 
   &.isCovering,
