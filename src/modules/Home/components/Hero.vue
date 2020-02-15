@@ -70,7 +70,7 @@ export default {
   position: relative;
   display: grid;
   grid-gap: 2rem;
-  transition: transform $smooth-slow, opacity $smooth-slow;
+  transition: transform $smooth-slower, opacity $smooth-slower;
 
   &.isHidden {
     transform: translateY(12.5%);
