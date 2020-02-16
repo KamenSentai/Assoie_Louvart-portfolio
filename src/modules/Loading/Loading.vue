@@ -135,11 +135,11 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+
+  @include centralizer() {
+    flex-direction: column;
+  }
 }
 
 .loader {

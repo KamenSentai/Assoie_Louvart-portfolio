@@ -35,11 +35,10 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition-timing-function: ease-in-out;
   will-change: transform, opacity;
+
+  @include centralizer;
 }
 
 .tag {

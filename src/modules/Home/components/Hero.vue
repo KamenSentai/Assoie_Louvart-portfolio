@@ -84,11 +84,10 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition-timing-function: ease-in-out;
   will-change: transform, opacity;
+
+  @include centralizer;
 
   @include bp(sm) {
     position: static;
@@ -103,9 +102,7 @@ export default {
   font-size: 0;
 
   @include bp(sm) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include centralizer;
   }
 
   &:hover {
@@ -127,12 +124,11 @@ export default {
 
 .frame {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
+
+  @include centralizer;
 
   &::after {
     position: absolute;
@@ -156,14 +152,14 @@ export default {
 
 .modal {
   position: absolute;
-  display: grid;
-  grid-gap: .5rem;
-  align-items: center;
-  justify-content: center;
   color: $light;
   text-align: center;
   text-shadow: $text-shadow;
   pointer-events: none;
+
+  @include centralizer(grid) {
+    grid-gap: .5rem;
+  }
 
   @include bp(sm) {
     right: 0;

@@ -142,9 +142,6 @@ export default {
 
 .mark {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 2em;
   font-size: 1.8rem;
@@ -155,6 +152,8 @@ export default {
   opacity: 0;
   transition-timing-function: ease-in-out;
   user-select: none;
+
+  @include centralizer;
 
   &.isActive,
   &.isAround {

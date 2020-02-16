@@ -141,10 +141,9 @@ export default {
 }
 
 .cover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 6rem;
+
+  @include centralizer;
 
   @include bp(sm) {
     padding: 0 3rem;
@@ -197,13 +196,13 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
   text-align: center;
   text-shadow: $text-shadow;
+
+  @include centralizer() {
+    flex-direction: column;
+  }
 }
 
 .title {

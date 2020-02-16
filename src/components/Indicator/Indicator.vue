@@ -42,10 +42,9 @@ export default {
 
 <style lang="scss" module>
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 2rem 8rem 3rem;
+
+  @include centralizer;
 }
 
 .wrapper {

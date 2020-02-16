@@ -38,12 +38,11 @@ export default {
 <style lang="scss" module>
 .container {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 425px;
   overflow: hidden;
+
+  @include centralizer;
 
   @include bp(sm) {
     height: 290px;
