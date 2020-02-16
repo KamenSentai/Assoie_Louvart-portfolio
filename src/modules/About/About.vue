@@ -45,34 +45,35 @@ export default {
   grid-gap: 16rem;
   justify-content: center;
   padding: 4rem;
-  padding-bottom: 12rem;
+  padding-bottom: 4rem;
 
   @include bp(lg) {
     grid-auto-columns: 40rem;
     grid-gap: 8rem;
-    padding-bottom: 10rem;
   }
 
   @include bp(md) {
     grid-auto-columns: 1fr;
-    padding-bottom: 8rem;
-  }
-
-  @include bp(sm) {
-    padding-bottom: 6rem;
   }
 }
 
 .wrapper {
   display: grid;
   grid-gap: 9rem;
+  padding-bottom: 8rem;
+
+  @include bp(lg) {
+    padding-bottom: 6rem;
+  }
 
   @include bp(md) {
     grid-gap: 7.5rem;
+    padding-bottom: 4rem;
   }
 
   @include bp(sm) {
     grid-gap: 6rem;
+    padding-bottom: 2rem;
   }
 }
 </style>

@@ -6,12 +6,6 @@
       :class="$style.title"
       :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
     >
-      <ComponentIcon
-        v-if="$isProject || ($isMobile && $isAbout)"
-        name="Arrow"
-        width="20px"
-        transform="rotate(90)"
-      />
       <!-- Raw text -->
       <span
         v-if="$isHome || !$isMobile"

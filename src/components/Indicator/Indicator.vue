@@ -1,10 +1,21 @@
 <template>
   <div :class="$style.container">
-    <ComponentIcon
-      :color="color"
-      name="Arrow"
-      width="20px"
-    />
+    <div
+      :class="[
+        $style.wrapper,
+        {
+          [$style.isClickable]: isClickable,
+        }
+      ]"
+      @click="isClickable && $emit('click')"
+    >
+      <ComponentIcon
+        :class="$style.indicator"
+        :color="color"
+        name="Arrow"
+        width="20px"
+      />
+    </div>
   </div>
 </template>
 
@@ -21,6 +32,10 @@ export default {
       type: String,
       default: 'dark',
     },
+    isClickable: {
+      type: Boolean,
+      default: true,
+    },
   },
 }
 </script>
@@ -28,6 +43,46 @@ export default {
 <style lang="scss" module>
 .container {
   margin: 2rem 8rem 3rem;
-  text-align: center;
+  @include centralizer;
+}
+
+.wrapper {
+  font-size: 0;
+}
+
+.isClickable {
+  cursor: pointer;
+}
+
+.indicator {
+  animation: slide 10s infinite 1.5s;
+}
+
+@keyframes slide {
+
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  5% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  15% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>

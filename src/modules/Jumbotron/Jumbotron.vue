@@ -35,6 +35,7 @@
       <ComponentIndicator
         :class="$style.indicator"
         color="light"
+        @click="scroll"
       />
     </ComponentHero>
   </div>
@@ -45,6 +46,7 @@ import { mapGetters } from 'vuex'
 import ModuleHeader from '@/modules/Header'
 import { Hero as ComponentHero } from '@/components/Hero'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
+import { easings, scrollTo } from '@/utils/scroll'
 
 export default {
   name: 'Jumbotron',
@@ -77,6 +79,11 @@ export default {
     load(index) {
       if (!this.loaded.includes(index)) {
         this.loaded.push(index)
+      }
+    },
+    scroll() {
+      if (this.$isProject) {
+        scrollTo(window.innerHeight, 1000, easings.easeInOutQuad)
       }
     },
   },
@@ -121,7 +128,7 @@ export default {
     transform: translateY(-50%);
   }
 
-  .image:not(:last-of-type) {
+  .image:not(:nth-child(3)) {
     transform: translate(0);
   }
 }
@@ -134,10 +141,9 @@ export default {
 }
 
 .cover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 6rem;
+
+  @include centralizer;
 
   @include bp(sm) {
     padding: 0 3rem;
@@ -185,18 +191,15 @@ export default {
 }
 
 .bloc {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
   text-align: center;
-  text-shadow: 0 5px 25px rgba($dark, .25);
+  text-shadow: $text-shadow;
+
+  @include overlay;
+
+  @include centralizer() {
+    flex-direction: column;
+  }
 }
 
 .title {

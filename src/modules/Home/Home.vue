@@ -31,6 +31,7 @@
       v-if="!$isMobile"
       :has-scrolled="hasScrolled"
       :is-completed="isMounted && isCompleted"
+      @click="wheel({ deltaY: 1 })"
     />
     <slot name="overlay" />
   </ComponentHero>
