@@ -169,7 +169,6 @@ export default {
 }
 
 .tag {
-  font-weight: 700;
   font-size: 2rem;
 }
 </style>

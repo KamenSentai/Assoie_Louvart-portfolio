@@ -162,7 +162,7 @@ export default {
   justify-content: center;
   color: $light;
   text-align: center;
-  text-shadow: 0 5px 25px rgba($dark, .25);
+  text-shadow: $text-shadow;
   pointer-events: none;
 
   @include bp(sm) {

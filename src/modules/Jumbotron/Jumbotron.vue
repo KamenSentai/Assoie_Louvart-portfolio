@@ -128,7 +128,7 @@ export default {
     transform: translateY(-50%);
   }
 
-  .image:not(:last-of-type) {
+  .image:not(:nth-child(3)) {
     transform: translate(0);
   }
 }
@@ -203,7 +203,7 @@ export default {
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  text-shadow: 0 5px 25px rgba($dark, .25);
+  text-shadow: $text-shadow;
 }
 
 .title {
