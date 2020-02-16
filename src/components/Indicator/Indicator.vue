@@ -43,7 +43,6 @@ export default {
 <style lang="scss" module>
 .container {
   margin: 2rem 8rem 3rem;
-
   @include centralizer;
 }
 

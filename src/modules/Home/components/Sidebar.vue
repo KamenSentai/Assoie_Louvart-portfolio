@@ -30,14 +30,9 @@ export default {
 }
 
 .wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   transition-timing-function: ease-in-out;
   will-change: transform, opacity;
-
+  @include overlay;
   @include centralizer;
 }
 

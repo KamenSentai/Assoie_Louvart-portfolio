@@ -35,12 +35,6 @@ export default {
 
 <style lang="scss" module>
 .overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
   transform: scaleY(0);
   transition-timing-function: ease-in-out;
   transition-property: transform;
@@ -48,6 +42,10 @@ export default {
   will-change: transform;
 
   @include theme(dark);
+
+  @include overlay(fixed) {
+    z-index: 1;
+  }
 }
 
 .isHidding {

@@ -191,14 +191,11 @@ export default {
 }
 
 .bloc {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   padding: 2rem;
   text-align: center;
   text-shadow: $text-shadow;
+
+  @include overlay;
 
   @include centralizer() {
     flex-direction: column;

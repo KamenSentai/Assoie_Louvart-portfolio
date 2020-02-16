@@ -95,7 +95,6 @@ export default {
 .container,
 .wrapper {
   pointer-events: none;
-
   @include centralizer;
 }
 
