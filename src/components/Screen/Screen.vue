@@ -1,6 +1,5 @@
 <template>
   <img
-    v-if="src"
     :class="$style.image"
     :src="src"
   >
@@ -12,7 +11,7 @@ export default {
   props: {
     src: {
       type: String,
-      default: '',
+      required: true,
     },
   },
 }
