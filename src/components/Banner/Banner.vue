@@ -57,5 +57,13 @@ export default {
 
 .paragraph {
   padding-top: 2rem;
+
+  @include bp(lg) {
+    padding-top: 1rem;
+  }
+
+  @include bp(md) {
+    padding-top: 0;
+  }
 }
 </style>

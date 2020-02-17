@@ -1,6 +1,11 @@
 <template>
   <main>
-    <section :class="$style.intro">
+    <ComponentReveal
+      ref="intro"
+      component="section"
+      :is-revealed="isRevealed"
+      :class="$style.intro"
+    >
       <!-- Raw text -->
       <ComponentTag text="Intro" />
       <ComponentTitle
@@ -10,15 +15,24 @@
         :text="project.intro.title"
       />
       <div :class="$style.wrapper">
-        <ComponentList
+        <ComponentReveal
           v-for="(list, index) in lists"
           :key="`list-${index}`"
+          :component="ComponentList"
+          :is-revealed="isRevealed"
           :title="list.title"
           :items="list.items"
+          :style="{ transitionDelay: `${delay * index}s` }"
         />
-        <ComponentParagraph :text="project.intro.text" />
+        <ComponentReveal
+          ref="paragraph"
+          :component="ComponentParagraph"
+          :is-revealed="isRevealed"
+          :text="project.intro.text"
+          :style="{ transitionDelay: `${delay * lists.length}s` }"
+        />
       </div>
-    </section>
+    </ComponentReveal>
     <template v-for="(section, index) in project.sections">
       <ComponentScreen
         v-if="section.screen"
@@ -57,6 +71,7 @@ import { Gallery as ComponentGallery } from '@/components/Gallery'
 import { List as ComponentList } from '@/components/List'
 import { Tag as ComponentTag } from '@/components/Tag'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
+import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Screen as ComponentScreen } from '@/components/Screen'
 import { Title as ComponentTitle } from '@/components/Title'
 
@@ -65,9 +80,8 @@ export default {
   components: {
     ComponentBanner,
     ComponentGallery,
-    ComponentList,
     ComponentTag,
-    ComponentParagraph,
+    ComponentReveal,
     ComponentScreen,
     ComponentTitle,
   },
@@ -79,6 +93,11 @@ export default {
   },
   data() {
     return {
+      ComponentList,
+      ComponentTag,
+      ComponentParagraph,
+      delay: 0.25,
+      isRevealed: false,
       scrollY: 0,
       windowHeight: 0,
     }
@@ -101,6 +120,19 @@ export default {
     window.addEventListener('resize', this.resize)
     window.addEventListener('scroll', this.scroll)
     this.resize()
+
+    new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > observer.thresholds[0]) {
+          this.isRevealed = true
+          observer.unobserve(entry.target)
+        }
+      })
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    }).observe(this.$refs.intro.$el)
   },
   destroyed() {
     window.removeEventListener('resize', this.resize)
