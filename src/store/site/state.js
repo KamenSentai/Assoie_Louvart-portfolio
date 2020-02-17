@@ -378,6 +378,16 @@ export default {
               resources.YukeyScreen1,
               resources.YukeyScreen2,
             ],
+            [
+              resources.YukeyScreen3,
+              resources.YukeyScreen4,
+              resources.YukeyScreen5,
+            ],
+            [
+              resources.YukeyScreen6,
+              resources.YukeyScreen7,
+              resources.YukeyScreen8,
+            ],
           ],
         },
         {
@@ -388,25 +398,23 @@ export default {
           },
           media: [
             [
-              resources.YukeyScreen3,
-              resources.YukeyScreen4,
+              resources.YukeyScreen9,
+              resources.YukeyScreen10,
+            ],
+            [
+              resources.YukeyScreen11,
+              resources.YukeyScreen12,
+              resources.YukeyScreen13,
+            ],
+            [
+              resources.YukeyScreen14,
+              resources.YukeyScreen15,
+              resources.YukeyScreen16,
             ],
           ],
         },
         {
           screen: resources.YukeyMockup,
-          media: [
-            [
-              resources.YukeyScreen5,
-              resources.YukeyScreen6,
-              resources.YukeyScreen7,
-            ],
-            [
-              resources.YukeyScreen8,
-              resources.YukeyScreen9,
-              resources.YukeyScreen10,
-            ],
-          ],
         },
       ],
     },

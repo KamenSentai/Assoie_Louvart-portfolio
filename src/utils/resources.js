@@ -67,14 +67,20 @@ import YukeyHero3 from '@/assets/images/Yukey/Hero_3.jpg'
 import YukeyMockup from '@/assets/images/Yukey/Mockup.jpg'
 import YukeyScreen1 from '@/assets/images/Yukey/Screen_1.mp4'
 import YukeyScreen2 from '@/assets/images/Yukey/Screen_2.mp4'
-import YukeyScreen3 from '@/assets/images/Yukey/Screen_3.mp4'
-import YukeyScreen4 from '@/assets/images/Yukey/Screen_4.mp4'
-import YukeyScreen5 from '@/assets/images/Yukey/Screen_5.jpg'
-import YukeyScreen6 from '@/assets/images/Yukey/Screen_6.jpg'
-import YukeyScreen7 from '@/assets/images/Yukey/Screen_7.jpg'
-import YukeyScreen8 from '@/assets/images/Yukey/Screen_8.jpg'
-import YukeyScreen9 from '@/assets/images/Yukey/Screen_9.jpg'
-import YukeyScreen10 from '@/assets/images/Yukey/Screen_10.jpg'
+import YukeyScreen3 from '@/assets/images/Yukey/Screen_3.png'
+import YukeyScreen4 from '@/assets/images/Yukey/Screen_4.png'
+import YukeyScreen5 from '@/assets/images/Yukey/Screen_5.png'
+import YukeyScreen6 from '@/assets/images/Yukey/Screen_6.png'
+import YukeyScreen7 from '@/assets/images/Yukey/Screen_7.png'
+import YukeyScreen8 from '@/assets/images/Yukey/Screen_8.png'
+import YukeyScreen9 from '@/assets/images/Yukey/Screen_9.mp4'
+import YukeyScreen10 from '@/assets/images/Yukey/Screen_10.mp4'
+import YukeyScreen11 from '@/assets/images/Yukey/Screen_11.png'
+import YukeyScreen12 from '@/assets/images/Yukey/Screen_12.png'
+import YukeyScreen13 from '@/assets/images/Yukey/Screen_13.png'
+import YukeyScreen14 from '@/assets/images/Yukey/Screen_14.png'
+import YukeyScreen15 from '@/assets/images/Yukey/Screen_15.png'
+import YukeyScreen16 from '@/assets/images/Yukey/Screen_16.png'
 import YukeyTransition from '@/assets/images/Yukey/Transition.jpg'
 
 export default {
@@ -155,5 +161,11 @@ export default {
   YukeyScreen8,
   YukeyScreen9,
   YukeyScreen10,
+  YukeyScreen11,
+  YukeyScreen12,
+  YukeyScreen13,
+  YukeyScreen14,
+  YukeyScreen15,
+  YukeyScreen16,
   YukeyTransition,
 }
