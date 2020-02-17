@@ -13,7 +13,7 @@
       :class="[
         $style.wrapper,
         {
-          [$style.isActive]: isCurrent(index),
+          [$style.isActive]: $isMobile || isCurrent(index),
         }
       ]"
       :style="!$isMobile && translationStyle(index)"
@@ -122,7 +122,7 @@ export default {
     }
 
     .cover {
-      transform: scale(1.125);
+      transform: scale(1.0625);
     }
 
     .text {
