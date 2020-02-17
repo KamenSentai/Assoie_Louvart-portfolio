@@ -21,6 +21,7 @@
     </section>
     <template v-for="(section, index) in project.sections">
       <ComponentScreen
+        v-if="section.screen"
         :key="`screen-${index}`"
         :src="section.screen"
       />
@@ -33,8 +34,13 @@
           }
         ]"
       >
-        <ComponentBanner :content="section.contents" />
+        <ComponentBanner
+          v-if="section.contents && (section.contents.title || section.contents.text)"
+          :title="section.contents.title"
+          :text="section.contents.text"
+        />
         <ComponentGallery
+          v-if="section.media && section.media.length"
           :size="project.size"
           :media="section.media"
         />

@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="media && media.length"
-    :class="$style.container"
-  >
+  <div :class="$style.container">
     <div
       v-for="(row, i) in media"
       :key="`row-${i}`"

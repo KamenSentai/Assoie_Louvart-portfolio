@@ -1,7 +1,6 @@
 <template>
   <component
     :is="tag"
-    v-if="text"
     :class="[
       $style.container,
       {
@@ -28,7 +27,7 @@ export default {
     },
     text: {
       type: String,
-      default: '',
+      required: true,
     },
     small: {
       type: Boolean,

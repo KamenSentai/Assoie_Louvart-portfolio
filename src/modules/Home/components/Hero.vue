@@ -10,7 +10,12 @@
     <div
       v-for="(landing, index) in landings"
       :key="landing.slug"
-      :class="$style.wrapper"
+      :class="[
+        $style.wrapper,
+        {
+          [$style.isActive]: isCurrent(index),
+        }
+      ]"
       :style="!$isMobile && translationStyle(index)"
     >
       <router-link
@@ -75,6 +80,11 @@ export default {
   &.isHidden {
     transform: translateY(12.5%);
     opacity: 0;
+
+    .wrapper.isActive .title {
+      transform: translateY(25%);
+      opacity: 0;
+    }
   }
 }
 
@@ -86,6 +96,11 @@ export default {
 
   @include bp(sm) {
     position: static;
+  }
+
+  &.isActive .title {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -185,6 +200,10 @@ export default {
   font-weight: 700;
   font-size: 8rem;
   font-family: $font-title;
+  transform: translateY(25%);
+  opacity: 0;
+  transition: transform $smooth, opacity $smooth;
+  transition-delay: .5s;
 
   @include bp(lg) {
     font-size: 6rem;

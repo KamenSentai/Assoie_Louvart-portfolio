@@ -1,6 +1,9 @@
 <template>
   <div :class="$style.container">
-    <ComponentTag :text="title" />
+    <ComponentTag
+      v-if="title"
+      :text="title"
+    />
     <ComponentParagraph
       v-for="(item, index) in items"
       :key="`item-${index}`"

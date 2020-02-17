@@ -1,14 +1,13 @@
 <template>
-  <div
-    v-if="content.title || content.text"
-    :class="$style.container"
-  >
+  <div :class="$style.container">
     <ComponentTitle
+      v-if="title"
       tag="h2"
-      :text="content.title"
+      :text="title"
     />
     <ComponentParagraph
-      :text="content.text"
+      v-if="text"
+      :text="text"
       :class="$style.paragraph"
     />
   </div>
@@ -19,15 +18,19 @@ import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Title as ComponentTitle } from '@/components/Title'
 
 export default {
-  name: 'Tag',
+  name: 'Banner',
   components: {
     ComponentParagraph,
     ComponentTitle,
   },
   props: {
-    content: {
-      type: Object,
-      default: () => ({}),
+    title: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: '',
     },
   },
 }

@@ -1,8 +1,5 @@
 <template>
-  <p
-    v-if="text"
-    :class="$style.container"
-  >
+  <p :class="$style.container">
     {{ text }}
   </p>
 </template>
@@ -13,7 +10,7 @@ export default {
   props: {
     text: {
       type: String,
-      default: '',
+      required: true,
     },
   },
 }

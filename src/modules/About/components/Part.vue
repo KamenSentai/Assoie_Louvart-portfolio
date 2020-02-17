@@ -60,7 +60,7 @@ import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Title as ComponentTitle } from '@/components/Title'
 
 export default {
-  name: 'About',
+  name: 'Part',
   components: {
     ComponentIcon,
     ComponentParagraph,
