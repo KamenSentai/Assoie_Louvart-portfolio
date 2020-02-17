@@ -49,13 +49,23 @@ export default {
 
   &::after {
     background-color: rgba($dark, .4);
+    opacity: 0;
+    transition: opacity $smooth;
     content: "";
     pointer-events: none;
+    will-change: opacity;
     @include overlay;
   }
 
-  &:hover .cover {
-    transform: scale(1.375);
+  &:hover {
+
+    &::after {
+      opacity: 1;
+    }
+
+    .cover {
+      transform: scale(1.3125);
+    }
   }
 }
 
@@ -75,6 +85,7 @@ export default {
   font-weight: 700;
   font-size: 8rem;
   font-family: $font-title;
+  text-shadow: $text-shadow;
   pointer-events: none;
 
   @include bp(md) {
