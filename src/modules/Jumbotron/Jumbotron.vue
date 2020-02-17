@@ -180,12 +180,12 @@ export default {
   }
 
   &:nth-of-type(1) {
-    transform: rotate(-5deg) scale(.8375) translate(32.5%, -22.5%);
+    transform: rotate(-2.5deg) scale(.8375) translate(34%, -17%);
     transition-delay: .75s;
   }
 
   &:nth-of-type(2) {
-    transform: rotate(5deg) scale(.8375) translate(-27.5%, 12.5%);
+    transform: rotate(3.5deg) scale(.8375) translate(-32%, 7%);
     transition-delay: .375s;
   }
 }

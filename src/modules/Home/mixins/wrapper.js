@@ -18,6 +18,9 @@ export default {
     },
   },
   computed: {
+    isCurrent() {
+      return index => index === this.savedIndex
+    },
     translationStyle() {
       return (index) => {
         const {
@@ -26,7 +29,7 @@ export default {
           savedIndex,
           landings: { length },
         } = this
-        const isCurrent = index === savedIndex
+        const isCurrent = this.isCurrent(index)
         let translate
 
         if (isCarousel) {
