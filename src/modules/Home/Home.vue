@@ -156,15 +156,15 @@ export default {
 
 <style lang="scss" module>
 .container {
-  grid-gap: 0 10rem;
-  grid-template-columns: 10rem 1fr 10rem;
+  grid-gap: 4rem 10rem;
+  grid-template-columns: 12rem 1fr 12rem;
 
   @include bp(lg) {
-    grid-gap: 0 6rem;
+    grid-gap: 2rem 8rem;
   }
 
   @include bp(md) {
-    grid-gap: 0 4rem;
+    grid-gap: 2rem 6rem;
   }
 
   @include bp(sm) {
