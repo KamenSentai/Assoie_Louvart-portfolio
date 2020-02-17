@@ -23,7 +23,9 @@
       <ComponentScreen
         v-if="section.screen"
         :key="`screen-${index}`"
+        :scroll-y="scrollY"
         :src="section.screen"
+        :window-height="windowHeight"
       />
       <section
         :key="`section-${index}`"
@@ -75,6 +77,12 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      scrollY: 0,
+      windowHeight: 0,
+    }
+  },
   computed: {
     lists() {
       return [
@@ -87,6 +95,23 @@ export default {
           items: [this.project.type, this.project.year.toString()],
         },
       ]
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.resize)
+    window.addEventListener('scroll', this.scroll)
+    this.resize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resize)
+    window.removeEventListener('scroll', this.scroll)
+  },
+  methods: {
+    resize() {
+      this.windowHeight = window.innerHeight
+    },
+    scroll() {
+      this.scrollY = window.scrollY
     },
   },
 }

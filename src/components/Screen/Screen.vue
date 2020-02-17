@@ -19,41 +19,31 @@ export default {
       type: String,
       required: true,
     },
+    scrollY: {
+      type: Number,
+      required: true,
+    },
+    windowHeight: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
-      delta: 0,
       rate: 25,
-      windowHeight: 0,
     }
   },
   computed: {
     transform() {
-      return {
-        transform: `translateY(${this.delta}%) scale(1.${this.rate})`,
-      }
-    },
-  },
-  mounted() {
-    this.windowHeight = window.innerHeight
-
-    window.addEventListener('resize', this.resize)
-    window.addEventListener('scroll', this.scroll)
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.resize)
-    window.removeEventListener('scroll', this.scroll)
-  },
-  methods: {
-    resize() {
-      this.windowHeight = window.innerHeight
-    },
-    scroll() {
-      const { rate, windowHeight } = this
-      const { clientHeight, offsetTop } = this.$refs.container
+      const { rate, scrollY, windowHeight } = this
+      const { clientHeight, offsetTop } = this.$refs.container || { clientHeight: 0, offsetTop: 0 }
       const from = offsetTop - windowHeight
       const to = offsetTop + clientHeight
-      this.delta = rate * ((window.scrollY - from) / (to - from) - 0.5)
+      const delta = rate * ((scrollY - from) / (to - from) - 0.5)
+
+      return {
+        transform: `translateY(${delta}%) scale(1.${rate})`,
+      }
     },
   },
 }
