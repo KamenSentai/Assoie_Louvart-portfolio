@@ -7,10 +7,7 @@
       :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
     >
       <!-- Raw text -->
-      <span
-        v-if="$isHome || !$isMobile"
-        :class="$style.link"
-      >
+      <span :class="$style.link">
         {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
       </span>
     </component>
@@ -26,13 +23,8 @@
 </template>
 
 <script>
-import { Icon as ComponentIcon } from '@/components/Icon'
-
 export default {
   name: 'Header',
-  components: {
-    ComponentIcon,
-  },
 }
 </script>
 
