@@ -23,7 +23,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import ModuleFooter from '@/modules/Footer'
 import ModuleProject from '@/modules/Project'
-import MixinPage from '@/mixins/pages/page'
+import MixinPage from '@/mixins/components/page'
 
 export default {
   name: 'Project',

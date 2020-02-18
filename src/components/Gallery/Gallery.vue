@@ -2,22 +2,29 @@
   <div :class="$style.container">
     <div
       v-for="(row, i) in media"
+      ref="reveal"
       :key="`row-${i}`"
       :class="$style.line"
       :style="{ gridAutoColumns: `minmax(auto, ${size}px)` }"
     >
       <template v-for="(medium, j) in row">
-        <img
+        <ComponentReveal
           v-if="isImage(medium)"
           :key="`image-${j}`"
+          component="img"
+          :is-unrevealed="areRevealed[i] ? !areRevealed[i].isRevealed : false"
           :src="medium"
           :class="$style.medium"
-        >
-        <video
+          :style="{ transitionDelay: `${revealDelay * j}s` }"
+        />
+        <ComponentReveal
           v-else-if="isVideo(medium)"
           :key="`video-${j}`"
+          component="video"
+          :is-unrevealed="areRevealed[i] ? !areRevealed[i].isRevealed : false"
           :src="medium"
           :class="$style.medium"
+          :style="{ transitionDelay: `${revealDelay * j}s` }"
           autoplay
           loop
           muted
@@ -28,10 +35,16 @@
 </template>
 
 <script>
+import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { imageTypes, videoTypes } from '@/utils/types'
+import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Gallery',
+  components: {
+    ComponentReveal,
+  },
+  mixins: [MixinReveal],
   props: {
     size: {
       type: Number,

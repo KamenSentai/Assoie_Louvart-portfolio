@@ -10,7 +10,7 @@
 
 <script>
 import ModuleAbout from '@/modules/About'
-import MixinPage from '@/mixins/pages/page'
+import MixinPage from '@/mixins/components/page'
 
 export default {
   name: 'About',

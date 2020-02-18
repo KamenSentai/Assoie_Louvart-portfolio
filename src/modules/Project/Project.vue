@@ -1,14 +1,18 @@
 <template>
   <main>
-    <ComponentReveal
-      ref="intro"
-      component="section"
-      :is-revealed="isRevealed"
+    <section
+      ref="reveal"
       :class="$style.intro"
     >
       <!-- Raw text -->
-      <ComponentTag text="Intro" />
-      <ComponentTitle
+      <ComponentReveal
+        :component="ComponentTag"
+        :is-unrevealed="!isRevealed"
+        text="Intro"
+      />
+      <ComponentReveal
+        :component="ComponentTitle"
+        :is-unrevealed="!isRevealed"
         small
         tag="h2"
         :class="$style.title"
@@ -19,20 +23,20 @@
           v-for="(list, index) in lists"
           :key="`list-${index}`"
           :component="ComponentList"
-          :is-revealed="isRevealed"
+          :is-unrevealed="!isRevealed"
           :title="list.title"
           :items="list.items"
-          :style="{ transitionDelay: `${delay * index}s` }"
+          :style="{ transitionDelay: `${revealDelay * index}s` }"
         />
         <ComponentReveal
           ref="paragraph"
           :component="ComponentParagraph"
-          :is-revealed="isRevealed"
+          :is-unrevealed="!isRevealed"
           :text="project.intro.text"
-          :style="{ transitionDelay: `${delay * lists.length}s` }"
+          :style="{ transitionDelay: `${revealDelay * lists.length}s` }"
         />
       </div>
-    </ComponentReveal>
+    </section>
     <template v-for="(section, index) in project.sections">
       <ComponentScreen
         v-if="section.screen"
@@ -74,17 +78,17 @@ import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Screen as ComponentScreen } from '@/components/Screen'
 import { Title as ComponentTitle } from '@/components/Title'
+import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Project',
   components: {
     ComponentBanner,
     ComponentGallery,
-    ComponentTag,
     ComponentReveal,
     ComponentScreen,
-    ComponentTitle,
   },
+  mixins: [MixinReveal],
   props: {
     project: {
       type: Object,
@@ -95,9 +99,8 @@ export default {
     return {
       ComponentList,
       ComponentTag,
+      ComponentTitle,
       ComponentParagraph,
-      delay: 0.25,
-      isRevealed: false,
       scrollY: 0,
       windowHeight: 0,
     }
@@ -120,19 +123,6 @@ export default {
     window.addEventListener('resize', this.resize)
     window.addEventListener('scroll', this.scroll)
     this.resize()
-
-    new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio > observer.thresholds[0]) {
-          this.isRevealed = true
-          observer.unobserve(entry.target)
-        }
-      })
-    }, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
-    }).observe(this.$refs.intro.$el)
   },
   destroyed() {
     window.removeEventListener('resize', this.resize)

@@ -5,7 +5,7 @@
     :class="[
       $style.container,
       {
-        [$style.isUnrevealed]: !isRevealed,
+        [$style.isUnrevealed]: isUnrevealed,
       }
     ]"
   >
@@ -22,7 +22,7 @@ export default {
       type: [String, Object],
       required: true,
     },
-    isRevealed: {
+    isUnrevealed: {
       type: Boolean,
       required: true,
     },
