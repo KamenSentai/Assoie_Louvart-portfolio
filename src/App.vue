@@ -3,7 +3,7 @@
     :class="[
       $style.container,
       {
-        [$style.isScreen]: $isHome,
+        [$style.isScreen]: $isHome || $isAbout,
       }
     ]"
   >
@@ -38,6 +38,10 @@ export default {
 
   &.isScreen {
     overflow: hidden;
+
+    @include bp(sm up) {
+      max-height: 100%;
+    }
   }
 }
 </style>

@@ -1,9 +1,11 @@
 $colors: (
   dark: #041D23,
+  main: #034959,
   light: #F5F7FA,
   white: #FDFDFE,
 );
 
 $dark: map-get($colors, dark);
+$main: map-get($colors, main);
 $light: map-get($colors, light);
 $white: map-get($colors, white);

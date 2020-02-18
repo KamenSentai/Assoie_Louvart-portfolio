@@ -1,24 +1,36 @@
 <template>
-  <aside :class="$style.container">
-    <div :class="$style.wrapper">
-      <a
-        v-for="social in socials"
-        :key="social.name"
-        rel="noopener noreferrer"
-        target="_blank"
-        :href="social.link"
-        :title="social.name"
-        :class="$style.link"
-      >
+  <aside
+    ref="reveal"
+    :class="$style.container"
+  >
+    <ComponentReveal
+      v-for="(social, i) in socials"
+      :key="social.name"
+      component="a"
+      :is-unrevealed="!isRevealed"
+      rel="noopener noreferrer"
+      target="_blank"
+      :href="social.link"
+      :title="social.name"
+      :style="{ transitionDelay: `${revealDelay * i}s` }"
+    >
+      <span :class="$style.link">
         {{ social.name }}
-      </a>
-    </div>
+      </span>
+    </ComponentReveal>
   </aside>
 </template>
 
 <script>
+import { Reveal as ComponentReveal } from '@/components/Reveal'
+import MixinReveal from '@/mixins/components/reveal'
+
 export default {
   name: 'Sidebar',
+  components: {
+    ComponentReveal,
+  },
+  mixins: [MixinReveal],
   props: {
     socials: {
       type: Array,
@@ -30,18 +42,15 @@ export default {
 
 <style lang="scss" module>
 .container {
-  padding-top: 16rem;
-}
-
-.wrapper {
   position: sticky;
-  top: 6rem;
+  top: 0;
+  bottom: 0;
   display: grid;
-  grid-gap: 6rem;
+  grid-gap: 5rem;
   align-content: flex-start;
 
   @include bp(lg) {
-    grid-gap: 5rem;
+    grid-gap: 4rem;
   }
 
   @include bp(md) {
@@ -54,13 +63,18 @@ export default {
   font-size: 6rem;
   font-family: $font-title;
   text-transform: uppercase;
+  transition: color $smooth;
 
   @include bp(lg) {
     font-size: 5rem;
   }
 
   @include bp(md) {
-    font-size: 3rem;
+    font-size: 4rem;
+  }
+
+  &:hover {
+    color: $main;
   }
 }
 </style>

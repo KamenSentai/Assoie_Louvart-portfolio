@@ -78,8 +78,11 @@ export default {
   transition: transform $smooth-slower, opacity $smooth-slower;
 
   &.isHidden {
-    transform: translateY(12.5%);
     opacity: 0;
+
+    @include bp(sm up) {
+      transform: translateY(12.5%);
+    }
 
     .wrapper.isActive .title {
       transform: translateY(25%);
