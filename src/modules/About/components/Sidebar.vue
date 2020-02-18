@@ -1,18 +1,16 @@
 <template>
   <aside :class="$style.container">
-    <div :class="$style.wrapper">
-      <a
-        v-for="social in socials"
-        :key="social.name"
-        rel="noopener noreferrer"
-        target="_blank"
-        :href="social.link"
-        :title="social.name"
-        :class="$style.link"
-      >
-        {{ social.name }}
-      </a>
-    </div>
+    <a
+      v-for="social in socials"
+      :key="social.name"
+      rel="noopener noreferrer"
+      target="_blank"
+      :href="social.link"
+      :title="social.name"
+      :class="$style.link"
+    >
+      {{ social.name }}
+    </a>
   </aside>
 </template>
 
@@ -30,18 +28,15 @@ export default {
 
 <style lang="scss" module>
 .container {
-  padding-top: 16rem;
-}
-
-.wrapper {
   position: sticky;
-  top: 6rem;
+  top: 0;
+  bottom: 0;
   display: grid;
-  grid-gap: 6rem;
+  grid-gap: 5rem;
   align-content: flex-start;
 
   @include bp(lg) {
-    grid-gap: 5rem;
+    grid-gap: 4rem;
   }
 
   @include bp(md) {
@@ -60,7 +55,7 @@ export default {
   }
 
   @include bp(md) {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 </style>
