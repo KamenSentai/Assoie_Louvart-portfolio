@@ -1,22 +1,36 @@
 <template>
-  <aside :class="$style.container">
-    <a
-      v-for="social in socials"
+  <aside
+    ref="reveal"
+    :class="$style.container"
+  >
+    <ComponentReveal
+      v-for="(social, i) in socials"
       :key="social.name"
+      component="a"
+      :is-unrevealed="!isRevealed"
       rel="noopener noreferrer"
       target="_blank"
       :href="social.link"
       :title="social.name"
-      :class="$style.link"
+      :style="{ transitionDelay: `${revealDelay * i}s` }"
     >
-      {{ social.name }}
-    </a>
+      <span :class="$style.link">
+        {{ social.name }}
+      </span>
+    </ComponentReveal>
   </aside>
 </template>
 
 <script>
+import { Reveal as ComponentReveal } from '@/components/Reveal'
+import MixinReveal from '@/mixins/components/reveal'
+
 export default {
   name: 'Sidebar',
+  components: {
+    ComponentReveal,
+  },
+  mixins: [MixinReveal],
   props: {
     socials: {
       type: Array,
@@ -49,6 +63,7 @@ export default {
   font-size: 6rem;
   font-family: $font-title;
   text-transform: uppercase;
+  transition: color $smooth;
 
   @include bp(lg) {
     font-size: 5rem;
@@ -56,6 +71,10 @@ export default {
 
   @include bp(md) {
     font-size: 4rem;
+  }
+
+  &:hover {
+    color: $main;
   }
 }
 </style>

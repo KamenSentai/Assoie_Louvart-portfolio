@@ -5,6 +5,7 @@
     :class="[
       $style.container,
       {
+        [$style.isLower]: isLower,
         [$style.isUnrevealed]: isUnrevealed,
       }
     ]"
@@ -22,6 +23,10 @@ export default {
       type: [String, Object],
       required: true,
     },
+    isLower: {
+      type: Boolean,
+      default: false,
+    },
     isUnrevealed: {
       type: Boolean,
       required: true,
@@ -33,6 +38,10 @@ export default {
 <style lang="scss" module>
 .container {
   transition: transform $smooth-slower, opacity $smooth-slower;
+}
+
+.isLower.isUnrevealed {
+  transform: translateY(1.25rem);
 }
 
 .isUnrevealed {

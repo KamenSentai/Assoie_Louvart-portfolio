@@ -37,8 +37,11 @@ export default {
   min-height: 100%;
 
   &.isScreen {
-    max-height: 100%;
     overflow: hidden;
+
+    @include bp(sm up) {
+      max-height: 100%;
+    }
   }
 }
 </style>

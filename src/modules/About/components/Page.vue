@@ -1,15 +1,20 @@
 <template>
-  <section>
-    <ComponentTitle
+  <section ref="reveal">
+    <ComponentReveal
+      :component="ComponentTitle"
+      :is-unrevealed="!isRevealed"
       :large="!index"
       :small="!!index"
       :tag="section.title.tag"
       :text="section.title.text"
       :class="$style.title"
     />
-    <ComponentParagraph
+    <ComponentReveal
       v-if="section.paragraph"
+      :component="ComponentParagraph"
+      :is-unrevealed="!isRevealed"
       :text="section.paragraph"
+      :style="{ transitionDelay: `${revealDelay}s` }"
     />
     <div
       v-else-if="section.list"
@@ -26,28 +31,48 @@
         ]"
       >
         <template v-if="section.list.class === 'grid'">
-          <span
+          <ComponentReveal
             v-for="(text, k) in item"
             :key="`text-${index}-${j}-${k}`"
+            component="span"
+            is-lower
+            :is-unrevealed="!isRevealed"
+            :style="{ transitionDelay: `${revealDelay * (j + k + 1)}s` }"
           >
             {{ text }}
-          </span>
+          </ComponentReveal>
         </template>
         <template v-if="section.list.class === 'link'">
-          <ComponentIcon
+          <ComponentReveal
             v-if="item.icon"
             :name="item.icon"
             height="20px"
+            :component="ComponentIcon"
+            is-lower
+            :is-unrevealed="!isRevealed"
+            :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
           />
-          <span v-else>{{ item.name }}</span>
-          <a
+          <ComponentReveal
+            v-else
+            component="span"
+            is-lower
+            :is-unrevealed="!isRevealed"
+            :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
+          >
+            {{ item.name }}
+          </ComponentReveal>
+          <ComponentReveal
             rel="noopener noreferrer"
             target="_blank"
             :href="item.link"
             :title="item.title"
+            component="a"
+            is-lower
+            :is-unrevealed="!isRevealed"
+            :style="{ transitionDelay: `${revealDelay * (j + 2)}s` }"
           >
             {{ item.title }}
-          </a>
+          </ComponentReveal>
         </template>
       </div>
     </div>
@@ -57,15 +82,16 @@
 <script>
 import { Icon as ComponentIcon } from '@/components/Icon'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
+import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
+import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Page',
   components: {
-    ComponentIcon,
-    ComponentParagraph,
-    ComponentTitle,
+    ComponentReveal,
   },
+  mixins: [MixinReveal],
   props: {
     index: {
       type: Number,
@@ -75,6 +101,13 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      ComponentIcon,
+      ComponentParagraph,
+      ComponentTitle,
+    }
   },
 }
 </script>
