@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      rate: 25,
+      rate: 12.5,
     }
   },
   computed: {
@@ -42,7 +42,7 @@ export default {
       const delta = rate * ((scrollY - from) / (to - from) - 0.5)
 
       return {
-        transform: `translateY(${delta}%) scale(1.${rate})`,
+        transform: `translateY(${delta}%) scale(1.${rate.toString().split('.').join('')})`,
       }
     },
   },
