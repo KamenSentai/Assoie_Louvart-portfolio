@@ -92,7 +92,7 @@ export default {
 }
 
 .wrapper {
-  transition-timing-function: ease-in-out;
+  transition-timing-function: $easing;
   will-change: transform, opacity;
   @include overlay;
   @include centralizer;

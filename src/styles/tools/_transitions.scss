@@ -1,6 +1,8 @@
-$smooth-quicker: .125s ease-in-out;
-$smooth-quick: .25s ease-in-out;
-$smooth: .5s ease-in-out;
-$smooth-slow: .75s ease-in-out;
-$smooth-slower: 1s ease-in-out;
-$smooth-slowest: 1.5s ease-in-out;
+$easing: ease-in-out;
+
+$smooth-quicker: .125s $easing;
+$smooth-quick: .25s $easing;
+$smooth: .5s $easing;
+$smooth-slow: .75s $easing;
+$smooth-slower: 1s $easing;
+$smooth-slowest: 1.5s $easing;

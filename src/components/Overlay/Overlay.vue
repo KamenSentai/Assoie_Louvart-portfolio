@@ -36,7 +36,7 @@ export default {
 <style lang="scss" module>
 .overlay {
   transform: scaleY(0);
-  transition-timing-function: ease-in-out;
+  transition-timing-function: $easing;
   transition-property: transform;
   pointer-events: none;
   will-change: transform;
