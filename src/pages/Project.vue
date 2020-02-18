@@ -6,6 +6,7 @@
     <ModuleProject :project="project" />
     <ModuleFooter
       :cover="next.cover"
+      :is-clickable="isClickable"
       :name="next.name"
       :slug="next.slug"
       @mouseover="show"
@@ -22,7 +23,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import ModuleFooter from '@/modules/Footer'
 import ModuleProject from '@/modules/Project'
-import MixinPage from '@/mixins/pages/page'
+import MixinPage from '@/mixins/components/page'
 
 export default {
   name: 'Project',
@@ -39,6 +40,7 @@ export default {
   },
   data() {
     return {
+      isClickable: true,
       isNotFound: false,
     }
   },
@@ -55,11 +57,14 @@ export default {
     project({ index }) {
       this.updateIndex(index)
       this.$nextTick(() => {
+        this.isClickable = true
         this.mount()
+        this.hide()
       })
     },
   },
   beforeRouteUpdate(_, __, next) {
+    this.isClickable = false
     this.hide()
     this.cover(next)
   },

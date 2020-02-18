@@ -3,13 +3,11 @@
     <component
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
-      :class="$style.title"
+      :class="$style.link"
       :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
     >
       <!-- Raw text -->
-      <span :class="$style.link">
-        {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
-      </span>
+      {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
     </component>
     <router-link
       :to="{ name: $isAbout ? 'home' : 'about' }"
@@ -38,15 +36,6 @@ export default {
   @include bp(sm) {
     padding: 3rem 2rem;
   }
-}
-
-.title {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 1rem;
-  align-items: center;
-  font-size: 0;
-  cursor: pointer;
 }
 
 .link {

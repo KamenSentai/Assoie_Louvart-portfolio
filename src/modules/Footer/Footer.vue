@@ -1,5 +1,6 @@
 <template>
-  <router-link
+  <component
+    :is="isClickable ? 'router-link' : 'div'"
     :to="{ name: 'project', params: { slug } }"
     :class="$style.container"
     :title="name"
@@ -12,7 +13,7 @@
       @mouseout="$emit('mouseout', $event)"
     >
     <span :class="$style.text">{{ name }}</span>
-  </router-link>
+  </component>
 </template>
 
 <script>
@@ -21,6 +22,10 @@ export default {
   props: {
     cover: {
       type: String,
+      required: true,
+    },
+    isClickable: {
+      type: Boolean,
       required: true,
     },
     name: {
