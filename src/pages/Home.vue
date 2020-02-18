@@ -24,8 +24,11 @@ export default {
   },
   beforeRouteLeave(to, __, next) {
     this.hide()
+    this.repulse()
 
-    if (to.name === 'project') {
+    if (to.name === 'about') {
+      this.expand(next)
+    } else if (to.name === 'project') {
       this.cover(next)
     } else {
       next()
@@ -50,7 +53,7 @@ export default {
   methods: {
     ...mapActions('loading', ['mount']),
     ...mapActions('overlay', { nailOverlay: 'nail', showOverlay: 'show' }),
-    ...mapActions('pin', ['cover', 'hide']),
+    ...mapActions('pin', ['cover', 'expand', 'hide', 'repulse']),
   },
 }
 </script>

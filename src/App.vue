@@ -3,6 +3,7 @@
     :class="[
       $style.container,
       {
+        ['theme-dark']: $isAbout || $isProject,
         [$style.isScreen]: $isHome || $isAbout,
       }
     ]"

@@ -4,7 +4,6 @@
     :class="[
       $style.container,
       {
-        ['theme-dark']: $isAbout || $isProject,
         [$style.isFull]: $isProject,
         [$style.isInactive]: !isCompleted || !isMounted || !areLoaded,
       }
