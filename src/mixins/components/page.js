@@ -2,6 +2,9 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   beforeRouteLeave(to, __, next) {
+    this.hide()
+    this.repulse()
+
     if (to.name === 'home') {
       this.hideOverlay()
 
@@ -9,6 +12,8 @@ export default {
         this.destroy()
         next()
       }, this.duration)
+    } else if (to.name === 'about') {
+      this.expand(next)
     } else {
       next()
     }
@@ -23,5 +28,6 @@ export default {
   methods: {
     ...mapActions('loading', ['destroy', 'mount']),
     ...mapActions('overlay', { hideOverlay: 'hide', nailOverlay: 'nail' }),
+    ...mapActions('pin', ['expand', 'hide', 'repulse']),
   },
 }

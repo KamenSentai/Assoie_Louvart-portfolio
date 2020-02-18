@@ -1,18 +1,18 @@
 <template>
   <div
+    v-if="!$isAbout"
     :class="[
       $style.container,
       {
+        [$style.isAttracted]: isAttracted,
         [$style.isCovering]: isCovering,
         [$style.isDisplayed]: isDisplayed,
+        [$style.isExpanding]: isExpanding,
       }
     ]"
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
   >
-    <div
-      class="theme-dark"
-      :class="$style.wrapper"
-    >
+    <div :class="$style.wrapper">
       <!-- Raw text -->
       <span :class="$style.text">Discover</span>
     </div>
@@ -30,7 +30,13 @@ export default {
       position: { x: 0, y: 0 },
     }
   },
-  computed: mapGetters('pin', ['isCovering', 'isDisplayed']),
+  computed: mapGetters('pin', [
+    'isAttracted',
+    'isCovering',
+    'isDisplayed',
+    'isExpanding',
+    'target',
+  ]),
   created() {
     const widthCenter = window.innerWidth / 2
     const heightCenter = window.innerHeight / 2
@@ -53,7 +59,7 @@ export default {
       requestAnimationFrame(this.loop)
     },
     mouseMove({ clientX: x, clientY: y }) {
-      this.mouse = { x, y }
+      this.mouse = this.target || { x, y }
     },
   },
 }
@@ -70,12 +76,21 @@ export default {
     z-index: 1;
   }
 
-  &.isCovering .wrapper {
-    width: calc(2 * (100vw + 100vh));
-    height: calc(2 * (100vw + 100vh));
-    transition: width $smooth-slowest, height $smooth-slowest, border-width $smooth-quick;
+  &.isCovering,
+  &.isExpanding {
+
+    .wrapper {
+      width: calc(2 * (100vw + 100vh));
+      height: calc(2 * (100vw + 100vh));
+      transition: width $smooth-slowest,
+        height $smooth-slowest,
+        background $smooth,
+        border-width $smooth-quick
+      ;
+    }
   }
 
+  &.isAttracted,
   &.isDisplayed {
 
     .wrapper {
@@ -89,6 +104,29 @@ export default {
       transition-delay: .25s;
       transition-duration: .25s;
     }
+  }
+
+  &.isAttracted,
+  &.isExpanding {
+
+    .wrapper {
+      @include theme(main);
+    }
+  }
+
+  &.isAttracted {
+
+    .wrapper {
+      border-width: 0;
+    }
+
+    .text {
+      display: none;
+    }
+  }
+
+  &.isExpanding .wrapper {
+    background: radial-gradient(circle at center, $main, $dark 75%);
   }
 }
 
@@ -107,7 +145,8 @@ export default {
   text-transform: uppercase;
   border: solid 0 $white;
   border-radius: 100%;
-  transition: width $smooth, height $smooth, border-width $smooth;
+  transition: width $smooth, height $smooth, background $smooth, border-width $smooth;
+  @include theme(dark);
 }
 
 .text {

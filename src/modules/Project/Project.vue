@@ -87,6 +87,8 @@ export default {
 .section {
   padding: 10rem 0;
 
+  @include theme(light);
+
   @include bp(md) {
     padding: 4rem 0;
   }

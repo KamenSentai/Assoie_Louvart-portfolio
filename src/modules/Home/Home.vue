@@ -157,6 +157,7 @@ export default {
 .container {
   grid-gap: 4rem 10rem;
   grid-template-columns: 12rem 1fr 12rem;
+  margin-top: 4rem;
 
   @include bp(lg) {
     grid-gap: 2rem 8rem;
