@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
+    <AboutSidebar
+      v-if="!$isMobile"
+      :socials="socials"
+      :class="$style.aside"
+    />
     <div :class="$style.wrapper">
-      <AboutSidebar
-        v-if="!$isMobile"
-        :socials="socials"
-        :class="$style.aside"
-      />
       <main :class="$style.main">
         <template v-for="(section, i) in about">
           <AboutPage
@@ -43,7 +43,19 @@ export default {
 <style lang="scss" module>
 .container {
   position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 16rem;
   overflow: hidden;
+
+  @include bp(lg) {
+    grid-gap: 8rem;
+  }
+
+  @include bp(md up) {
+    grid-auto-columns: 1fr;
+    grid-gap: 4rem;
+  }
 
   &::before,
   &::after {
@@ -69,33 +81,39 @@ export default {
 
 .aside,
 .main {
+  width: 48rem;
   padding: 4rem 0;
-}
-
-.wrapper {
-  display: grid;
-  grid-auto-columns: 48rem;
-  grid-auto-flow: column;
-  grid-gap: 16rem;
-  align-items: flex-start;
-  justify-content: center;
-  max-height: 100%;
-  padding: 0 4rem;
-  overflow: auto;
 
   @include bp(lg) {
-    grid-auto-columns: 40rem;
-    grid-gap: 8rem;
+    width: 40rem;
   }
 
   @include bp(md) {
-    grid-auto-columns: 1fr;
+    width: auto;
+    padding: 4rem;
   }
+}
+
+.aside {
+  justify-self: flex-end;
+  overflow: auto;
+  scrollbar-width: none;
+  ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.wrapper {
+  max-height: 100%;
+  overflow: auto;
 }
 
 .main {
   display: grid;
   grid-gap: 9rem;
+  justify-self: flex-start;
   padding-bottom: 12rem;
 
   @include bp(md) {

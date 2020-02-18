@@ -12,9 +12,10 @@
       target="_blank"
       :href="social.link"
       :title="social.name"
+      :class="$style.link"
       :style="{ transitionDelay: `${revealDelay * i}s` }"
     >
-      <span :class="$style.link">
+      <span :class="$style.text">
         {{ social.name }}
       </span>
     </ComponentReveal>
@@ -58,7 +59,11 @@ export default {
   }
 }
 
-.link {
+.link:last-child {
+  padding-bottom: 4rem;
+}
+
+.text {
   font-weight: 700;
   font-size: 6rem;
   font-family: $font-title;
