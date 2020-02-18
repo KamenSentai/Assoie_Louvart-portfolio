@@ -41,10 +41,7 @@
     "vue-template-compiler": "^2.6.3"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
-    "post-rewrite": "yarn run i18n",
-    "post-merge": "yarn run i18n",
-    "post-checkout": "yarn run i18n"
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [
