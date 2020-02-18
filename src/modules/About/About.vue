@@ -6,7 +6,7 @@
     />
     <div :class="$style.wrapper">
       <template v-for="(section, i) in about">
-        <AboutPart
+        <AboutPage
           v-if="!section.isSocial || $isMobile"
           :key="`section-${i}`"
           :section="section"
@@ -20,12 +20,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Part as AboutPart, Sidebar as AboutSidebar } from './components'
+import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
 
 export default {
   name: 'About',
   components: {
-    AboutPart,
+    AboutPage,
     AboutSidebar,
   },
   computed: {
