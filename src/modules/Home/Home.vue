@@ -33,7 +33,6 @@
       :is-completed="isMounted && isCompleted"
       @click="wheel({ deltaY: 1 })"
     />
-    <slot name="overlay" />
   </ComponentHero>
 </template>
 

@@ -1,11 +1,5 @@
 <template>
-  <ModuleAbout class="theme-dark">
-    <ComponentOverlay
-      slot="overlay"
-      :duration="duration"
-      :is-leaving="isLeaving"
-    />
-  </ModuleAbout>
+  <ModuleAbout class="theme-dark" />
 </template>
 
 <script>

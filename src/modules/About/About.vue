@@ -16,7 +16,6 @@
           />
         </template>
       </main>
-      <slot name="overlay" />
     </div>
   </div>
 </template>

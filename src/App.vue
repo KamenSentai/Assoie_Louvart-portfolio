@@ -11,20 +11,23 @@
     <ModuleJumbotron />
     <router-view />
     <ModulePin />
+    <ModuleOverlay />
   </div>
 </template>
 
 <script>
-import ModulePin from '@/modules/Pin'
 import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
+import ModuleOverlay from '@/modules/Overlay'
+import ModulePin from '@/modules/Pin'
 
 export default {
   name: 'App',
   components: {
-    ModulePin,
     ModuleJumbotron,
     ModuleLoading,
+    ModuleOverlay,
+    ModulePin,
   },
 }
 </script>

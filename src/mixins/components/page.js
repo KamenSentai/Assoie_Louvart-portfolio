@@ -1,19 +1,9 @@
-import { mapActions } from 'vuex'
-import { Overlay as ComponentOverlay } from '@/components/Overlay'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  components: {
-    ComponentOverlay,
-  },
-  data() {
-    return {
-      duration: 1000,
-      isLeaving: false,
-    }
-  },
   beforeRouteLeave(to, __, next) {
     if (to.name === 'home') {
-      this.isLeaving = true
+      this.hideOverlay()
 
       setTimeout(() => {
         this.destroy()
@@ -26,7 +16,12 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.mount()
+      this.nailOverlay('bottom')
     })
   },
-  methods: mapActions('loading', ['destroy', 'mount']),
+  computed: mapGetters('overlay', ['duration']),
+  methods: {
+    ...mapActions('loading', ['destroy', 'mount']),
+    ...mapActions('overlay', { hideOverlay: 'hide', nailOverlay: 'nail' }),
+  },
 }

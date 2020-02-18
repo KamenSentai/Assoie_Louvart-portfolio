@@ -12,10 +12,6 @@
       @mouseover="show"
       @mouseout="hide"
     />
-    <ComponentOverlay
-      :duration="duration"
-      :is-leaving="isLeaving"
-    />
   </div>
 </template>
 
