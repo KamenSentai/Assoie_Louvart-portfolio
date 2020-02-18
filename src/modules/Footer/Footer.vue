@@ -1,8 +1,12 @@
 <template>
-  <component
-    :is="isClickable ? 'router-link' : 'div'"
+  <router-link
     :to="{ name: 'project', params: { slug } }"
-    :class="$style.container"
+    :class="[
+      $style.container,
+      {
+        [$style.isUnclickable]: isCovering,
+      }
+    ]"
     :title="name"
   >
     <img
@@ -13,19 +17,17 @@
       @mouseout="$emit('mouseout', $event)"
     >
     <span :class="$style.text">{{ name }}</span>
-  </component>
+  </router-link>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Footer',
   props: {
     cover: {
       type: String,
-      required: true,
-    },
-    isClickable: {
-      type: Boolean,
       required: true,
     },
     name: {
@@ -37,6 +39,7 @@ export default {
       required: true,
     },
   },
+  computed: mapGetters('pin', ['isCovering']),
 }
 </script>
 
@@ -72,6 +75,10 @@ export default {
       transform: scale(1.3125);
     }
   }
+}
+
+.isUnclickable {
+  pointer-events: none;
 }
 
 .cover {

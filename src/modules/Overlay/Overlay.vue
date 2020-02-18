@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[
-      $style.overlay,
+      $style.container,
       {
-        [$style.isHidding]: isLeaving,
+        [$style.isHidding]: isHidding,
       }
     ]"
     :style="{
@@ -14,29 +14,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Overlay',
-  props: {
-    duration: {
-      type: Number,
-      default: 1000,
-    },
-    isLeaving: {
-      type: Boolean,
-      default: false,
-    },
-    origin: {
-      type: String,
-      default: 'bottom',
-    },
-  },
+  computed: mapGetters('overlay', ['duration', 'isHidding', 'origin']),
 }
 </script>
 
 <style lang="scss" module>
-.overlay {
+.container {
   transform: scaleY(0);
-  transition-timing-function: ease-in-out;
+  transition-timing-function: $easing;
   transition-property: transform;
   pointer-events: none;
   will-change: transform;

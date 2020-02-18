@@ -95,6 +95,8 @@ export default {
 .container {
   padding: 20rem 22rem;
 
+  @include theme(light);
+
   @include bp(lg) {
     padding: 20rem 12rem;
   }

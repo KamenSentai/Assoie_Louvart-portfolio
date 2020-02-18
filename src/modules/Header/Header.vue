@@ -1,5 +1,12 @@
 <template>
-  <div :class="$style.container">
+  <div
+    :class="[
+      $style.container,
+      {
+        [$style.isHidden]: isExpanding,
+      }
+    ]"
+  >
     <component
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
@@ -10,9 +17,17 @@
       {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
     </component>
     <router-link
+      ref="target"
       :to="{ name: $isAbout ? 'home' : 'about' }"
-      :class="$style.link"
+      :class="[
+        $style.link,
+        {
+          [$style.isLightable]: $isHome,
+        }
+      ]"
       :title="$isAbout ? 'Assoïe Louvart' : 'About'"
+      @mouseover.native="show"
+      @mouseleave.native="hide"
     >
       <!-- Raw text -->
       {{ $isAbout ? 'All projects' : 'About' }}
@@ -21,8 +36,34 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'Header',
+  computed: {
+    ...mapGetters('pin', ['isExpanding']),
+    target() {
+      const { $el: target } = this.$refs.target
+
+      return target ? {
+        x: target.offsetLeft + target.clientWidth / 2,
+        y: target.offsetTop + target.clientHeight / 2,
+      } : null
+    },
+  },
+  methods: {
+    ...mapActions('pin', ['attract', 'repulse']),
+    show() {
+      if (!this.$isAbout) {
+        this.attract(this.target)
+      }
+    },
+    hide() {
+      if (!this.$isAbout) {
+        this.repulse()
+      }
+    },
+  },
 }
 </script>
 
@@ -31,16 +72,31 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4rem 8rem;
+  padding: 2rem 6rem;
+  transition: opacity $smooth;
 
   @include bp(sm) {
     padding: 3rem 2rem;
   }
 }
 
+.isHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .link {
+  padding: 2rem;
   font-weight: 400;
   font-size: 1.8rem;
   cursor: pointer;
+}
+
+.isLightable {
+  transition: color $smooth;
+
+  &:hover {
+    color: $white;
+  }
 }
 </style>

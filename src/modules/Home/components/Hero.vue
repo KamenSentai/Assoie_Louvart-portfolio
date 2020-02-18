@@ -21,7 +21,12 @@
       <router-link
         :title="landing.name"
         :to="{ name: 'project', params: { slug: landing.slug } }"
-        :class="$style.link"
+        :class="[
+          $style.link,
+          {
+            [$style.isUnclickable]: isCovering || isExpanding,
+          }
+        ]"
       >
         <div
           :class="$style.frame"
@@ -54,7 +59,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import MixinWrapper from '@/modules/Home/mixins/wrapper'
 
 export default {
@@ -66,6 +71,7 @@ export default {
       required: true,
     },
   },
+  computed: mapGetters('pin', ['isCovering', 'isExpanding']),
   methods: mapActions('pin', ['hide', 'show']),
 }
 </script>
@@ -92,7 +98,7 @@ export default {
 }
 
 .wrapper {
-  transition-timing-function: ease-in-out;
+  transition-timing-function: $easing;
   will-change: transform, opacity;
   @include overlay;
   @include centralizer;
@@ -133,6 +139,10 @@ export default {
       opacity: 1;
     }
   }
+}
+
+.isUnclickable {
+  pointer-events: none;
 }
 
 .frame {

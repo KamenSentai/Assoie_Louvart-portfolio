@@ -123,7 +123,7 @@ export default {
   height: 100%;
   overflow: hidden;
   text-align: center;
-  transition: height ease-in-out;
+  transition: height $easing;
 
   &.isLoaded {
     height: 0;

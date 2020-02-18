@@ -150,7 +150,7 @@ export default {
   transform: translateY(-50%);
   cursor: pointer;
   opacity: 0;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: $easing;
   user-select: none;
 
   @include centralizer;
