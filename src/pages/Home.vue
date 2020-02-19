@@ -16,7 +16,10 @@ export default {
       from: null,
     }
   },
-  computed: mapGetters('overlay', ['duration']),
+  computed: {
+    ...mapGetters('overlay', ['duration']),
+    ...mapGetters('site', ['home']),
+  },
   beforeRouteEnter(_, from, next) {
     next((vm) => {
       vm.from = from.name
@@ -65,11 +68,11 @@ export default {
   },
   metaInfo() {
     return {
-      title: `${this.SPECIALIZATIOON} & ${this.STATUS}`,
+      title: this.home.title,
       meta: [
         {
           name: 'description',
-          content: '',
+          content: this.home.description,
         },
       ],
     }

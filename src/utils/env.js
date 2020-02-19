@@ -1,0 +1,11 @@
+const {
+  VUE_APP_NAME: NAME,
+  VUE_APP_SPECIALIZATION: SPECIALIZATION,
+  VUE_APP_STATUS: STATUS,
+} = process.env
+
+export default {
+  NAME,
+  SPECIALIZATION,
+  STATUS,
+}

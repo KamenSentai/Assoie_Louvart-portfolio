@@ -91,7 +91,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: '',
+          content: this.project.description,
         },
       ],
     }

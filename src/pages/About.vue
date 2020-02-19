@@ -1,8 +1,12 @@
 <template>
-  <ModuleAbout class="theme-dark" />
+  <ModuleAbout
+    class="theme-dark"
+    :content="about.content"
+  />
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ModuleAbout from '@/modules/About'
 import MixinPage from '@/mixins/components/page'
 
@@ -12,13 +16,14 @@ export default {
     ModuleAbout,
   },
   mixins: [MixinPage],
+  computed: mapGetters('site', ['about']),
   metaInfo() {
     return {
-      title: 'About',
+      title: this.about.title,
       meta: [
         {
           name: 'description',
-          content: '',
+          content: this.about.description,
         },
       ],
     }
