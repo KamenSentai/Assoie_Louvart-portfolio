@@ -43,7 +43,7 @@ export default {
     ...mapGetters('pin', ['duration']),
     ...mapGetters('site', ['projects']),
     project() {
-      return this.projects.find(project => project.slug === this.slug)
+      return this.projects.find(project => project.slug === this.slug) || { name: this.UNFOUND }
     },
     next() {
       return this.projects[(this.projects.indexOf(this.project) + 1) % this.projects.length]

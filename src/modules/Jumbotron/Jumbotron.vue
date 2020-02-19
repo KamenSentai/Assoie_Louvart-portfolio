@@ -10,7 +10,7 @@
     ]"
   >
     <ModuleHeader :class="$style.header" />
-    <ComponentHero v-if="$isProject">
+    <ComponentHero v-if="$isProject && project">
       <div :class="$style.cover">
         <div :class="$style.wrapper">
           <img
@@ -66,7 +66,9 @@ export default {
     ...mapGetters('loading', ['isCompleted', 'isMounted']),
     ...mapGetters('site', ['projects']),
     areLoaded() {
-      return !this.$isProject || this.loaded.length === this.project.hero.length
+      return !this.$isProject
+      || !this.project
+      || this.loaded.length === (this.project && this.project.hero.length)
     },
     project() {
       return this.projects.find(project => project.slug === this.$route.params.slug)
