@@ -8,6 +8,9 @@ Vue.mixin({
     SPECIALIZATIOON() {
       return process.env.VUE_APP_SPECIALIZATIOON
     },
+    STATUS() {
+      return process.env.VUE_APP_STATUS
+    },
     $isMobile() {
       return this.$mq === 'xs'
     },

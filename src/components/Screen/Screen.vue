@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      rate: 12.5,
+      rate: 25,
     }
   },
   computed: {
