@@ -33,7 +33,7 @@ export default {
   @include theme(dark);
 
   @include overlay(fixed) {
-    z-index: 1;
+    z-index: 100;
   }
 }
 

@@ -30,12 +30,10 @@
         />
       </svg>
       <div :class="$style.title">
-        <!-- Raw text -->
-        Assoïe Louvart
+        {{ NAME }}
       </div>
       <div :class="$style.subtitle">
-        <!-- Raw text -->
-        Digital designer
+        {{ SPECIALIZATIOON }}
       </div>
       <div :class="$style.tag">
         {{ progression }}

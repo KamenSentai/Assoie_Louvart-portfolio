@@ -2,6 +2,12 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
+    NAME() {
+      return process.env.VUE_APP_NAME
+    },
+    SPECIALIZATIOON() {
+      return process.env.VUE_APP_SPECIALIZATIOON
+    },
     $isMobile() {
       return this.$mq === 'xs'
     },

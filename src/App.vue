@@ -27,6 +27,12 @@ export default {
     ModuleLoading,
     ModuleOverlay,
   },
+  metaInfo() {
+    return {
+      title: 'Portfolio',
+      titleTemplate: `${this.NAME} — %s`,
+    }
+  },
 }
 </script>
 

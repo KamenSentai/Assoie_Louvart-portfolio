@@ -12,5 +12,16 @@ export default {
     ModuleAbout,
   },
   mixins: [MixinPage],
+  metaInfo() {
+    return {
+      title: 'About',
+      meta: [
+        {
+          name: 'description',
+          content: '',
+        },
+      ],
+    }
+  },
 }
 </script>
