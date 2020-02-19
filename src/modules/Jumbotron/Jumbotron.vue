@@ -143,6 +143,7 @@ export default {
 }
 
 .header {
+  position: relative;
   z-index: 1;
 }
 

@@ -136,6 +136,10 @@ export default {
 
     &.isExpanding .wrapper {
       background: radial-gradient(circle at center, $main, $dark 75%);
+
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }
@@ -162,6 +166,15 @@ export default {
     opacity $smooth
   ;
   @include theme(dark);
+
+  &::after {
+    background-color: $dark;
+    border-radius: 100%;
+    opacity: 0;
+    transition: opacity $smooth .5s;
+    content: "";
+    @include overlay;
+  }
 }
 
 .text {
