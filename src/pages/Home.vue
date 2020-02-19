@@ -27,9 +27,15 @@ export default {
     this.repulse()
 
     if (to.name === 'about') {
-      this.expand(next)
+      this.expand(() => {
+        this.deactivate()
+        next()
+      })
     } else if (to.name === 'project') {
-      this.cover(next)
+      this.cover(() => {
+        this.deactivate()
+        next()
+      })
     } else {
       next()
     }
@@ -37,6 +43,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (!this.from) {
+        this.activate()
         this.mount()
       } else {
         this.$nextTick(() => {
@@ -44,6 +51,7 @@ export default {
           this.showOverlay()
 
           setTimeout(() => {
+            this.activate()
             this.mount()
           }, this.duration)
         })
@@ -53,7 +61,7 @@ export default {
   methods: {
     ...mapActions('loading', ['mount']),
     ...mapActions('overlay', { nailOverlay: 'nail', showOverlay: 'show' }),
-    ...mapActions('pin', ['cover', 'expand', 'hide', 'repulse']),
+    ...mapActions('pin', ['activate', 'cover', 'deactivate', 'expand', 'hide', 'repulse']),
   },
 }
 </script>

@@ -1,4 +1,7 @@
 export default {
+  activate({ commit }) {
+    commit('activate')
+  },
   attract({ commit, state }, target) {
     if (!state.isCovering) {
       commit('attract', target)
@@ -25,6 +28,9 @@ export default {
         callback()
       }, state.duration)
     }
+  },
+  deactivate({ commit }) {
+    commit('deactivate')
   },
   disappear({ commit }) {
     commit('disappear')

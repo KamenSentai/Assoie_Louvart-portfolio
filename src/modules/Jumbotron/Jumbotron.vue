@@ -37,12 +37,14 @@
         @click="scroll"
       />
     </ComponentHero>
+    <ModulePin />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import ModuleHeader from '@/modules/Header'
+import ModulePin from '@/modules/Pin'
 import { Hero as ComponentHero } from '@/components/Hero'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
 import { easings, scrollTo } from '@/utils/scroll'
@@ -51,6 +53,7 @@ export default {
   name: 'Jumbotron',
   components: {
     ModuleHeader,
+    ModulePin,
     ComponentHero,
     ComponentIndicator,
   },
@@ -91,7 +94,7 @@ export default {
 
 <style lang="scss" module>
 .container {
-  z-index: 1;
+  z-index: 10;
 }
 
 .isFull {
@@ -139,6 +142,10 @@ export default {
   transition: transform $smooth-slow, opacity $smooth-slow;
 }
 
+.header {
+  z-index: 1;
+}
+
 .cover {
   padding: 0 6rem;
 
@@ -175,7 +182,6 @@ export default {
   &:nth-of-type(1),
   &:nth-of-type(2) {
     position: absolute;
-    z-index: -1;
   }
 
   &:nth-of-type(1) {
@@ -186,6 +192,10 @@ export default {
   &:nth-of-type(2) {
     transform: rotate(3.5deg) scale(.8375) translate(-32%, 7%);
     transition-delay: .375s;
+  }
+
+  &:nth-of-type(3) {
+    position: relative;
   }
 }
 

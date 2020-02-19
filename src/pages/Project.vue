@@ -40,6 +40,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('pin', ['duration']),
     ...mapGetters('site', ['projects']),
     project() {
       return this.projects.find(project => project.slug === this.slug)
@@ -54,12 +55,18 @@ export default {
       this.$nextTick(() => {
         this.mount()
         this.hide()
+        setTimeout(() => {
+          this.activate()
+        }, this.duration)
       })
     },
   },
   beforeRouteUpdate(_, __, next) {
     this.hide()
-    this.cover(next)
+    this.cover(() => {
+      this.deactivate()
+      next()
+    })
   },
   created() {
     this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
@@ -68,9 +75,14 @@ export default {
       this.updateIndex(this.project.index)
     }
   },
+  mounted() {
+    setTimeout(() => {
+      this.activate()
+    }, this.duration)
+  },
   methods: {
     ...mapActions('loading', ['mount']),
-    ...mapActions('pin', ['cover', 'hide', 'show']),
+    ...mapActions('pin', ['activate', 'cover', 'deactivate', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
   },
 }

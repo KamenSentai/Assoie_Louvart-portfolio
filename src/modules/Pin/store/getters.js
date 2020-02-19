@@ -2,6 +2,9 @@ export default {
   duration(state) {
     return state.duration
   },
+  isActivated(state) {
+    return state.isActivated
+  },
   isAttracted(state) {
     return state.isAttracted && !state.isExpanding
   },
