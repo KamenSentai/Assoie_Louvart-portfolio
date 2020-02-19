@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      frameRatio: 0.9375,
+      frameRatio: 0.75,
       imageRatio: 1,
     }
   },
@@ -43,8 +43,8 @@ export default {
     transform() {
       const { frameRatio, scrollY, windowHeight } = this
       const { clientHeight, offsetTop } = this.$refs.container || { clientHeight: 0, offsetTop: 0 }
-      const from = offsetTop - (windowHeight - clientHeight)
-      const to = offsetTop
+      const from = offsetTop - windowHeight
+      const to = offsetTop + clientHeight
       const delta = ((scrollY - from) / (to - from) - 0.5) * (1 - frameRatio) * 100
 
       return {
