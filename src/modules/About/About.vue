@@ -15,6 +15,23 @@
             :index="i"
           />
         </template>
+        <ComponentReveal
+          ref="reveal"
+          component="a"
+          :is-unrevealed="!isRevealed"
+          :class="$style.credits"
+        >
+          <span class="half-opacity">{{ text.ante }}</span>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            :href="coder.site"
+            class="link"
+          >
+            {{ coder.name }}
+          </a>
+          <span>{{ text.post }}</span>
+        </ComponentReveal>
       </main>
     </div>
   </div>
@@ -22,20 +39,39 @@
 
 <script>
 import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
+import { Reveal as ComponentReveal } from '@/components/Reveal'
+import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'About',
   components: {
     AboutPage,
     AboutSidebar,
+    ComponentReveal,
   },
+  mixins: [MixinReveal],
   props: {
     content: {
       type: Array,
       required: true,
     },
+    credits: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
+    coder() {
+      return this.credits.coder
+    },
+    text() {
+      const [ante, post] = this.credits.text.split(this.credits.separator)
+
+      return {
+        ante,
+        post,
+      }
+    },
     socials() {
       return this.content.find(section => section.isSocial).list.items
     },
@@ -117,7 +153,6 @@ export default {
   display: grid;
   grid-gap: 9rem;
   justify-self: flex-start;
-  padding-bottom: 12rem;
 
   @include bp(md) {
     grid-gap: 7.5rem;
@@ -125,7 +160,22 @@ export default {
 
   @include bp(sm) {
     grid-gap: 6rem;
-    padding-bottom: 8rem;
+  }
+}
+
+.credits {
+  margin-top: 9rem;
+
+  @include bp(lg) {
+    margin-top: 8rem;
+  }
+
+  @include bp(md) {
+    margin-top: 7rem;
+  }
+
+  @include bp(sm) {
+    margin-top: 6rem;
   }
 }
 </style>

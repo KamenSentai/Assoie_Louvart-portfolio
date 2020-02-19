@@ -55,7 +55,7 @@ export default {
 }
 
 .indicator {
-  animation: slide 5s infinite 1.5s;
+  animation: slide 3.75s infinite 2.5s;
 }
 
 @keyframes slide {
@@ -65,17 +65,17 @@ export default {
     opacity: 1;
   }
 
-  10% {
+  15% {
     transform: translateY(100%);
     opacity: 0;
   }
 
-  20% {
+  30% {
     transform: translateY(-100%);
     opacity: 0;
   }
 
-  30% {
+  45% {
     transform: translateY(0);
     opacity: 1;
   }
