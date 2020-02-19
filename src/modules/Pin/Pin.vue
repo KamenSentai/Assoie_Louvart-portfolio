@@ -135,7 +135,7 @@ export default {
     }
 
     &.isExpanding .wrapper {
-      background: radial-gradient(circle at center, $main, $dark 75%);
+      background: radial-gradient(circle at center, $main, $dark);
 
       &::after {
         opacity: 1;
@@ -171,7 +171,7 @@ export default {
     background-color: $dark;
     border-radius: 100%;
     opacity: 0;
-    transition: opacity $smooth .5s;
+    transition: opacity $smooth;
     content: "";
     @include overlay;
   }

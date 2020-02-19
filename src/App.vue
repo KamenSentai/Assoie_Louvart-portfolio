@@ -29,7 +29,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'Portfolio',
+      title: `${this.SPECIALIZATIOON} & ${this.STATUS}`,
       titleTemplate: `${this.NAME} — %s`,
     }
   },

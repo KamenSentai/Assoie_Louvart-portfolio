@@ -65,7 +65,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'Portfolio',
+      title: `${this.SPECIALIZATIOON} & ${this.STATUS}`,
       meta: [
         {
           name: 'description',
