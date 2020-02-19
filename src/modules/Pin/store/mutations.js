@@ -1,4 +1,7 @@
 export default {
+  activate(state) {
+    state.isActivated = true
+  },
   attract(state, target) {
     state.isAttracted = true
     state.target = target
@@ -8,6 +11,9 @@ export default {
   },
   expand(state) {
     state.isExpanding = true
+  },
+  deactivate(state) {
+    state.isActivated = false
   },
   disappear(state) {
     state.isCovering = false

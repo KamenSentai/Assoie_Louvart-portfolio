@@ -6,6 +6,7 @@ export default {
     this.repulse()
 
     if (to.name === 'home') {
+      this.deactivate()
       this.hideOverlay()
 
       setTimeout(() => {
@@ -13,7 +14,10 @@ export default {
         next()
       }, this.duration)
     } else if (to.name === 'about') {
-      this.expand(next)
+      this.expand(() => {
+        this.deactivate()
+        next()
+      })
     } else {
       next()
     }
@@ -28,6 +32,6 @@ export default {
   methods: {
     ...mapActions('loading', ['destroy', 'mount']),
     ...mapActions('overlay', { hideOverlay: 'hide', nailOverlay: 'nail' }),
-    ...mapActions('pin', ['expand', 'hide', 'repulse']),
+    ...mapActions('pin', ['deactivate', 'expand', 'hide', 'repulse']),
   },
 }

@@ -1,9 +1,9 @@
 <template>
   <div
-    v-if="!$isAbout"
     :class="[
       $style.container,
       {
+        [$style.isActivated]: isActivated,
         [$style.isAttracted]: isAttracted,
         [$style.isCovering]: isCovering,
         [$style.isDisplayed]: isDisplayed,
@@ -31,6 +31,7 @@ export default {
     }
   },
   computed: mapGetters('pin', [
+    'isActivated',
     'isAttracted',
     'isCovering',
     'isDisplayed',
@@ -68,65 +69,74 @@ export default {
 <style lang="scss" module>
 .container {
   position: fixed;
+  top: 0;
   user-select: none;
   will-change: transform;
 
-  &.isCovering,
-  &.isDisplayed {
-    z-index: 1;
+  &:not(.isActivated) .wrapper {
+    opacity: 0;
   }
 
-  &.isCovering,
-  &.isExpanding {
+  &.isActivated {
 
-    .wrapper {
-      width: calc(2 * (100vw + 100vh));
-      height: calc(2 * (100vw + 100vh));
-      transition: width $smooth-slowest,
-        height $smooth-slowest,
-        background $smooth,
-        border-width $smooth-quick
-      ;
-    }
-  }
-
-  &.isAttracted,
-  &.isDisplayed {
-
-    .wrapper {
-      width: 10rem;
-      height: 10rem;
-      border-width: .1rem;
+    &.isCovering,
+    &.isDisplayed {
+      z-index: 1;
     }
 
-    .text {
-      opacity: 1;
-      transition-delay: .25s;
-      transition-duration: .25s;
-    }
-  }
+    &.isCovering,
+    &.isExpanding {
 
-  &.isAttracted,
-  &.isExpanding {
-
-    .wrapper {
-      @include theme(main);
-    }
-  }
-
-  &.isAttracted {
-
-    .wrapper {
-      border-width: 0;
+      .wrapper {
+        width: calc(2 * (100vw + 100vh));
+        height: calc(2 * (100vw + 100vh));
+        transition: width $smooth-slowest,
+          height $smooth-slowest,
+          background $smooth,
+          border-width $smooth-quick,
+          opacity $smooth
+        ;
+      }
     }
 
-    .text {
-      display: none;
-    }
-  }
+    &.isAttracted,
+    &.isDisplayed {
 
-  &.isExpanding .wrapper {
-    background: radial-gradient(circle at center, $main, $dark 75%);
+      .wrapper {
+        width: 10rem;
+        height: 10rem;
+        border-width: .1rem;
+      }
+
+      .text {
+        opacity: 1;
+        transition-delay: .25s;
+        transition-duration: .25s;
+      }
+    }
+
+    &.isAttracted,
+    &.isExpanding {
+
+      .wrapper {
+        @include theme(main);
+      }
+    }
+
+    &.isAttracted {
+
+      .wrapper {
+        border-width: 0;
+      }
+
+      .text {
+        display: none;
+      }
+    }
+
+    &.isExpanding .wrapper {
+      background: radial-gradient(circle at center, $main, $dark 75%);
+    }
   }
 }
 
@@ -145,7 +155,12 @@ export default {
   text-transform: uppercase;
   border: solid 0 $white;
   border-radius: 100%;
-  transition: width $smooth, height $smooth, background $smooth, border-width $smooth;
+  transition: width $smooth,
+    height $smooth,
+    background $smooth,
+    border-width $smooth,
+    opacity $smooth
+  ;
   @include theme(dark);
 }
 

@@ -11,7 +11,6 @@
     <ModuleLoading />
     <ModuleJumbotron />
     <router-view />
-    <ModulePin />
     <ModuleOverlay />
   </div>
 </template>
@@ -20,7 +19,6 @@
 import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
 import ModuleOverlay from '@/modules/Overlay'
-import ModulePin from '@/modules/Pin'
 
 export default {
   name: 'App',
@@ -28,7 +26,6 @@ export default {
     ModuleJumbotron,
     ModuleLoading,
     ModuleOverlay,
-    ModulePin,
   },
 }
 </script>
