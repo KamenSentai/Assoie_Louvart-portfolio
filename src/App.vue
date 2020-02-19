@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ModuleJumbotron from '@/modules/Jumbotron'
 import ModuleLoading from '@/modules/Loading'
 import ModuleOverlay from '@/modules/Overlay'
@@ -27,9 +28,27 @@ export default {
     ModuleLoading,
     ModuleOverlay,
   },
+  mounted() {
+    window.addEventListener('resize', this.resize)
+    window.addEventListener('scroll', this.scroll)
+    this.resize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resize)
+    window.removeEventListener('scroll', this.scroll)
+  },
+  methods: {
+    ...mapActions('window', { resizeWindow: 'resize', scrollWindow: 'scroll' }),
+    resize() {
+      this.resizeWindow({ windowWidth: window.innerWidth, windowHeight: window.innerHeight })
+    },
+    scroll() {
+      this.scrollWindow(window.scrollY)
+    },
+  },
   metaInfo() {
     return {
-      title: `${this.SPECIALIZATIOON} & ${this.STATUS}`,
+      title: `${this.SPECIALIZATION} & ${this.STATUS}`,
       titleTemplate: `${this.NAME} — %s`,
     }
   },

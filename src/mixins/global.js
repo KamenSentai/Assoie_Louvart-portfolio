@@ -1,16 +1,16 @@
 import Vue from 'vue'
+import env from '@/utils/env'
+
+const ENV = {}
+
+Object.entries(env).forEach((entry) => {
+  const [key, value] = entry
+  ENV[key] = () => value
+})
 
 Vue.mixin({
   computed: {
-    NAME() {
-      return process.env.VUE_APP_NAME
-    },
-    SPECIALIZATIOON() {
-      return process.env.VUE_APP_SPECIALIZATIOON
-    },
-    STATUS() {
-      return process.env.VUE_APP_STATUS
-    },
+    ...ENV,
     $isMobile() {
       return this.$mq === 'xs'
     },

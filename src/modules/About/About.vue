@@ -7,7 +7,7 @@
     />
     <div :class="$style.wrapper">
       <main :class="$style.main">
-        <template v-for="(section, i) in about">
+        <template v-for="(section, i) in content">
           <AboutPage
             v-if="!section.isSocial || $isMobile"
             :key="`section-${i}`"
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
 
 export default {
@@ -30,10 +29,15 @@ export default {
     AboutPage,
     AboutSidebar,
   },
+  props: {
+    content: {
+      type: Array,
+      required: true,
+    },
+  },
   computed: {
-    ...mapGetters('site', ['about']),
     socials() {
-      return this.about.find(section => section.isSocial).list.items
+      return this.content.find(section => section.isSocial).list.items
     },
   },
 }

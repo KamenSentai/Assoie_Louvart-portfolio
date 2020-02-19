@@ -33,7 +33,7 @@
         {{ NAME }}
       </div>
       <div :class="$style.subtitle">
-        {{ SPECIALIZATIOON }}
+        {{ SPECIALIZATION }}
       </div>
       <div :class="$style.tag">
         {{ progression }}
