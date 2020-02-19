@@ -1,6 +1,8 @@
 export default {
-  activate({ commit }) {
+  activate({ commit, dispatch }) {
     commit('activate')
+    dispatch('hide')
+    dispatch('repulse')
   },
   attract({ commit, state }, target) {
     if (!state.isCovering) {
