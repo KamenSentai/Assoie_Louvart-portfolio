@@ -2,6 +2,7 @@
   <ModuleAbout
     class="theme-dark"
     :content="about.content"
+    :credits="about.credits"
   />
 </template>
 

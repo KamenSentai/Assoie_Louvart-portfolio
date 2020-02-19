@@ -1,5 +1,6 @@
 import env from '@/utils/env'
 import resources from '@/utils/resources'
+import separator from '@/utils/separator'
 
 export default {
   about: {
@@ -92,6 +93,14 @@ export default {
         },
       },
     ],
+    credits: {
+      text: `${new Date().getFullYear()} - ${env.NAME} — Coded with love by ${separator} ✨`,
+      separator,
+      coder: {
+        name: 'Alain',
+        site: 'https://twitter.com/AlainCVT',
+      },
+    },
     description: 'I’m Assoïe and I’m passionate about design and looking forwoard to work with talented people around the world on interesting projects.',
     title: 'About',
   },

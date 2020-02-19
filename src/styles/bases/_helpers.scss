@@ -1,3 +1,15 @@
 .font-null {
   font-size: 0;
 }
+
+.half-opacity {
+  opacity: .5;
+}
+
+.link {
+  transition: color $smooth;
+
+  &:hover {
+    color: $main;
+  }
+}

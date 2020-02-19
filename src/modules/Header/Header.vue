@@ -10,7 +10,7 @@
     <component
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
-      :class="$style.link"
+      :class="[$style.link, !$isHome && 'link']"
       :title="!$isHome && ($isProject ? NAME : 'About')"
     >
       <!-- Raw text -->
@@ -22,6 +22,7 @@
       :class="[
         $style.link,
         {
+          ['link']: $isAbout,
           [$style.isLightable]: $isHome,
         }
       ]"

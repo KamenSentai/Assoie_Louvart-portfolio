@@ -15,7 +15,10 @@
       :class="$style.link"
       :style="{ transitionDelay: `${revealDelay * i}s` }"
     >
-      <span :class="$style.text">
+      <span
+        class="link"
+        :class="$style.text"
+      >
         {{ social.name }}
       </span>
     </ComponentReveal>
@@ -68,7 +71,6 @@ export default {
   font-size: 6rem;
   font-family: $font-title;
   text-transform: uppercase;
-  transition: color $smooth;
 
   @include bp(lg) {
     font-size: 5rem;
@@ -76,10 +78,6 @@ export default {
 
   @include bp(md) {
     font-size: 4rem;
-  }
-
-  &:hover {
-    color: $main;
   }
 }
 </style>
