@@ -11,10 +11,10 @@
       :is="$isHome ? 'h1' : 'router-link'"
       :to="!$isHome && { name: 'home' }"
       :class="$style.link"
-      :title="!$isHome && ($isProject ? 'Assoïe Louvart' : 'About')"
+      :title="!$isHome && ($isProject ? NAME : 'About')"
     >
       <!-- Raw text -->
-      {{ !$isProject ? 'Assoïe Louvart' : 'Back to my projects' }}
+      {{ !$isProject ? NAME : 'Back to my projects' }}
     </component>
     <router-link
       ref="target"
@@ -25,7 +25,7 @@
           [$style.isLightable]: $isHome,
         }
       ]"
-      :title="$isAbout ? 'Assoïe Louvart' : 'About'"
+      :title="$isAbout ? NAME : 'About'"
       @mouseover.native="show"
       @mouseleave.native="hide"
     >

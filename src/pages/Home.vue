@@ -63,5 +63,16 @@ export default {
     ...mapActions('overlay', { nailOverlay: 'nail', showOverlay: 'show' }),
     ...mapActions('pin', ['activate', 'cover', 'deactivate', 'expand', 'hide', 'repulse']),
   },
+  metaInfo() {
+    return {
+      title: 'Portfolio',
+      meta: [
+        {
+          name: 'description',
+          content: '',
+        },
+      ],
+    }
+  },
 }
 </script>

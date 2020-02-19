@@ -85,5 +85,16 @@ export default {
     ...mapActions('pin', ['activate', 'cover', 'deactivate', 'hide', 'show']),
     ...mapActions('site', ['updateIndex']),
   },
+  metaInfo() {
+    return {
+      title: this.project.name,
+      meta: [
+        {
+          name: 'description',
+          content: '',
+        },
+      ],
+    }
+  },
 }
 </script>
