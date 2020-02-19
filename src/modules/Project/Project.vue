@@ -11,7 +11,7 @@
         :key="`screen-${index}`"
         :scroll-y="scrollY"
         :src="section.screen"
-        :window-height="windowHeight"
+        :window-height="windowSize.windowHeight"
       />
       <section
         :key="`section-${index}`"
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { Intro as ProjectIntro } from './components'
 import { Banner as ComponentBanner } from '@/components/Banner'
 import { Gallery as ComponentGallery } from '@/components/Gallery'
@@ -57,29 +58,7 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      scrollY: 0,
-      windowHeight: 0,
-    }
-  },
-  mounted() {
-    window.addEventListener('resize', this.resize)
-    window.addEventListener('scroll', this.scroll)
-    this.resize()
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.resize)
-    window.removeEventListener('scroll', this.scroll)
-  },
-  methods: {
-    resize() {
-      this.windowHeight = window.innerHeight
-    },
-    scroll() {
-      this.scrollY = window.scrollY
-    },
-  },
+  computed: mapGetters('window', ['scrollY', 'windowSize']),
 }
 </script>
 

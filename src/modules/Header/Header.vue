@@ -42,20 +42,18 @@ export default {
   name: 'Header',
   computed: {
     ...mapGetters('pin', ['isExpanding']),
-    target() {
-      const { $el: target } = this.$refs.target
-
-      return target ? {
-        x: target.offsetLeft + target.clientWidth / 2,
-        y: target.offsetTop + target.clientHeight / 2,
-      } : null
-    },
+    ...mapGetters('window', ['scrollY']),
   },
   methods: {
     ...mapActions('pin', ['attract', 'repulse']),
     show() {
       if (!this.$isAbout) {
-        this.attract(this.target)
+        const { $el: target } = this.$refs.target
+
+        this.attract(target ? {
+          x: target.offsetLeft + target.clientWidth / 2,
+          y: target.offsetTop + target.clientHeight / 2 - this.scrollY,
+        } : null)
       }
     },
     hide() {
