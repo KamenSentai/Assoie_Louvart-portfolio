@@ -8,7 +8,7 @@
       :style="{ gridAutoColumns: `minmax(auto, ${size}px)` }"
     >
       <template v-for="(medium, j) in row">
-        <ComponentReveal
+        <ComponentFade
           v-if="isImage(medium)"
           :key="`image-${j}`"
           component="img"
@@ -17,7 +17,7 @@
           :class="$style.medium"
           :style="{ transitionDelay: `${revealDelay * j}s` }"
         />
-        <ComponentReveal
+        <ComponentFade
           v-else-if="isVideo(medium)"
           :key="`video-${j}`"
           component="video"
@@ -35,14 +35,14 @@
 </template>
 
 <script>
-import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Fade as ComponentFade } from '@/components/Fade'
 import { imageTypes, videoTypes } from '@/utils/types'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Gallery',
   components: {
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {

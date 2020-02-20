@@ -16,12 +16,12 @@
 
 <script>
 export default {
-  name: 'Reveal',
+  name: 'Fade',
   inheritAttrs: false,
   props: {
     component: {
-      type: [String, Object],
-      required: true,
+      type: [Object, String],
+      default: 'div',
     },
     isLower: {
       type: Boolean,

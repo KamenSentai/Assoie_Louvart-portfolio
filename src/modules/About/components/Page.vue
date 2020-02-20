@@ -1,6 +1,6 @@
 <template>
   <section ref="reveal">
-    <ComponentReveal
+    <ComponentFade
       :component="ComponentTitle"
       :is-unrevealed="!isRevealed"
       :large="!index"
@@ -9,7 +9,7 @@
       :text="section.title.text"
       :class="$style.title"
     />
-    <ComponentReveal
+    <ComponentFade
       v-if="section.paragraph"
       :component="ComponentParagraph"
       :is-unrevealed="!isRevealed"
@@ -31,7 +31,7 @@
         ]"
       >
         <template v-if="section.list.class === 'grid'">
-          <ComponentReveal
+          <ComponentFade
             v-for="(text, k) in item"
             :key="`text-${index}-${j}-${k}`"
             component="span"
@@ -40,10 +40,10 @@
             :style="{ transitionDelay: `${revealDelay * (j + k + 1)}s` }"
           >
             {{ text }}
-          </ComponentReveal>
+          </ComponentFade>
         </template>
         <template v-if="section.list.class === 'link'">
-          <ComponentReveal
+          <ComponentFade
             v-if="item.icon"
             :name="item.icon"
             height="20px"
@@ -52,7 +52,7 @@
             :is-unrevealed="!isRevealed"
             :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
           />
-          <ComponentReveal
+          <ComponentFade
             v-else
             component="span"
             is-lower
@@ -60,8 +60,8 @@
             :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
           >
             {{ item.name }}
-          </ComponentReveal>
-          <ComponentReveal
+          </ComponentFade>
+          <ComponentFade
             rel="noopener noreferrer"
             target="_blank"
             :href="item.link"
@@ -72,7 +72,7 @@
             :style="{ transitionDelay: `${revealDelay * (j + 2)}s` }"
           >
             {{ item.title }}
-          </ComponentReveal>
+          </ComponentFade>
         </template>
       </div>
     </div>
@@ -80,16 +80,16 @@
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Icon as ComponentIcon } from '@/components/Icon'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
-import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Page',
   components: {
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {

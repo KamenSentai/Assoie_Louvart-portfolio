@@ -4,12 +4,12 @@
     :class="$style.container"
   >
     <!-- Raw text -->
-    <ComponentReveal
+    <ComponentFade
       :component="ComponentTag"
       :is-unrevealed="!isRevealed"
       text="Intro"
     />
-    <ComponentReveal
+    <ComponentFade
       :component="ComponentTitle"
       :is-unrevealed="!isRevealed"
       small
@@ -18,7 +18,7 @@
       :text="intro.title"
     />
     <div :class="$style.wrapper">
-      <ComponentReveal
+      <ComponentFade
         v-for="(list, index) in lists"
         :key="`list-${index}`"
         :component="ComponentList"
@@ -27,7 +27,7 @@
         :items="list.items"
         :style="{ transitionDelay: `${revealDelay * index}s` }"
       />
-      <ComponentReveal
+      <ComponentFade
         ref="paragraph"
         :component="ComponentParagraph"
         :is-unrevealed="!isRevealed"
@@ -39,17 +39,17 @@
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { List as ComponentList } from '@/components/List'
-import { Tag as ComponentTag } from '@/components/Tag'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
-import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Tag as ComponentTag } from '@/components/Tag'
 import { Title as ComponentTitle } from '@/components/Title'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Project',
   components: {
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {

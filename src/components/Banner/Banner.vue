@@ -3,14 +3,14 @@
     ref="reveal"
     :class="$style.container"
   >
-    <ComponentReveal
+    <ComponentFade
       v-if="title"
       :component="ComponentTitle"
       :is-unrevealed="!isRevealed"
       tag="h2"
       :text="title"
     />
-    <ComponentReveal
+    <ComponentFade
       v-if="text"
       :component="ComponentParagraph"
       :is-unrevealed="!isRevealed"
@@ -22,15 +22,15 @@
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
-import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Banner',
   components: {
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {

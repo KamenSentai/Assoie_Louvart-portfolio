@@ -3,7 +3,7 @@
     ref="reveal"
     :class="$style.container"
   >
-    <ComponentReveal
+    <ComponentFade
       v-for="(social, i) in socials"
       :key="social.name"
       component="a"
@@ -21,18 +21,18 @@
       >
         {{ social.name }}
       </span>
-    </ComponentReveal>
+    </ComponentFade>
   </aside>
 </template>
 
 <script>
-import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Fade as ComponentFade } from '@/components/Fade'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Sidebar',
   components: {
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {

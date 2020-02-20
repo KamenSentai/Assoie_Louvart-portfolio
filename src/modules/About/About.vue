@@ -15,7 +15,7 @@
             :index="i"
           />
         </template>
-        <ComponentReveal
+        <ComponentFade
           ref="reveal"
           component="a"
           :is-unrevealed="!isRevealed"
@@ -31,7 +31,7 @@
             {{ coder.name }}
           </a>
           <span>{{ text.post }}</span>
-        </ComponentReveal>
+        </ComponentFade>
       </main>
     </div>
   </div>
@@ -39,7 +39,7 @@
 
 <script>
 import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
-import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Fade as ComponentFade } from '@/components/Fade'
 import MixinReveal from '@/mixins/components/reveal'
 
 export default {
@@ -47,7 +47,7 @@ export default {
   components: {
     AboutPage,
     AboutSidebar,
-    ComponentReveal,
+    ComponentFade,
   },
   mixins: [MixinReveal],
   props: {
