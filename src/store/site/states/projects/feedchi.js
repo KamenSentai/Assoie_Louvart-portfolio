@@ -30,42 +30,42 @@ export default {
       },
       media: [
         [
-          resources.FeedchiScreen1,
-          resources.FeedchiScreen2,
-          resources.FeedchiScreen3,
+          resources.FeedchiMedia1,
+          resources.FeedchiMedia2,
+          resources.FeedchiMedia3,
         ],
       ],
     },
     {
-      screen: resources.FeedchiTransition,
+      screen: resources.FeedchiScreen1,
       contents: {
         title: 'Make a group order',
         text: 'If you want to make a collective order with Feedchi you no longer need to crowd around a screen, pass the phone from hand to hand or have to pay for everyone. Feedchi makes the process easy so you can save time. You just need to select the people you want to order with and everyone can choose what they want. Once all your friends have chosen they pay their part and all you have to do is pay yours. Then, you can share the delivery tracking with your friends. The food will arrived soon and at the same time for everyone. Enjoy !',
       },
       media: [
         [
-          resources.FeedchiScreen4,
-          resources.FeedchiScreen5,
+          resources.FeedchiMedia4,
+          resources.FeedchiMedia5,
         ],
         [
-          resources.FeedchiScreen6,
-          resources.FeedchiScreen7,
-          resources.FeedchiScreen8,
+          resources.FeedchiMedia6,
+          resources.FeedchiMedia7,
+          resources.FeedchiMedia8,
         ],
       ],
     },
     {
-      screen: resources.FeedchiMockup,
+      screen: resources.FeedchiScreen2,
       media: [
         [
-          resources.FeedchiScreen9,
-          resources.FeedchiScreen10,
-          resources.FeedchiScreen11,
+          resources.FeedchiMedia9,
+          resources.FeedchiMedia10,
+          resources.FeedchiMedia11,
         ],
         [
-          resources.FeedchiScreen12,
-          resources.FeedchiScreen13,
-          resources.FeedchiScreen14,
+          resources.FeedchiMedia12,
+          resources.FeedchiMedia13,
+          resources.FeedchiMedia14,
         ],
       ],
     },

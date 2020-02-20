@@ -30,46 +30,46 @@ export default {
       },
       media: [
         [
-          resources.YukeyScreen1,
-          resources.YukeyScreen2,
+          resources.YukeyMedia1,
+          resources.YukeyMedia2,
         ],
         [
-          resources.YukeyScreen3,
-          resources.YukeyScreen4,
-          resources.YukeyScreen5,
+          resources.YukeyMedia3,
+          resources.YukeyMedia4,
+          resources.YukeyMedia5,
         ],
         [
-          resources.YukeyScreen6,
-          resources.YukeyScreen7,
-          resources.YukeyScreen8,
+          resources.YukeyMedia6,
+          resources.YukeyMedia7,
+          resources.YukeyMedia8,
         ],
       ],
     },
     {
-      screen: resources.YukeyTransition,
+      screen: resources.YukeyScreen1,
       contents: {
         title: 'Less than 20 min to seel your house',
         text: 'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
       },
       media: [
         [
-          resources.YukeyScreen9,
-          resources.YukeyScreen10,
+          resources.YukeyMedia9,
+          resources.YukeyMedia10,
         ],
         [
-          resources.YukeyScreen11,
-          resources.YukeyScreen12,
-          resources.YukeyScreen13,
+          resources.YukeyMedia11,
+          resources.YukeyMedia12,
+          resources.YukeyMedia13,
         ],
         [
-          resources.YukeyScreen14,
-          resources.YukeyScreen15,
-          resources.YukeyScreen16,
+          resources.YukeyMedia14,
+          resources.YukeyMedia15,
+          resources.YukeyMedia16,
         ],
       ],
     },
     {
-      screen: resources.YukeyMockup,
+      screen: resources.YukeyScreen2,
     },
   ],
 }

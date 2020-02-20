@@ -29,39 +29,39 @@ export default {
       },
       media: [
         [
-          resources.PocketNurseScreen1,
+          resources.PocketNurseMedia1,
         ],
         [
-          resources.PocketNurseScreen2,
+          resources.PocketNurseMedia2,
         ],
         [
-          resources.PocketNurseScreen3,
+          resources.PocketNurseMedia3,
         ],
       ],
     },
     {
-      screen: resources.PocketNurseTransition,
+      screen: resources.PocketNurseScreen1,
       contents: {
         title: 'Having fun, passing time',
         text: 'With “Pocket Nurse” the patient has access to all is favorite activities, films, musics, games, series etc. And he can also talk with his friends using a chat group.',
       },
       media: [
         [
-          resources.PocketNurseScreen4,
+          resources.PocketNurseMedia4,
         ],
       ],
     },
     {
-      screen: resources.PocketNurseMockup,
+      screen: resources.PocketNurseScreen2,
       media: [
         [
-          resources.PocketNurseScreen5,
+          resources.PocketNurseMedia5,
         ],
         [
-          resources.PocketNurseScreen6,
+          resources.PocketNurseMedia6,
         ],
         [
-          resources.PocketNurseScreen7,
+          resources.PocketNurseMedia7,
         ],
       ],
     },

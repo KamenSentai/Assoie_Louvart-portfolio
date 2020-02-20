@@ -30,29 +30,29 @@ export default {
       },
       media: [
         [
-          resources.AcneStudiosScreen1,
+          resources.AcneStudiosMedia1,
         ],
         [
-          resources.AcneStudiosScreen2,
-        ],
-      ],
-    },
-    {
-      screen: resources.AcneStudiosTransition,
-      media: [
-        [
-          resources.AcneStudiosScreen3,
+          resources.AcneStudiosMedia2,
         ],
       ],
     },
     {
-      screen: resources.AcneStudiosMockup,
+      screen: resources.AcneStudiosScreen1,
       media: [
         [
-          resources.AcneStudiosScreen4,
+          resources.AcneStudiosMedia3,
+        ],
+      ],
+    },
+    {
+      screen: resources.AcneStudiosScreen2,
+      media: [
+        [
+          resources.AcneStudiosMedia4,
         ],
         [
-          resources.AcneStudiosScreen5,
+          resources.AcneStudiosMedia5,
         ],
       ],
     },
