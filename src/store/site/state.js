@@ -144,13 +144,16 @@ export default {
             [
               resources.AcneStudiosScreen1,
             ],
+            [
+              resources.AcneStudiosScreen2,
+            ],
           ],
         },
         {
           screen: resources.AcneStudiosTransition,
           media: [
             [
-              resources.AcneStudiosScreen2,
+              resources.AcneStudiosScreen3,
             ],
           ],
         },
@@ -158,10 +161,10 @@ export default {
           screen: resources.AcneStudiosMockup,
           media: [
             [
-              resources.AcneStudiosScreen3,
+              resources.AcneStudiosScreen4,
             ],
             [
-              resources.AcneStudiosScreen4,
+              resources.AcneStudiosScreen5,
             ],
           ],
         },
@@ -340,6 +343,12 @@ export default {
             [
               resources.PocketNurseScreen1,
             ],
+            [
+              resources.PocketNurseScreen2,
+            ],
+            [
+              resources.PocketNurseScreen3,
+            ],
           ],
         },
         {
@@ -350,7 +359,7 @@ export default {
           },
           media: [
             [
-              resources.PocketNurseScreen2,
+              resources.PocketNurseScreen4,
             ],
           ],
         },
@@ -358,10 +367,13 @@ export default {
           screen: resources.PocketNurseMockup,
           media: [
             [
-              resources.PocketNurseScreen3,
+              resources.PocketNurseScreen5,
             ],
             [
-              resources.PocketNurseScreen4,
+              resources.PocketNurseScreen6,
+            ],
+            [
+              resources.PocketNurseScreen7,
             ],
           ],
         },
