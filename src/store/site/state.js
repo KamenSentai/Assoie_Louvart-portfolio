@@ -1,6 +1,7 @@
 import env from '@/utils/env'
 import resources from '@/utils/resources'
 import separator from '@/utils/separator'
+import sizes from '@/utils/sizes'
 
 export default {
   about: {
@@ -118,7 +119,7 @@ export default {
       year: 2019,
       cover: resources.AcneStudiosCover,
       subject: 'E-commerce',
-      size: 1080,
+      size: sizes.desktop,
       hero: [
         resources.AcneStudiosHero1,
         resources.AcneStudiosHero2,
@@ -175,7 +176,7 @@ export default {
       year: 2019,
       cover: resources.FeedchiCover,
       subject: 'Food order',
-      size: 375,
+      size: sizes.mobile,
       hero: [
         resources.FeedchiHero1,
         resources.FeedchiHero2,
@@ -248,7 +249,7 @@ export default {
       year: 2019,
       cover: resources.MealthyCover,
       subject: 'Eat well',
-      size: 375,
+      size: sizes.mobile,
       hero: [
         resources.MealthyHero1,
         resources.MealthyHero2,
@@ -266,7 +267,7 @@ export default {
       sections: [
         {
           contents: {
-            title: 'Taking care of yourself ',
+            title: 'Taking care of yourself',
             text: 'The idea was to create an endearing and cute avatar who would replace a pet so that the user would want to take care of it. I avoided a very "human" avatar because I believe that subjects such as weight gain, weight loss and everything related to the body can be sensitive subjects and I did not want to fall into the trap of moralizing and judging our user\'s state of health. The avatar does not represent us but what we eat. Before starting you’ll be asked some questions about your eating habits and your goals to create your mealthie.',
           },
           media: [
@@ -286,7 +287,7 @@ export default {
           screen: resources.MealthyTransition,
           contents: {
             title: 'Goals every day',
-            text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calories count and your health state. When you will scan your food, the app will tell you the value of the food and if it’s good or bad. If the food is not recomanded it will propose an alternative. Also, with the coins you gain you will be able to personalise your mealthie so it will become special and unique for you !',
+            text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calories count and your health state. When you will scan your food, the app will tell you the value of the food and if it’s good or bad. If the food is not recomanded it will propose an alternative. Also, with the coins you gain you will be able to personalise your mealthy so it will become special and unique for you !',
           },
           media: [
             [
@@ -315,7 +316,7 @@ export default {
       year: 2019,
       cover: resources.PocketNurseCover,
       subject: 'Patient\'s care',
-      size: 1080,
+      size: sizes.desktop,
       hero: [
         resources.PocketNurseHero1,
         resources.PocketNurseHero2,
@@ -375,7 +376,7 @@ export default {
       year: 2019,
       cover: resources.YukeyCover,
       subject: 'Real estate',
-      size: 375,
+      size: sizes.mobile,
       hero: [
         resources.YukeyHero1,
         resources.YukeyHero2,
@@ -388,7 +389,7 @@ export default {
           'UX Design',
           'UI Design',
         ],
-        text: 'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
+        text: 'As part of my studies, I worked on a project for a client in the real estate sector. The goal was to create a private-to-private application that offers a new user experience with personal assistance. The goal was to change this saturated and dishonest market by offering a benevolent application. Yukey is currently being tested by users and will soon be availible on IOS and Android.',
       },
       sections: [
         {
