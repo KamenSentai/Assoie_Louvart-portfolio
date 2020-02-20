@@ -8,12 +8,25 @@
     <div :class="$style.wrapper">
       <main :class="$style.main">
         <template v-for="(section, i) in content">
-          <AboutPage
+          <AboutField
             v-if="!section.isSocial || $isMobile"
             :key="`section-${i}`"
             :section="section"
             :index="i"
-          />
+            :class="!i && $style.field"
+            @reveal="isScrolled = !!i"
+          >
+            <ComponentIndicator
+              v-if="!i"
+              color="light"
+              :class="[
+                $style.indicator,
+                {
+                  [$style.isHidden]: isScrolled,
+                }
+              ]"
+            />
+          </AboutField>
         </template>
         <ComponentReveal
           component="a"
@@ -38,14 +51,16 @@
 </template>
 
 <script>
-import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
+import { Field as AboutField, Sidebar as AboutSidebar } from './components'
+import { Indicator as ComponentIndicator } from '@/components/Indicator'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
 
 export default {
   name: 'About',
   components: {
-    AboutPage,
+    AboutField,
     AboutSidebar,
+    ComponentIndicator,
     ComponentReveal,
   },
   props: {
@@ -57,6 +72,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      isScrolled: false,
+    }
   },
   computed: {
     coder() {
@@ -159,6 +179,23 @@ export default {
   @include bp(sm) {
     grid-gap: 6rem;
   }
+}
+
+.field {
+  position: relative;
+}
+
+.indicator {
+  position: absolute;
+  top: calc(100% + 2rem);
+  right: 0;
+  left: 0;
+  transition: opacity $smooth;
+  pointer-events: none;
+}
+
+.isHidden {
+  opacity: 0;
 }
 
 .credits {

@@ -1,5 +1,8 @@
 <template>
-  <ComponentReveal component="section">
+  <ComponentReveal
+    component="section"
+    @reveal="$emit('reveal')"
+  >
     <template v-slot:default="reveal">
       <ComponentFade
         :component="ComponentTitle"
@@ -77,6 +80,7 @@
           </template>
         </div>
       </div>
+      <slot />
     </template>
   </ComponentReveal>
 </template>
@@ -89,7 +93,7 @@ import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
 
 export default {
-  name: 'Page',
+  name: 'Field',
   components: {
     ComponentFade,
     ComponentReveal,
