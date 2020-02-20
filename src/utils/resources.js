@@ -3,10 +3,11 @@ import AcneStudiosHero1 from '@/assets/images/AcneStudios/Hero_1.jpg'
 import AcneStudiosHero2 from '@/assets/images/AcneStudios/Hero_2.jpg'
 import AcneStudiosHero3 from '@/assets/images/AcneStudios/Hero_3.jpg'
 import AcneStudiosMockup from '@/assets/images/AcneStudios/Mockup.jpg'
-import AcneStudiosScreen1 from '@/assets/images/AcneStudios/Screen_1.jpg'
-import AcneStudiosScreen2 from '@/assets/images/AcneStudios/Screen_2.jpg'
-import AcneStudiosScreen3 from '@/assets/images/AcneStudios/Screen_3.jpg'
-import AcneStudiosScreen4 from '@/assets/images/AcneStudios/Screen_4.jpg'
+import AcneStudiosScreen1 from '@/assets/images/AcneStudios/Screen_1.png'
+import AcneStudiosScreen2 from '@/assets/images/AcneStudios/Screen_2.png'
+import AcneStudiosScreen3 from '@/assets/images/AcneStudios/Screen_3.png'
+import AcneStudiosScreen4 from '@/assets/images/AcneStudios/Screen_4.png'
+import AcneStudiosScreen5 from '@/assets/images/AcneStudios/Screen_5.png'
 import AcneStudiosTransition from '@/assets/images/AcneStudios/Transition.jpg'
 
 import FeedchiCover from '@/assets/images/Feedchi/Cover.jpg'
@@ -14,20 +15,20 @@ import FeedchiHero1 from '@/assets/images/Feedchi/Hero_1.jpg'
 import FeedchiHero2 from '@/assets/images/Feedchi/Hero_2.jpg'
 import FeedchiHero3 from '@/assets/images/Feedchi/Hero_3.jpg'
 import FeedchiMockup from '@/assets/images/Feedchi/Mockup.jpg'
-import FeedchiScreen1 from '@/assets/images/Feedchi/Screen_1.jpg'
-import FeedchiScreen2 from '@/assets/images/Feedchi/Screen_2.jpg'
-import FeedchiScreen3 from '@/assets/images/Feedchi/Screen_3.jpg'
-import FeedchiScreen4 from '@/assets/images/Feedchi/Screen_4.jpg'
-import FeedchiScreen5 from '@/assets/images/Feedchi/Screen_5.jpg'
-import FeedchiScreen6 from '@/assets/images/Feedchi/Screen_6.jpg'
-import FeedchiScreen7 from '@/assets/images/Feedchi/Screen_7.jpg'
-import FeedchiScreen8 from '@/assets/images/Feedchi/Screen_8.jpg'
-import FeedchiScreen9 from '@/assets/images/Feedchi/Screen_9.jpg'
-import FeedchiScreen10 from '@/assets/images/Feedchi/Screen_10.jpg'
-import FeedchiScreen11 from '@/assets/images/Feedchi/Screen_11.jpg'
-import FeedchiScreen12 from '@/assets/images/Feedchi/Screen_12.jpg'
-import FeedchiScreen13 from '@/assets/images/Feedchi/Screen_13.jpg'
-import FeedchiScreen14 from '@/assets/images/Feedchi/Screen_14.jpg'
+import FeedchiScreen1 from '@/assets/images/Feedchi/Screen_1.png'
+import FeedchiScreen2 from '@/assets/images/Feedchi/Screen_2.png'
+import FeedchiScreen3 from '@/assets/images/Feedchi/Screen_3.png'
+import FeedchiScreen4 from '@/assets/images/Feedchi/Screen_4.png'
+import FeedchiScreen5 from '@/assets/images/Feedchi/Screen_5.png'
+import FeedchiScreen6 from '@/assets/images/Feedchi/Screen_6.png'
+import FeedchiScreen7 from '@/assets/images/Feedchi/Screen_7.png'
+import FeedchiScreen8 from '@/assets/images/Feedchi/Screen_8.png'
+import FeedchiScreen9 from '@/assets/images/Feedchi/Screen_9.png'
+import FeedchiScreen10 from '@/assets/images/Feedchi/Screen_10.png'
+import FeedchiScreen11 from '@/assets/images/Feedchi/Screen_11.png'
+import FeedchiScreen12 from '@/assets/images/Feedchi/Screen_12.png'
+import FeedchiScreen13 from '@/assets/images/Feedchi/Screen_13.png'
+import FeedchiScreen14 from '@/assets/images/Feedchi/Screen_14.png'
 import FeedchiTransition from '@/assets/images/Feedchi/Transition.jpg'
 
 import MealthyCover from '@/assets/images/Mealthy/Cover.jpg'
@@ -55,9 +56,12 @@ import PocketNurseHero2 from '@/assets/images/PocketNurse/Hero_2.jpg'
 import PocketNurseHero3 from '@/assets/images/PocketNurse/Hero_3.jpg'
 import PocketNurseMockup from '@/assets/images/PocketNurse/Mockup.jpg'
 import PocketNurseScreen1 from '@/assets/images/PocketNurse/Screen_1.mp4'
-import PocketNurseScreen2 from '@/assets/images/PocketNurse/Screen_2.mp4'
-import PocketNurseScreen3 from '@/assets/images/PocketNurse/Screen_3.jpg'
-import PocketNurseScreen4 from '@/assets/images/PocketNurse/Screen_4.jpg'
+import PocketNurseScreen2 from '@/assets/images/PocketNurse/Screen_2.png'
+import PocketNurseScreen3 from '@/assets/images/PocketNurse/Screen_3.png'
+import PocketNurseScreen4 from '@/assets/images/PocketNurse/Screen_4.mp4'
+import PocketNurseScreen5 from '@/assets/images/PocketNurse/Screen_5.png'
+import PocketNurseScreen6 from '@/assets/images/PocketNurse/Screen_6.png'
+import PocketNurseScreen7 from '@/assets/images/PocketNurse/Screen_7.png'
 import PocketNurseTransition from '@/assets/images/PocketNurse/Transition.jpg'
 
 import YukeyCover from '@/assets/images/Yukey/Cover.jpg'
@@ -93,6 +97,7 @@ export default {
   AcneStudiosScreen2,
   AcneStudiosScreen3,
   AcneStudiosScreen4,
+  AcneStudiosScreen5,
   AcneStudiosTransition,
 
   FeedchiCover,
@@ -144,6 +149,9 @@ export default {
   PocketNurseScreen2,
   PocketNurseScreen3,
   PocketNurseScreen4,
+  PocketNurseScreen5,
+  PocketNurseScreen6,
+  PocketNurseScreen7,
   PocketNurseTransition,
 
   YukeyCover,
