@@ -29,13 +29,13 @@ export default {
       },
       media: [
         [
-          resources.PocketNurseScreen1,
+          resources.PocketNurseMedia1,
         ],
         [
-          resources.PocketNurseScreen2,
+          resources.PocketNurseMedia2,
         ],
         [
-          resources.PocketNurseScreen3,
+          resources.PocketNurseMedia3,
         ],
       ],
     },
@@ -47,7 +47,7 @@ export default {
       },
       media: [
         [
-          resources.PocketNurseScreen4,
+          resources.PocketNurseMedia4,
         ],
       ],
     },
@@ -55,13 +55,13 @@ export default {
       screen: resources.PocketNurseMockup,
       media: [
         [
-          resources.PocketNurseScreen5,
+          resources.PocketNurseMedia5,
         ],
         [
-          resources.PocketNurseScreen6,
+          resources.PocketNurseMedia6,
         ],
         [
-          resources.PocketNurseScreen7,
+          resources.PocketNurseMedia7,
         ],
       ],
     },

@@ -30,14 +30,14 @@ export default {
       },
       media: [
         [
-          resources.MealthyScreen1,
-          resources.MealthyScreen2,
-          resources.MealthyScreen3,
+          resources.MealthyMedia1,
+          resources.MealthyMedia2,
+          resources.MealthyMedia3,
         ],
         [
-          resources.MealthyScreen4,
-          resources.MealthyScreen5,
-          resources.MealthyScreen6,
+          resources.MealthyMedia4,
+          resources.MealthyMedia5,
+          resources.MealthyMedia6,
         ],
       ],
     },
@@ -49,14 +49,14 @@ export default {
       },
       media: [
         [
-          resources.MealthyScreen7,
-          resources.MealthyScreen8,
-          resources.MealthyScreen9,
+          resources.MealthyMedia7,
+          resources.MealthyMedia8,
+          resources.MealthyMedia9,
         ],
         [
-          resources.MealthyScreen10,
-          resources.MealthyScreen11,
-          resources.MealthyScreen12,
+          resources.MealthyMedia10,
+          resources.MealthyMedia11,
+          resources.MealthyMedia12,
         ],
       ],
     },

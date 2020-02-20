@@ -30,18 +30,18 @@ export default {
       },
       media: [
         [
-          resources.YukeyScreen1,
-          resources.YukeyScreen2,
+          resources.YukeyMedia1,
+          resources.YukeyMedia2,
         ],
         [
-          resources.YukeyScreen3,
-          resources.YukeyScreen4,
-          resources.YukeyScreen5,
+          resources.YukeyMedia3,
+          resources.YukeyMedia4,
+          resources.YukeyMedia5,
         ],
         [
-          resources.YukeyScreen6,
-          resources.YukeyScreen7,
-          resources.YukeyScreen8,
+          resources.YukeyMedia6,
+          resources.YukeyMedia7,
+          resources.YukeyMedia8,
         ],
       ],
     },
@@ -53,18 +53,18 @@ export default {
       },
       media: [
         [
-          resources.YukeyScreen9,
-          resources.YukeyScreen10,
+          resources.YukeyMedia9,
+          resources.YukeyMedia10,
         ],
         [
-          resources.YukeyScreen11,
-          resources.YukeyScreen12,
-          resources.YukeyScreen13,
+          resources.YukeyMedia11,
+          resources.YukeyMedia12,
+          resources.YukeyMedia13,
         ],
         [
-          resources.YukeyScreen14,
-          resources.YukeyScreen15,
-          resources.YukeyScreen16,
+          resources.YukeyMedia14,
+          resources.YukeyMedia15,
+          resources.YukeyMedia16,
         ],
       ],
     },

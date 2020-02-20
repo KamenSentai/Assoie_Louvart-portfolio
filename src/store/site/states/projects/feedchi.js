@@ -30,9 +30,9 @@ export default {
       },
       media: [
         [
-          resources.FeedchiScreen1,
-          resources.FeedchiScreen2,
-          resources.FeedchiScreen3,
+          resources.FeedchiMedia1,
+          resources.FeedchiMedia2,
+          resources.FeedchiMedia3,
         ],
       ],
     },
@@ -44,13 +44,13 @@ export default {
       },
       media: [
         [
-          resources.FeedchiScreen4,
-          resources.FeedchiScreen5,
+          resources.FeedchiMedia4,
+          resources.FeedchiMedia5,
         ],
         [
-          resources.FeedchiScreen6,
-          resources.FeedchiScreen7,
-          resources.FeedchiScreen8,
+          resources.FeedchiMedia6,
+          resources.FeedchiMedia7,
+          resources.FeedchiMedia8,
         ],
       ],
     },
@@ -58,14 +58,14 @@ export default {
       screen: resources.FeedchiMockup,
       media: [
         [
-          resources.FeedchiScreen9,
-          resources.FeedchiScreen10,
-          resources.FeedchiScreen11,
+          resources.FeedchiMedia9,
+          resources.FeedchiMedia10,
+          resources.FeedchiMedia11,
         ],
         [
-          resources.FeedchiScreen12,
-          resources.FeedchiScreen13,
-          resources.FeedchiScreen14,
+          resources.FeedchiMedia12,
+          resources.FeedchiMedia13,
+          resources.FeedchiMedia14,
         ],
       ],
     },
