@@ -40,7 +40,7 @@ export default {
       ],
     },
     {
-      screen: resources.PocketNurseTransition,
+      screen: resources.PocketNurseScreen1,
       contents: {
         title: 'Having fun, passing time',
         text: 'With “Pocket Nurse” the patient has access to all is favorite activities, films, musics, games, series etc. And he can also talk with his friends using a chat group.',
@@ -52,7 +52,7 @@ export default {
       ],
     },
     {
-      screen: resources.PocketNurseMockup,
+      screen: resources.PocketNurseScreen2,
       media: [
         [
           resources.PocketNurseMedia5,

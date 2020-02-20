@@ -42,7 +42,7 @@ export default {
       ],
     },
     {
-      screen: resources.MealthyTransition,
+      screen: resources.MealthyScreen1,
       contents: {
         title: 'Goals every day',
         text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calories count and your health state. When you will scan your food, the app will tell you the value of the food and if it’s good or bad. If the food is not recomanded it will propose an alternative. Also, with the coins you gain you will be able to personalise your mealthy so it will become special and unique for you !',
@@ -61,7 +61,7 @@ export default {
       ],
     },
     {
-      screen: resources.MealthyMockup,
+      screen: resources.MealthyScreen2,
     },
   ],
 }

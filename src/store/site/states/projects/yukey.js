@@ -46,7 +46,7 @@ export default {
       ],
     },
     {
-      screen: resources.YukeyTransition,
+      screen: resources.YukeyScreen1,
       contents: {
         title: 'Less than 20 min to seel your house',
         text: 'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
@@ -69,7 +69,7 @@ export default {
       ],
     },
     {
-      screen: resources.YukeyMockup,
+      screen: resources.YukeyScreen2,
     },
   ],
 }

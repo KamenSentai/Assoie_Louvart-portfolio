@@ -2,19 +2,18 @@ import AcneStudiosCover from '@/assets/images/AcneStudios/Cover.jpg'
 import AcneStudiosHero1 from '@/assets/images/AcneStudios/Hero_1.jpg'
 import AcneStudiosHero2 from '@/assets/images/AcneStudios/Hero_2.jpg'
 import AcneStudiosHero3 from '@/assets/images/AcneStudios/Hero_3.jpg'
-import AcneStudiosMockup from '@/assets/images/AcneStudios/Mockup.jpg'
 import AcneStudiosMedia1 from '@/assets/images/AcneStudios/Media_1.png'
 import AcneStudiosMedia2 from '@/assets/images/AcneStudios/Media_2.png'
 import AcneStudiosMedia3 from '@/assets/images/AcneStudios/Media_3.png'
 import AcneStudiosMedia4 from '@/assets/images/AcneStudios/Media_4.png'
 import AcneStudiosMedia5 from '@/assets/images/AcneStudios/Media_5.png'
-import AcneStudiosTransition from '@/assets/images/AcneStudios/Transition.jpg'
+import AcneStudiosScreen1 from '@/assets/images/AcneStudios/Screen_1.jpg'
+import AcneStudiosScreen2 from '@/assets/images/AcneStudios/Screen_2.jpg'
 
 import FeedchiCover from '@/assets/images/Feedchi/Cover.jpg'
 import FeedchiHero1 from '@/assets/images/Feedchi/Hero_1.jpg'
 import FeedchiHero2 from '@/assets/images/Feedchi/Hero_2.jpg'
 import FeedchiHero3 from '@/assets/images/Feedchi/Hero_3.jpg'
-import FeedchiMockup from '@/assets/images/Feedchi/Mockup.jpg'
 import FeedchiMedia1 from '@/assets/images/Feedchi/Media_1.png'
 import FeedchiMedia2 from '@/assets/images/Feedchi/Media_2.png'
 import FeedchiMedia3 from '@/assets/images/Feedchi/Media_3.png'
@@ -29,13 +28,13 @@ import FeedchiMedia11 from '@/assets/images/Feedchi/Media_11.png'
 import FeedchiMedia12 from '@/assets/images/Feedchi/Media_12.png'
 import FeedchiMedia13 from '@/assets/images/Feedchi/Media_13.png'
 import FeedchiMedia14 from '@/assets/images/Feedchi/Media_14.png'
-import FeedchiTransition from '@/assets/images/Feedchi/Transition.jpg'
+import FeedchiScreen1 from '@/assets/images/Feedchi/Screen_1.jpg'
+import FeedchiScreen2 from '@/assets/images/Feedchi/Screen_2.jpg'
 
 import MealthyCover from '@/assets/images/Mealthy/Cover.jpg'
 import MealthyHero1 from '@/assets/images/Mealthy/Hero_1.jpg'
 import MealthyHero2 from '@/assets/images/Mealthy/Hero_2.jpg'
 import MealthyHero3 from '@/assets/images/Mealthy/Hero_3.jpg'
-import MealthyMockup from '@/assets/images/Mealthy/Mockup.jpg'
 import MealthyMedia1 from '@/assets/images/Mealthy/Media_1.png'
 import MealthyMedia2 from '@/assets/images/Mealthy/Media_2.png'
 import MealthyMedia3 from '@/assets/images/Mealthy/Media_3.png'
@@ -48,13 +47,13 @@ import MealthyMedia9 from '@/assets/images/Mealthy/Media_9.png'
 import MealthyMedia10 from '@/assets/images/Mealthy/Media_10.png'
 import MealthyMedia11 from '@/assets/images/Mealthy/Media_11.png'
 import MealthyMedia12 from '@/assets/images/Mealthy/Media_12.png'
-import MealthyTransition from '@/assets/images/Mealthy/Transition.jpg'
+import MealthyScreen1 from '@/assets/images/Mealthy/Screen_1.jpg'
+import MealthyScreen2 from '@/assets/images/Mealthy/Screen_2.jpg'
 
 import PocketNurseCover from '@/assets/images/PocketNurse/Cover.jpg'
 import PocketNurseHero1 from '@/assets/images/PocketNurse/Hero_1.jpg'
 import PocketNurseHero2 from '@/assets/images/PocketNurse/Hero_2.jpg'
 import PocketNurseHero3 from '@/assets/images/PocketNurse/Hero_3.jpg'
-import PocketNurseMockup from '@/assets/images/PocketNurse/Mockup.jpg'
 import PocketNurseMedia1 from '@/assets/images/PocketNurse/Media_1.mp4'
 import PocketNurseMedia2 from '@/assets/images/PocketNurse/Media_2.png'
 import PocketNurseMedia3 from '@/assets/images/PocketNurse/Media_3.png'
@@ -62,13 +61,13 @@ import PocketNurseMedia4 from '@/assets/images/PocketNurse/Media_4.mp4'
 import PocketNurseMedia5 from '@/assets/images/PocketNurse/Media_5.png'
 import PocketNurseMedia6 from '@/assets/images/PocketNurse/Media_6.png'
 import PocketNurseMedia7 from '@/assets/images/PocketNurse/Media_7.png'
-import PocketNurseTransition from '@/assets/images/PocketNurse/Transition.jpg'
+import PocketNurseScreen1 from '@/assets/images/PocketNurse/Screen_1.jpg'
+import PocketNurseScreen2 from '@/assets/images/PocketNurse/Screen_2.jpg'
 
 import YukeyCover from '@/assets/images/Yukey/Cover.jpg'
 import YukeyHero1 from '@/assets/images/Yukey/Hero_1.jpg'
 import YukeyHero2 from '@/assets/images/Yukey/Hero_2.jpg'
 import YukeyHero3 from '@/assets/images/Yukey/Hero_3.jpg'
-import YukeyMockup from '@/assets/images/Yukey/Mockup.jpg'
 import YukeyMedia1 from '@/assets/images/Yukey/Media_1.mp4'
 import YukeyMedia2 from '@/assets/images/Yukey/Media_2.mp4'
 import YukeyMedia3 from '@/assets/images/Yukey/Media_3.png'
@@ -85,26 +84,26 @@ import YukeyMedia13 from '@/assets/images/Yukey/Media_13.png'
 import YukeyMedia14 from '@/assets/images/Yukey/Media_14.png'
 import YukeyMedia15 from '@/assets/images/Yukey/Media_15.png'
 import YukeyMedia16 from '@/assets/images/Yukey/Media_16.png'
-import YukeyTransition from '@/assets/images/Yukey/Transition.jpg'
+import YukeyScreen1 from '@/assets/images/Yukey/Screen_1.jpg'
+import YukeyScreen2 from '@/assets/images/Yukey/Screen_2.jpg'
 
 export default {
   AcneStudiosCover,
   AcneStudiosHero1,
   AcneStudiosHero2,
   AcneStudiosHero3,
-  AcneStudiosMockup,
   AcneStudiosMedia1,
   AcneStudiosMedia2,
   AcneStudiosMedia3,
   AcneStudiosMedia4,
   AcneStudiosMedia5,
-  AcneStudiosTransition,
+  AcneStudiosScreen1,
+  AcneStudiosScreen2,
 
   FeedchiCover,
   FeedchiHero1,
   FeedchiHero2,
   FeedchiHero3,
-  FeedchiMockup,
   FeedchiMedia1,
   FeedchiMedia2,
   FeedchiMedia3,
@@ -119,13 +118,13 @@ export default {
   FeedchiMedia12,
   FeedchiMedia13,
   FeedchiMedia14,
-  FeedchiTransition,
+  FeedchiScreen1,
+  FeedchiScreen2,
 
   MealthyCover,
   MealthyHero1,
   MealthyHero2,
   MealthyHero3,
-  MealthyMockup,
   MealthyMedia1,
   MealthyMedia2,
   MealthyMedia3,
@@ -138,13 +137,13 @@ export default {
   MealthyMedia10,
   MealthyMedia11,
   MealthyMedia12,
-  MealthyTransition,
+  MealthyScreen1,
+  MealthyScreen2,
 
   PocketNurseCover,
   PocketNurseHero1,
   PocketNurseHero2,
   PocketNurseHero3,
-  PocketNurseMockup,
   PocketNurseMedia1,
   PocketNurseMedia2,
   PocketNurseMedia3,
@@ -152,13 +151,13 @@ export default {
   PocketNurseMedia5,
   PocketNurseMedia6,
   PocketNurseMedia7,
-  PocketNurseTransition,
+  PocketNurseScreen1,
+  PocketNurseScreen2,
 
   YukeyCover,
   YukeyHero1,
   YukeyHero2,
   YukeyHero3,
-  YukeyMockup,
   YukeyMedia1,
   YukeyMedia2,
   YukeyMedia3,
@@ -175,5 +174,6 @@ export default {
   YukeyMedia14,
   YukeyMedia15,
   YukeyMedia16,
-  YukeyTransition,
+  YukeyScreen1,
+  YukeyScreen2,
 }

@@ -37,7 +37,7 @@ export default {
       ],
     },
     {
-      screen: resources.FeedchiTransition,
+      screen: resources.FeedchiScreen1,
       contents: {
         title: 'Make a group order',
         text: 'If you want to make a collective order with Feedchi you no longer need to crowd around a screen, pass the phone from hand to hand or have to pay for everyone. Feedchi makes the process easy so you can save time. You just need to select the people you want to order with and everyone can choose what they want. Once all your friends have chosen they pay their part and all you have to do is pay yours. Then, you can share the delivery tracking with your friends. The food will arrived soon and at the same time for everyone. Enjoy !',
@@ -55,7 +55,7 @@ export default {
       ],
     },
     {
-      screen: resources.FeedchiMockup,
+      screen: resources.FeedchiScreen2,
       media: [
         [
           resources.FeedchiMedia9,

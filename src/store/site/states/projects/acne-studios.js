@@ -38,7 +38,7 @@ export default {
       ],
     },
     {
-      screen: resources.AcneStudiosTransition,
+      screen: resources.AcneStudiosScreen1,
       media: [
         [
           resources.AcneStudiosMedia3,
@@ -46,7 +46,7 @@ export default {
       ],
     },
     {
-      screen: resources.AcneStudiosMockup,
+      screen: resources.AcneStudiosScreen2,
       media: [
         [
           resources.AcneStudiosMedia4,
