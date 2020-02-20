@@ -1,7 +1,7 @@
 <template>
   <ComponentReveal
     component="section"
-    @reveal="$emit('reveal')"
+    @reveal="index && $emit('reveal')"
   >
     <template v-slot:default="reveal">
       <ComponentFade
