@@ -22,7 +22,7 @@
               :class="[
                 $style.indicator,
                 {
-                  [$style.isHidden]: isScrolled,
+                  [$style.isActive]: isMounted && !isScrolled,
                 }
               ]"
             />
@@ -75,6 +75,8 @@ export default {
   },
   data() {
     return {
+      delay: 1000,
+      isMounted: false,
       isScrolled: false,
     }
   },
@@ -93,6 +95,11 @@ export default {
     socials() {
       return this.content.find(section => section.isSocial).list.items
     },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isMounted = true
+    }, this.delay)
   },
 }
 </script>
@@ -190,12 +197,13 @@ export default {
   top: calc(100% + 2rem);
   right: 0;
   left: 0;
+  opacity: 0;
   transition: opacity $smooth;
   pointer-events: none;
 }
 
-.isHidden {
-  opacity: 0;
+.isActive {
+  opacity: 1;
 }
 
 .credits {
