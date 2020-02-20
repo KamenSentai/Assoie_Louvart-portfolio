@@ -1,10 +1,6 @@
 <template>
   <main>
-    <ProjectIntro
-      :intro="project.intro"
-      :type="project.type"
-      :year="project.year"
-    />
+    <ProjectIntro :project="project" />
     <template v-for="(section, index) in project.sections">
       <ComponentScreen
         v-if="section.screen"

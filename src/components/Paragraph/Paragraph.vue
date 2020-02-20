@@ -9,7 +9,7 @@ export default {
   name: 'Paragraph',
   props: {
     text: {
-      type: String,
+      type: [Number, String],
       required: true,
     },
   },

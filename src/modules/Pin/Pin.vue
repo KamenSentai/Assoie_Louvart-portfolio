@@ -13,8 +13,7 @@
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
   >
     <div :class="$style.wrapper">
-      <!-- Raw text -->
-      <span :class="$style.text">Discover</span>
+      <span :class="$style.text">{{ PIN }}</span>
     </div>
   </div>
 </template>

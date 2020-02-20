@@ -4,21 +4,33 @@ export default {
   name: 'Acne Studios',
   slug: 'acne-studios',
   description: 'Acne Studios new website design.',
-  type: 'E-commerce',
+  subject: 'E-commerce',
   year: 2019,
   cover: resources.AcneStudiosCover,
-  subject: 'E-commerce',
   hero: [
     resources.AcneStudiosHero1,
     resources.AcneStudiosHero2,
     resources.AcneStudiosHero3,
   ],
   intro: {
+    tag: 'Intro',
     title: 'Acne Studio new design',
-    roles: [
-      'Art Direction',
-      'UX Design',
-      'UI Design',
+    lists: [
+      {
+        title: 'Role',
+        items: [
+          'Art Direction',
+          'UX Design',
+          'UI Design',
+        ],
+      },
+      {
+        title: 'What',
+        items: [
+          'E-commerce',
+          { key: 'year' },
+        ],
+      },
     ],
     text: 'Last summer, during my free time I enjoyed recreating Acne Studios e-commerce website. I love their colors and their minimalist indentity and it was for me a challenge to recreate the website through my vision of design.',
   },

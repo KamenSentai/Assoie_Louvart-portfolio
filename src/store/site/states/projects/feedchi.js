@@ -4,21 +4,33 @@ export default {
   name: 'Feedchi',
   slug: 'feedchi',
   description: 'Change the experience of buying food with others.',
-  type: 'Application',
+  subject: 'Food order',
   year: 2019,
   cover: resources.FeedchiCover,
-  subject: 'Food order',
   hero: [
     resources.FeedchiHero1,
     resources.FeedchiHero2,
     resources.FeedchiHero3,
   ],
   intro: {
+    tag: 'Intro',
     title: 'Change the experience of buying food with others',
-    roles: [
-      'Art Direction',
-      'UX Design',
-      'UI Design',
+    lists: [
+      {
+        title: 'Role',
+        items: [
+          'Art Direction',
+          'UX Design',
+          'UI Design',
+        ],
+      },
+      {
+        title: 'What',
+        items: [
+          'Application',
+          2019,
+        ],
+      },
     ],
     text: 'During my free time I enjoyed creating a new food delivery application. Feedchi is an easy way to order your favourite dishes, recipe kits or products that you need.',
   },

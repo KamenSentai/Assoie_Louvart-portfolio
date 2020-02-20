@@ -4,21 +4,33 @@ export default {
   name: 'Mealthy',
   slug: 'mealthy',
   description: 'Reinventing the experience of diet application.',
-  type: 'Application',
+  subject: 'Eat well',
   year: 2019,
   cover: resources.MealthyCover,
-  subject: 'Eat well',
   hero: [
     resources.MealthyHero1,
     resources.MealthyHero2,
     resources.MealthyHero3,
   ],
   intro: {
+    tag: 'Intro',
     title: 'Reinventing the experience of diet application',
-    roles: [
-      'Illustrator',
-      'UX Design',
-      'UI Design',
+    lists: [
+      {
+        title: 'Role',
+        items: [
+          'Illustrator',
+          'UX Design',
+          'UI Design',
+        ],
+      },
+      {
+        title: 'What',
+        items: [
+          'Application',
+          2019,
+        ],
+      },
     ],
     text: 'As part of my courses, I worked on a project in which we had to integrate a food scanner API. We came up with the idea of creating an application for people who want to take care of their nutrition. Our goal was to create an application that was different from the existing ones with a whole new approach.',
   },

@@ -20,7 +20,6 @@
         :height="size.total"
       >
         <circle
-          ref="circle"
           :class="$style.circle"
           :style="strokeStyle"
           :stroke-width="size.stroke"
