@@ -16,9 +16,9 @@
           />
         </template>
         <ComponentReveal
-          ref="reveal"
           component="a"
-          :is-unrevealed="!isRevealed"
+          self
+          is-lower
           :class="$style.credits"
         >
           <span class="half-opacity">{{ text.ante }}</span>
@@ -40,7 +40,6 @@
 <script>
 import { Page as AboutPage, Sidebar as AboutSidebar } from './components'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'About',
@@ -49,7 +48,6 @@ export default {
     AboutSidebar,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     content: {
       type: Array,

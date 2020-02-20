@@ -1,57 +1,59 @@
 <template>
-  <section
-    ref="reveal"
+  <ComponentReveal
+    component="section"
     :class="$style.container"
   >
-    <!-- Raw text -->
-    <ComponentReveal
-      :component="ComponentTag"
-      :is-unrevealed="!isRevealed"
-      text="Intro"
-    />
-    <ComponentReveal
-      :component="ComponentTitle"
-      :is-unrevealed="!isRevealed"
-      small
-      tag="h2"
-      :class="$style.title"
-      :text="intro.title"
-    />
-    <div :class="$style.wrapper">
-      <ComponentReveal
-        v-for="(list, index) in lists"
-        :key="`list-${index}`"
-        :component="ComponentList"
-        :is-unrevealed="!isRevealed"
-        :title="list.title"
-        :items="list.items"
-        :style="{ transitionDelay: `${revealDelay * index}s` }"
+    <template v-slot:default="reveal">
+      <!-- Raw text -->
+      <ComponentFade
+        :component="ComponentTag"
+        :is-unrevealed="!reveal.isRevealed"
+        text="Intro"
       />
-      <ComponentReveal
-        ref="paragraph"
-        :component="ComponentParagraph"
-        :is-unrevealed="!isRevealed"
-        :text="intro.text"
-        :style="{ transitionDelay: `${revealDelay * lists.length}s` }"
+      <ComponentFade
+        :component="ComponentTitle"
+        :is-unrevealed="!reveal.isRevealed"
+        small
+        tag="h2"
+        :class="$style.title"
+        :text="intro.title"
       />
-    </div>
-  </section>
+      <div :class="$style.wrapper">
+        <ComponentFade
+          v-for="(list, index) in lists"
+          :key="`list-${index}`"
+          :component="ComponentList"
+          :is-unrevealed="!reveal.isRevealed"
+          :title="list.title"
+          :items="list.items"
+          :style="{ transitionDelay: `${reveal.revealDelay * index}s` }"
+        />
+        <ComponentFade
+          ref="paragraph"
+          :component="ComponentParagraph"
+          :is-unrevealed="!reveal.isRevealed"
+          :text="intro.text"
+          :style="{ transitionDelay: `${reveal.revealDelay * lists.length}s` }"
+        />
+      </div>
+    </template>
+  </ComponentReveal>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { List as ComponentList } from '@/components/List'
-import { Tag as ComponentTag } from '@/components/Tag'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Tag as ComponentTag } from '@/components/Tag'
 import { Title as ComponentTitle } from '@/components/Title'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Project',
   components: {
+    ComponentFade,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     intro: {
       type: Object,

@@ -1,40 +1,42 @@
 <template>
-  <aside
-    ref="reveal"
+  <ComponentReveal
+    component="aside"
     :class="$style.container"
   >
-    <ComponentReveal
-      v-for="(social, i) in socials"
-      :key="social.name"
-      component="a"
-      :is-unrevealed="!isRevealed"
-      rel="noopener noreferrer"
-      target="_blank"
-      :href="social.link"
-      :title="social.name"
-      :class="$style.link"
-      :style="{ transitionDelay: `${revealDelay * i}s` }"
-    >
-      <span
-        class="link"
-        :class="$style.text"
+    <template v-slot:default="reveal">
+      <ComponentFade
+        v-for="(social, i) in socials"
+        :key="social.name"
+        component="a"
+        :is-unrevealed="!reveal.isRevealed"
+        rel="noopener noreferrer"
+        target="_blank"
+        :href="social.link"
+        :title="social.name"
+        :class="$style.link"
+        :style="{ transitionDelay: `${reveal.revealDelay * i}s` }"
       >
-        {{ social.name }}
-      </span>
-    </ComponentReveal>
-  </aside>
+        <span
+          class="link"
+          :class="$style.text"
+        >
+          {{ social.name }}
+        </span>
+      </ComponentFade>
+    </template>
+  </ComponentReveal>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Sidebar',
   components: {
+    ComponentFade,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     socials: {
       type: Array,

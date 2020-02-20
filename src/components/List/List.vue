@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import { Tag as ComponentTag } from '@/components/Tag'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
+import { Tag as ComponentTag } from '@/components/Tag'
 
 export default {
   name: 'List',
   components: {
-    ComponentTag,
     ComponentParagraph,
+    ComponentTag,
   },
   props: {
     title: {

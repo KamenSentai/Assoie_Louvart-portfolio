@@ -1,51 +1,74 @@
 <template>
   <component
-    :is="component"
+    :is="self ? ComponentFade : component"
     v-bind="$attrs"
-    :class="[
-      $style.container,
-      {
-        [$style.isLower]: isLower,
-        [$style.isUnrevealed]: isUnrevealed,
-      }
-    ]"
+    :component="self && component"
+    :is-unrevealed="self && !isRevealed"
   >
-    <slot />
+    <slot
+      :isRevealed="isRevealed"
+      :revealDelay="revealDelay"
+    />
   </component>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
+
 export default {
   name: 'Reveal',
-  inheritAttrs: false,
   props: {
     component: {
-      type: [String, Object],
-      required: true,
+      type: [Object, String],
+      default: 'div',
     },
-    isLower: {
+    self: {
       type: Boolean,
       default: false,
     },
-    isUnrevealed: {
-      type: Boolean,
-      required: true,
+    threshold: {
+      type: Number,
+      default: 0.375,
+    },
+  },
+  data() {
+    return {
+      ComponentFade,
+      isRevealed: false,
+      revealDelay: 0.25,
+    }
+  },
+  watch: {
+    $route() {
+      this.$nextTick(() => {
+        this.observe()
+      })
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.observe()
+    })
+  },
+  methods: {
+    observe() {
+      Object.assign(this.$data, this.$options.data())
+
+      const { $el: element, threshold } = this
+
+      new IntersectionObserver((entries, self) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > self.thresholds[0]) {
+            this.isRevealed = true
+            self.unobserve(entry.target)
+          }
+        })
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold,
+      }).observe(element.$el || element)
     },
   },
 }
 </script>
-
-<style lang="scss" module>
-.container {
-  transition: transform $smooth-slower, opacity $smooth-slower;
-}
-
-.isLower.isUnrevealed {
-  transform: translateY(1.25rem);
-}
-
-.isUnrevealed {
-  transform: translateY(2.5rem);
-  opacity: 0;
-}
-</style>

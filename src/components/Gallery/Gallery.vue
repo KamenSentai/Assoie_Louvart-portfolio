@@ -1,50 +1,51 @@
 <template>
   <div :class="$style.container">
-    <div
+    <ComponentReveal
       v-for="(row, i) in media"
-      ref="reveal"
       :key="`row-${i}`"
       :class="$style.line"
       :style="{ gridAutoColumns: `minmax(auto, ${size}px)` }"
     >
-      <template v-for="(medium, j) in row">
-        <ComponentReveal
-          v-if="isImage(medium)"
-          :key="`image-${j}`"
-          component="img"
-          :is-unrevealed="areRevealed[i] ? !areRevealed[i].isRevealed : false"
-          :src="medium"
-          :class="$style.medium"
-          :style="{ transitionDelay: `${revealDelay * j}s` }"
-        />
-        <ComponentReveal
-          v-else-if="isVideo(medium)"
-          :key="`video-${j}`"
-          component="video"
-          :is-unrevealed="areRevealed[i] ? !areRevealed[i].isRevealed : false"
-          :src="medium"
-          :class="$style.medium"
-          :style="{ transitionDelay: `${revealDelay * j}s` }"
-          autoplay
-          loop
-          muted
-        />
+      <template v-slot:default="reveal">
+        <template v-for="(medium, j) in row">
+          <ComponentFade
+            v-if="isImage(medium)"
+            :key="`image-${j}`"
+            component="img"
+            :is-unrevealed="!reveal.isRevealed"
+            :src="medium"
+            :class="$style.medium"
+            :style="{ transitionDelay: `${reveal.revealDelay * j}s` }"
+          />
+          <ComponentFade
+            v-else-if="isVideo(medium)"
+            :key="`video-${j}`"
+            component="video"
+            :is-unrevealed="!reveal.isRevealed"
+            :src="medium"
+            :class="$style.medium"
+            :style="{ transitionDelay: `${reveal.revealDelay * j}s` }"
+            autoplay
+            loop
+            muted
+          />
+        </template>
       </template>
-    </div>
+    </ComponentReveal>
   </div>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { imageTypes, videoTypes } from '@/utils/types'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Gallery',
   components: {
+    ComponentFade,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     size: {
       type: Number,

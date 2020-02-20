@@ -1,97 +1,99 @@
 <template>
-  <section ref="reveal">
-    <ComponentReveal
-      :component="ComponentTitle"
-      :is-unrevealed="!isRevealed"
-      :large="!index"
-      :small="!!index"
-      :tag="section.title.tag"
-      :text="section.title.text"
-      :class="$style.title"
-    />
-    <ComponentReveal
-      v-if="section.paragraph"
-      :component="ComponentParagraph"
-      :is-unrevealed="!isRevealed"
-      :text="section.paragraph"
-      :style="{ transitionDelay: `${revealDelay}s` }"
-    />
-    <div
-      v-else-if="section.list"
-      :class="$style.list"
-    >
+  <ComponentReveal component="section">
+    <template v-slot:default="reveal">
+      <ComponentFade
+        :component="ComponentTitle"
+        :is-unrevealed="!reveal.isRevealed"
+        :large="!index"
+        :small="!!index"
+        :tag="section.title.tag"
+        :text="section.title.text"
+        :class="$style.title"
+      />
+      <ComponentFade
+        v-if="section.paragraph"
+        :component="ComponentParagraph"
+        :is-unrevealed="!reveal.isRevealed"
+        :text="section.paragraph"
+        :style="{ transitionDelay: `${reveal.revealDelay}s` }"
+      />
       <div
-        v-for="(item, j) in section.list.items"
-        :key="`item-${index}-${j}`"
-        :class="[
-          $style[section.list.class],
-          {
-            [$style.isInline]: item.icon,
-          }
-        ]"
+        v-else-if="section.list"
+        :class="$style.list"
       >
-        <template v-if="section.list.class === 'grid'">
-          <ComponentReveal
-            v-for="(text, k) in item"
-            :key="`text-${index}-${j}-${k}`"
-            component="span"
-            is-lower
-            :is-unrevealed="!isRevealed"
-            :style="{ transitionDelay: `${revealDelay * (j + k + 1)}s` }"
-          >
-            {{ text }}
-          </ComponentReveal>
-        </template>
-        <template v-if="section.list.class === 'link'">
-          <ComponentReveal
-            v-if="item.icon"
-            :name="item.icon"
-            height="20px"
-            :component="ComponentIcon"
-            is-lower
-            :is-unrevealed="!isRevealed"
-            :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
-          />
-          <ComponentReveal
-            v-else
-            component="span"
-            is-lower
-            :is-unrevealed="!isRevealed"
-            :style="{ transitionDelay: `${revealDelay * (j + 1)}s` }"
-          >
-            {{ item.name }}
-          </ComponentReveal>
-          <ComponentReveal
-            rel="noopener noreferrer"
-            target="_blank"
-            :href="item.link"
-            :title="item.title"
-            component="a"
-            is-lower
-            :is-unrevealed="!isRevealed"
-            :style="{ transitionDelay: `${revealDelay * (j + 2)}s` }"
-          >
-            {{ item.title }}
-          </ComponentReveal>
-        </template>
+        <div
+          v-for="(item, j) in section.list.items"
+          :key="`item-${index}-${j}`"
+          :class="[
+            $style[section.list.class],
+            {
+              [$style.isInline]: item.icon,
+            }
+          ]"
+        >
+          <template v-if="section.list.class === 'grid'">
+            <ComponentFade
+              v-for="(text, k) in item"
+              :key="`text-${index}-${j}-${k}`"
+              component="span"
+              is-lower
+              :is-unrevealed="!reveal.isRevealed"
+              :style="{ transitionDelay: `${reveal.revealDelay * (j + k + 1)}s` }"
+            >
+              {{ text }}
+            </ComponentFade>
+          </template>
+          <template v-if="section.list.class === 'link'">
+            <ComponentFade
+              v-if="item.icon"
+              :name="item.icon"
+              height="20px"
+              :component="ComponentIcon"
+              is-lower
+              :is-unrevealed="!reveal.isRevealed"
+              :style="{ transitionDelay: `${reveal.revealDelay * (j + 1)}s` }"
+            />
+            <ComponentFade
+              v-else
+              component="span"
+              is-lower
+              :is-unrevealed="!reveal.isRevealed"
+              :style="{ transitionDelay: `${reveal.revealDelay * (j + 1)}s` }"
+            >
+              {{ item.name }}
+            </ComponentFade>
+            <ComponentFade
+              rel="noopener noreferrer"
+              target="_blank"
+              :href="item.link"
+              :title="item.title"
+              component="a"
+              is-lower
+              :is-unrevealed="!reveal.isRevealed"
+              :style="{ transitionDelay: `${reveal.revealDelay * (j + 2)}s` }"
+            >
+              {{ item.title }}
+            </ComponentFade>
+          </template>
+        </div>
       </div>
-    </div>
-  </section>
+    </template>
+  </ComponentReveal>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Icon as ComponentIcon } from '@/components/Icon'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Page',
   components: {
+    ComponentFade,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     index: {
       type: Number,

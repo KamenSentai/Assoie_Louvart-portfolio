@@ -1,38 +1,37 @@
 <template>
-  <div
-    ref="reveal"
-    :class="$style.container"
-  >
-    <ComponentReveal
-      v-if="title"
-      :component="ComponentTitle"
-      :is-unrevealed="!isRevealed"
-      tag="h2"
-      :text="title"
-    />
-    <ComponentReveal
-      v-if="text"
-      :component="ComponentParagraph"
-      :is-unrevealed="!isRevealed"
-      :text="text"
-      :class="$style.paragraph"
-      :style="{ transitionDelay: `${revealDelay}s` }"
-    />
-  </div>
+  <ComponentReveal :class="$style.container">
+    <template v-slot:default="reveal">
+      <ComponentFade
+        v-if="title"
+        :component="ComponentTitle"
+        :is-unrevealed="!reveal.isRevealed"
+        tag="h2"
+        :text="title"
+      />
+      <ComponentFade
+        v-if="text"
+        :component="ComponentParagraph"
+        :is-unrevealed="!reveal.isRevealed"
+        :text="text"
+        :class="$style.paragraph"
+        :style="{ transitionDelay: `${reveal.revealDelay}s` }"
+      />
+    </template>
+  </ComponentReveal>
 </template>
 
 <script>
+import { Fade as ComponentFade } from '@/components/Fade'
 import { Paragraph as ComponentParagraph } from '@/components/Paragraph'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
 import { Title as ComponentTitle } from '@/components/Title'
-import MixinReveal from '@/mixins/components/reveal'
 
 export default {
   name: 'Banner',
   components: {
+    ComponentFade,
     ComponentReveal,
   },
-  mixins: [MixinReveal],
   props: {
     title: {
       type: String,
