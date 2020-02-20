@@ -4,20 +4,32 @@ export default {
   name: 'Pocket Nurse',
   slug: 'pocket-nurse',
   description: 'How to facilitated communication in the hospital.',
-  type: 'Tablet',
+  subject: 'Patient\'s care',
   year: 2019,
   cover: resources.PocketNurseCover,
-  subject: 'Patient\'s care',
   hero: [
     resources.PocketNurseHero1,
     resources.PocketNurseHero2,
     resources.PocketNurseHero3,
   ],
   intro: {
+    tag: 'Intro',
     title: 'How to facilitated communication in the hospital',
-    roles: [
-      'UX Design',
-      'UI Design',
+    lists: [
+      {
+        title: 'Role',
+        items: [
+          'UX Design',
+          'UI Design',
+        ],
+      },
+      {
+        title: 'What',
+        items: [
+          'Tablet',
+          2019,
+        ],
+      },
     ],
     text: 'As part of clean design’s course, I worked on a project focusing on how to improve daily hospital care. The goal of the projet was to create an interface where the patients would have the possibility to know more about their situation during their hospitalisation and to keep in touch with the nurses and the family.',
   },

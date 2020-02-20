@@ -4,11 +4,10 @@
     :class="$style.container"
   >
     <template v-slot:default="reveal">
-      <!-- Raw text -->
       <ComponentFade
         :component="ComponentTag"
         :is-unrevealed="!reveal.isRevealed"
-        text="Intro"
+        :text="intro.tag"
       />
       <ComponentFade
         :component="ComponentTitle"
@@ -29,7 +28,6 @@
           :style="{ transitionDelay: `${reveal.revealDelay * index}s` }"
         />
         <ComponentFade
-          ref="paragraph"
           :component="ComponentParagraph"
           :is-unrevealed="!reveal.isRevealed"
           :text="intro.text"
@@ -55,16 +53,8 @@ export default {
     ComponentReveal,
   },
   props: {
-    intro: {
+    project: {
       type: Object,
-      required: true,
-    },
-    type: {
-      type: String,
-      required: true,
-    },
-    year: {
-      type: Number,
       required: true,
     },
   },
@@ -77,17 +67,18 @@ export default {
     }
   },
   computed: {
+    intro() {
+      return this.project.intro
+    },
     lists() {
-      return [
-        {
-          title: 'Role', // Raw text
-          items: this.intro.roles,
-        },
-        {
-          title: 'What', // Raw text
-          items: [this.type, this.year.toString()],
-        },
-      ]
+      return this.intro.lists.map((list) => {
+        const { items, title } = list
+
+        return {
+          items: items.map(item => (item.key ? this.project[item.key] : item)),
+          title,
+        }
+      })
     },
   },
 }

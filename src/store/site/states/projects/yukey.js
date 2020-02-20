@@ -4,21 +4,33 @@ export default {
   name: 'Yukey',
   slug: 'yukey',
   description: 'Reinventing the experience of bringing together sellers and buyers of real estate in France.',
-  type: 'Application',
+  subject: 'Real estate',
   year: 2019,
   cover: resources.YukeyCover,
-  subject: 'Real estate',
   hero: [
     resources.YukeyHero1,
     resources.YukeyHero2,
     resources.YukeyHero3,
   ],
   intro: {
+    tag: 'Intro',
     title: 'Reinventing the experience of bringing together sellers and buyers of real estate in France',
-    roles: [
-      'Product Owner',
-      'UX Design',
-      'UI Design',
+    lists: [
+      {
+        title: 'Role',
+        items: [
+          'Product Owner',
+          'UX Design',
+          'UI Design',
+        ],
+      },
+      {
+        title: 'What',
+        items: [
+          'Application',
+          2019,
+        ],
+      },
     ],
     text: 'As part of my studies, I worked on a project for a client in the real estate sector. The goal was to create a private-to-private application that offers a new user experience with personal assistance. The goal was to change this saturated and dishonest market by offering a benevolent application. Yukey is currently being tested by users and will soon be availible on IOS and Android.',
   },
