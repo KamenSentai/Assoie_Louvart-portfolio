@@ -60,6 +60,7 @@ export default {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > self.thresholds[0]) {
             this.isRevealed = true
+            this.$emit('reveal')
             self.unobserve(entry.target)
           }
         })
