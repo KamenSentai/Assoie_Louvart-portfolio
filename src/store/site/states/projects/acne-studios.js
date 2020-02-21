@@ -14,7 +14,7 @@ export default {
   ],
   intro: {
     tag: 'Intro',
-    title: 'Acne Studio new design',
+    title: 'Acne Studios new design',
     lists: [
       {
         title: 'Role',
@@ -32,13 +32,13 @@ export default {
         ],
       },
     ],
-    text: 'Last summer, during my free time I enjoyed recreating Acne Studios e-commerce website. I love their colors and their minimalist indentity and it was for me a challenge to recreate the website through my vision of design.',
+    text: 'Last summer, during my free time, I enjoyed recreating the e-commerce website of Acne Studios. I love their colors and their minimalist identity. It was for me a challenge to recreate the website through my vision of design.',
   },
   sections: [
     {
       contents: {
         title: 'Minimalist, simplicity',
-        text: 'Acne Studio has a strong identity. Their website is very clear and shows their products quality. My goal was to fit with Acne Studio values while adding my own touch.',
+        text: 'Acne Studios has a strong identity. Their website is very clear and shows their product’s quality. My goal was to fit with Acne Studios values while adding my own touch.',
       },
       media: [
         [
