@@ -2,6 +2,9 @@ export default {
   about(state) {
     return state.about
   },
+  error(state) {
+    return state.error
+  },
   home(state) {
     return state.home
   },

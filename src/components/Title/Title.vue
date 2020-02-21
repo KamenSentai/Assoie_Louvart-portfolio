@@ -4,6 +4,7 @@
     :class="[
       $style.container,
       {
+        [$style.isGiant]: giant && !large && !small,
         [$style.isLarge]: large && !small,
         [$style.isSmall]: small && !large,
       }
@@ -17,6 +18,10 @@
 export default {
   name: 'Title',
   props: {
+    giant: {
+      type: Boolean,
+      default: false,
+    },
     large: {
       type: Boolean,
       default: false,
@@ -55,19 +60,19 @@ export default {
     font-size: 2.4rem;
   }
 
-  &.isSmall {
-    font-size: 4rem;
+  &.isGiant {
+    font-size: 20rem;
 
     @include bp(lg) {
-      font-size: 3.8rem;
+      font-size: 16rem;
     }
 
     @include bp(md) {
-      font-size: 3rem;
+      font-size: 12rem;
     }
 
     @include bp(sm) {
-      font-size: 2.2rem;
+      font-size: 8rem;
     }
   }
 
@@ -84,6 +89,22 @@ export default {
 
     @include bp(sm) {
       font-size: 2.4rem;
+    }
+  }
+
+  &.isSmall {
+    font-size: 4rem;
+
+    @include bp(lg) {
+      font-size: 3.8rem;
+    }
+
+    @include bp(md) {
+      font-size: 3rem;
+    }
+
+    @include bp(sm) {
+      font-size: 2.2rem;
     }
   }
 }

@@ -10,32 +10,35 @@
     ]"
   >
     <ModuleHeader :class="$style.header" />
-    <ComponentHero v-if="$isProject && project">
-      <div :class="$style.cover">
-        <div :class="$style.wrapper">
-          <img
-            v-for="(image, index) in [...project.hero].reverse()"
-            :key="`hero-${image}`"
-            :src="image"
-            :alt="project.name"
-            :class="$style.image"
-            @load="load(index)"
-          >
-          <div :class="$style.bloc">
-            <h1 :class="$style.title">
-              {{ project.name }}
-            </h1>
-            <h2 :class="$style.subtitle">
-              {{ project.subject }}
-            </h2>
+    <ComponentHero v-if="$isProject">
+      <template v-if="project">
+        <div :class="$style.cover">
+          <div :class="$style.wrapper">
+            <img
+              v-for="(image, index) in [...project.hero].reverse()"
+              :key="`hero-${image}`"
+              :src="image"
+              :alt="project.name"
+              :class="$style.image"
+              @load="load(index)"
+            >
+            <div :class="$style.bloc">
+              <h1 :class="$style.title">
+                {{ project.name }}
+              </h1>
+              <h2 :class="$style.subtitle">
+                {{ project.subject }}
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
-      <ComponentIndicator
-        :class="$style.indicator"
-        color="light"
-        @click="scroll"
-      />
+        <ComponentIndicator
+          :class="$style.indicator"
+          color="light"
+          @click="scroll"
+        />
+      </template>
+      <ModuleError v-else />
     </ComponentHero>
     <ModulePin />
   </div>
@@ -43,6 +46,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ModuleError from '@/modules/Error'
 import ModuleHeader from '@/modules/Header'
 import ModulePin from '@/modules/Pin'
 import { Hero as ComponentHero } from '@/components/Hero'
@@ -52,6 +56,7 @@ import { easings, scrollTo } from '@/utils/scroll'
 export default {
   name: 'Jumbotron',
   components: {
+    ModuleError,
     ModuleHeader,
     ModulePin,
     ComponentHero,
