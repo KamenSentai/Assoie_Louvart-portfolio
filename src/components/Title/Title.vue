@@ -31,7 +31,7 @@ export default {
       default: 'h1',
     },
     text: {
-      type: String,
+      type: [Number, String],
       required: true,
     },
     small: {
