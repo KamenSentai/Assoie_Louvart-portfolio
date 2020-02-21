@@ -14,10 +14,7 @@ export default {
         next()
       }, this.duration)
     } else if (to.name === 'about') {
-      this.expand(() => {
-        this.deactivate()
-        next()
-      })
+      this.expand(next)
     } else {
       next()
     }

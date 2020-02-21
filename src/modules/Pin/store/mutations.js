@@ -15,12 +15,6 @@ export default {
   deactivate(state) {
     state.isActivated = false
   },
-  disappear(state) {
-    state.isCovering = false
-  },
-  fade(state) {
-    state.isExpanding = false
-  },
   hide(state) {
     state.isDisplayed = false
   },
@@ -30,5 +24,11 @@ export default {
   },
   show(state) {
     state.isDisplayed = true
+  },
+  shrink(state) {
+    state.isExpanding = false
+  },
+  uncover(state) {
+    state.isCovering = false
   },
 }

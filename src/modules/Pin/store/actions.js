@@ -5,7 +5,7 @@ export default {
     dispatch('repulse')
   },
   attract({ commit, state }, target) {
-    if (!state.isCovering) {
+    if (!state.isCovering && !state.isExpanding) {
       commit('attract', target)
     }
   },
@@ -15,7 +15,6 @@ export default {
 
       setTimeout(() => {
         dispatch('loading/destroy', null, { root: true })
-        commit('disappear')
         callback()
       }, state.duration)
     }
@@ -26,7 +25,6 @@ export default {
 
       setTimeout(() => {
         dispatch('loading/destroy', null, { root: true })
-        commit('fade')
         callback()
       }, state.duration)
     }
@@ -34,21 +32,25 @@ export default {
   deactivate({ commit }) {
     commit('deactivate')
   },
-  disappear({ commit }) {
-    commit('disappear')
+  hide({ commit, state }) {
+    if (!state.isCovering && !state.isExpanding) {
+      commit('hide')
+    }
   },
-  fade({ commit }) {
-    commit('fade')
-  },
-  hide({ commit }) {
-    commit('hide')
-  },
-  repulse({ commit }) {
-    commit('repulse')
+  repulse({ commit, state }) {
+    if (!state.isCovering && !state.isExpanding) {
+      commit('repulse')
+    }
   },
   show({ commit, state }) {
-    if (!state.isExpanding) {
+    if (!state.isCovering && !state.isExpanding) {
       commit('show')
     }
+  },
+  shrink({ commit }) {
+    commit('shrink')
+  },
+  uncover({ commit }) {
+    commit('uncover')
   },
 }
