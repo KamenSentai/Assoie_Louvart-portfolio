@@ -24,6 +24,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      this.$ga.page(this.$route.path)
       this.mount()
       this.nailOverlay('bottom')
     })
