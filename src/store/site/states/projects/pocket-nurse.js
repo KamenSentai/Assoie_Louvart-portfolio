@@ -31,7 +31,7 @@ export default {
         ],
       },
     ],
-    text: 'As part of clean design’s course, I worked on a project focusing on how to improve daily hospital care. The goal of the projet was to create an interface where the patients would have the possibility to know more about their situation during their hospitalisation and to keep in touch with the nurses and the family.',
+    text: 'As part of a clean design course, we worked on a project focusing on how to improve daily hospital care. The goal of the project was to create an interface where the patients would have the possibility to know more about their situation during their hospitalization, keep in touch with the nurses, and connect with family.',
   },
   sections: [
     {
@@ -55,7 +55,7 @@ export default {
       screen: resources.PocketNurseScreen1,
       contents: {
         title: 'Having fun, passing time',
-        text: 'With “Pocket Nurse” the patient has access to all is favorite activities, films, musics, games, series etc. And he can also talk with his friends using a chat group.',
+        text: 'With “Pocket Nurse,” the patient has access to all his favorite activities, films, music, games, series, etc. He can also talk with his friends using its chat group.',
       },
       media: [
         [

@@ -32,13 +32,13 @@ export default {
         ],
       },
     ],
-    text: 'During my free time I enjoyed creating a new food delivery application. Feedchi is an easy way to order your favourite dishes, recipe kits or products that you need.',
+    text: 'During our spare time, with a friend, we enjoyed creating a new food delivery application. Feedchi is an easy way to order your favorite dishes, recipe kits or products that you need.',
   },
   sections: [
     {
       contents: {
         title: 'Order quickly and easily',
-        text: 'Feedchi offers you to chose from a wide range of quality products. I choose to make a clean and modern design so that the user can easily order and have a pleasant experience.',
+        text: 'Feedchi enables you to choose from a wide range of quality products. We chose to make a clean and modern design so that the user can easily order and have a pleasant experience.',
       },
       media: [
         [
@@ -52,7 +52,7 @@ export default {
       screen: resources.FeedchiScreen1,
       contents: {
         title: 'Make a group order',
-        text: 'If you want to make a collective order with Feedchi you no longer need to crowd around a screen, pass the phone from hand to hand or have to pay for everyone. Feedchi makes the process easy so you can save time. You just need to select the people you want to order with and everyone can choose what they want. Once all your friends have chosen they pay their part and all you have to do is pay yours. Then, you can share the delivery tracking with your friends. The food will arrived soon and at the same time for everyone. Enjoy !',
+        text: 'If you want to make a collective order with Feedchi, you no longer need to crowd around a screen, pass the phone from hand to hand or have to pay for everyone. Feedchi makes the process easy, so you can save time. You just need to select the people you want to order with, and everyone can choose what they want. Once all your friends have chosen, they pay their part and all you have to do is pay yours. Then, you can share the delivery tracking with your friends. The food will arrive soon — and at the same time — for everyone. Enjoy !',
       },
       media: [
         [

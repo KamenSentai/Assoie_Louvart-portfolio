@@ -32,13 +32,13 @@ export default {
         ],
       },
     ],
-    text: 'As part of my studies, I worked on a project for a client in the real estate sector. The goal was to create a private-to-private application that offers a new user experience with personal assistance. The goal was to change this saturated and dishonest market by offering a benevolent application. Yukey is currently being tested by users and will soon be availible on IOS and Android.',
+    text: 'As part of my studies, I worked on a project for a client in the real estate sector. The goal was to create a private-to-private application that offers a new user experience with personal assistance. The purpose was to change this saturated and dishonest market by offering a benevolent application. Yukey is currently being tested by users and will soon be available on IOS and Android.',
   },
   sections: [
     {
       contents: {
         title: 'Redefining the buyer experience',
-        text: 'The application is based on transparency. This is why we decided to display the exact address of the property and replace the personal descriptions, usually exaggerated and too general with tags. The buyer can easily find the house that suits him and with the help of Yukey he can ask any question that will be visible to everyone and contact the seller for a visit.',
+        text: 'The application is based on transparency. We display the exact address of the property and replace the personal descriptions, which are usually exaggerated and too general, with tags. The buyer can easily find the house that suits him. Then, with the help of Yukey, he/she can ask any question, which will be viewable on the site, and contact the seller for a visit.',
       },
       media: [
         [
@@ -61,7 +61,7 @@ export default {
       screen: resources.YukeyScreen1,
       contents: {
         title: 'Less than 20 min to seel your house',
-        text: 'As a seller, we all know how long and stressful it can be to post a real estate ad. That is why with this application we made it easier. It is through Yukey and a chat system that the seller can be guided through the different stages and post his ad in less than 20 minutes. He can also answer buyers\' questions and schedule visits.',
+        text: 'As sellers, we all know how long and stressful it can be to post a real estate advertisement. That is why, with this application, we made it easier. With Yukey, the seller can post his ad in less than 20 minutes. Then, through the chat system, he can also answer buyer’s questions and schedule visits, while being guided through the different stages of sale.',
       },
       media: [
         [
