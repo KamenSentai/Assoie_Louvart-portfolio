@@ -6,6 +6,7 @@ import App from './App.vue'
 
 import 'normalize.css'
 import '@/mixins/global'
+import '@/plugins/analytics'
 import '@/plugins/meta'
 import '@/plugins/mq'
 import '@/styles/main.scss'

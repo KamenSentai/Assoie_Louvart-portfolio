@@ -13,7 +13,7 @@
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
   >
     <div :class="$style.wrapper">
-      <span :class="$style.text">{{ PIN }}</span>
+      <span :class="$style.text">{{ text }}</span>
     </div>
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
     'isDisplayed',
     'isExpanding',
     'target',
+    'text',
   ]),
   created() {
     const widthCenter = window.innerWidth / 2

@@ -6,4 +6,5 @@ export default {
   isExpanding: false,
   isDisplayed: false,
   target: null,
+  text: 'Discover',
 }

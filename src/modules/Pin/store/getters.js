@@ -20,4 +20,7 @@ export default {
   target(state) {
     return state.target
   },
+  text(state) {
+    return state.text
+  },
 }

@@ -41,9 +41,9 @@ export default {
   },
   computed: {
     ...mapGetters('pin', ['duration']),
-    ...mapGetters('site', ['projects']),
+    ...mapGetters('site', ['error', 'projects']),
     project() {
-      return this.projects.find(project => project.slug === this.slug) || { name: this.UNFOUND }
+      return this.projects.find(project => project.slug === this.slug) || { name: this.error.name }
     },
     next() {
       return this.projects[(this.projects.indexOf(this.project) + 1) % this.projects.length]

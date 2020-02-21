@@ -1,4 +1,5 @@
 export default {
+  name: 'Page not found',
   title: 404,
   subtitle: 'This page is lost',
   paragraphs: [
