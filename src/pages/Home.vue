@@ -30,15 +30,9 @@ export default {
     this.repulse()
 
     if (to.name === 'about') {
-      this.expand(() => {
-        this.deactivate()
-        next()
-      })
+      this.expand(next)
     } else if (to.name === 'project') {
-      this.cover(() => {
-        this.deactivate()
-        next()
-      })
+      this.cover(next)
     } else {
       next()
     }
@@ -66,7 +60,7 @@ export default {
   methods: {
     ...mapActions('loading', ['mount']),
     ...mapActions('overlay', { nailOverlay: 'nail', showOverlay: 'show' }),
-    ...mapActions('pin', ['activate', 'cover', 'deactivate', 'expand', 'hide', 'repulse']),
+    ...mapActions('pin', ['activate', 'cover', 'expand', 'hide', 'repulse']),
   },
   metaInfo() {
     return {

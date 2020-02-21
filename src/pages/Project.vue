@@ -51,22 +51,25 @@ export default {
   },
   watch: {
     project({ index }) {
+      this.deactivate()
+      this.uncover()
       this.updateIndex(index)
       this.$nextTick(() => {
         this.mount()
         this.hide()
-        setTimeout(() => {
-          this.activate()
-        }, this.duration)
+        setTimeout(this.activate, this.duration)
       })
     },
   },
+  beforeRouteEnter(_, __, next) {
+    next((vm) => {
+      vm.deactivate()
+      vm.uncover()
+    })
+  },
   beforeRouteUpdate(_, __, next) {
     this.hide()
-    this.cover(() => {
-      this.deactivate()
-      next()
-    })
+    this.cover(next)
   },
   created() {
     this.isNotFound = !this.projects.map(project => project.slug).includes(this.slug)
@@ -76,13 +79,11 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.activate()
-    }, this.duration)
+    setTimeout(this.activate, this.duration)
   },
   methods: {
     ...mapActions('loading', ['mount']),
-    ...mapActions('pin', ['activate', 'cover', 'deactivate', 'hide', 'show']),
+    ...mapActions('pin', ['activate', 'deactivate', 'cover', 'hide', 'show', 'uncover']),
     ...mapActions('site', ['updateIndex']),
   },
   metaInfo() {

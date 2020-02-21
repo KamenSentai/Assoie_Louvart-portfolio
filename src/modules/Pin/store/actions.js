@@ -15,7 +15,6 @@ export default {
 
       setTimeout(() => {
         dispatch('loading/destroy', null, { root: true })
-        commit('uncover')
         callback()
       }, state.duration)
     }
@@ -26,7 +25,6 @@ export default {
 
       setTimeout(() => {
         dispatch('loading/destroy', null, { root: true })
-        commit('shrink')
         callback()
       }, state.duration)
     }
