@@ -5,64 +5,86 @@ $font-text: "Inter", sans-serif;
 @font-face {
   font-weight: 400;
   font-family: "Inter";
-  src: url("#{$path}/Inter/Inter-Regular.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-Regular.woff") format("woff"),
+    url("#{$path}/Inter/Inter-Regular.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 400;
   font-family: "Inter";
   font-style: italic;
-  src: url("#{$path}/Inter/Inter-Italic.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-Italic.woff") format("woff"),
+    url("#{$path}/Inter/Inter-Italic.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 500;
   font-family: "Inter";
-  src: url("#{$path}/Inter/Inter-Medium.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-Medium.woff") format("woff"),
+    url("#{$path}/Inter/Inter-Medium.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 500;
   font-family: "Inter";
   font-style: italic;
-  src: url("#{$path}/Inter/Inter-MediumItalic.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-MediumItalic.woff") format("woff"),
+    url("#{$path}/Inter/Inter-MediumItalic.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 600;
   font-family: "Inter";
-  src: url("#{$path}/Inter/Inter-SemiBold.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-SemiBold.woff") format("woff"),
+    url("#{$path}/Inter/Inter-SemiBold.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 600;
   font-family: "Inter";
   font-style: italic;
-  src: url("#{$path}/Inter/Inter-SemiBoldItalic.otf") format("otf");
+  src: url("#{$path}/Inter/Inter-SemiBoldItalic.woff") format("woff"),
+    url("#{$path}/Inter/Inter-SemiBoldItalic.woff2") format("woff2")
+  ;
 }
 
 @font-face {
   font-weight: 400;
   font-family: "Playfair Display";
-  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Regular.ttf") format("ttf");
+  font-style: normal;
+  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Regular.woff2") format("woff2"),
+    url("#{$path}/PlayfairDisplay/PlayfairDisplay-Regular.woff") format("woff")
+  ;
 }
 
 @font-face {
   font-weight: 400;
   font-family: "Playfair Display";
   font-style: italic;
-  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Italic.ttf") format("ttf");
+  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Italic.woff2") format("woff2"),
+    url("#{$path}/PlayfairDisplay/PlayfairDisplay-Italic.woff") format("woff")
+  ;
 }
 
 @font-face {
   font-weight: 700;
   font-family: "Playfair Display";
-  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Bold.ttf") format("ttf");
+  font-style: normal;
+  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-Bold.woff2") format("woff2"),
+    url("#{$path}/PlayfairDisplay/PlayfairDisplay-Bold.woff") format("woff")
+  ;
 }
 
 @font-face {
   font-weight: 700;
   font-family: "Playfair Display";
   font-style: italic;
-  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-BoldItalic.ttf") format("ttf");
+  src: url("#{$path}/PlayfairDisplay/PlayfairDisplay-BoldItalic.woff2") format("woff2"),
+    url("#{$path}/PlayfairDisplay/PlayfairDisplay-BoldItalic.woff") format("woff")
+  ;
 }
