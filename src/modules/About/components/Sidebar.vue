@@ -14,7 +14,7 @@
         :href="social.link"
         :title="social.name"
         :class="$style.link"
-        :style="{ transitionDelay: `${reveal.revealDelay * i}s` }"
+        :style="reveal.transitionDelay(i)"
       >
         <span
           class="link"

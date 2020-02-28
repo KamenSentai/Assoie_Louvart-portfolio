@@ -18,7 +18,7 @@
         :component="ComponentParagraph"
         :is-unrevealed="!reveal.isRevealed"
         :text="section.paragraph"
-        :style="{ transitionDelay: `${reveal.revealDelay}s` }"
+        :style="reveal.transitionDelay()"
       />
       <div
         v-else-if="section.list"
@@ -41,7 +41,7 @@
               component="span"
               is-lower
               :is-unrevealed="!reveal.isRevealed"
-              :style="{ transitionDelay: `${reveal.revealDelay * (j + k + 1)}s` }"
+              :style="reveal.transitionDelay(j + k + 1)"
             >
               {{ text }}
             </ComponentFade>
@@ -54,14 +54,14 @@
               :component="ComponentIcon"
               is-lower
               :is-unrevealed="!reveal.isRevealed"
-              :style="{ transitionDelay: `${reveal.revealDelay * (j + 1)}s` }"
+              :style="reveal.transitionDelay(j + 1)"
             />
             <ComponentFade
               v-else
               component="span"
               is-lower
               :is-unrevealed="!reveal.isRevealed"
-              :style="{ transitionDelay: `${reveal.revealDelay * (j + 1)}s` }"
+              :style="reveal.transitionDelay(j + 1)"
             >
               {{ item.name }}
             </ComponentFade>
@@ -73,7 +73,7 @@
               component="a"
               is-lower
               :is-unrevealed="!reveal.isRevealed"
-              :style="{ transitionDelay: `${reveal.revealDelay * (j + 2)}s` }"
+              :style="reveal.transitionDelay(j + 2)"
             >
               {{ item.title }}
             </ComponentFade>

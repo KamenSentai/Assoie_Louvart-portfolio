@@ -25,13 +25,13 @@
           :is-unrevealed="!reveal.isRevealed"
           :title="list.title"
           :items="list.items"
-          :style="{ transitionDelay: `${reveal.revealDelay * index}s` }"
+          :style="reveal.transitionDelay(index)"
         />
         <ComponentFade
           :component="ComponentParagraph"
           :is-unrevealed="!reveal.isRevealed"
           :text="intro.text"
-          :style="{ transitionDelay: `${reveal.revealDelay * lists.length}s` }"
+          :style="reveal.transitionDelay(lists.length)"
         />
       </div>
     </template>
