@@ -15,7 +15,7 @@
             :is-unrevealed="!reveal.isRevealed"
             :src="medium"
             :class="$style.medium"
-            :style="{ transitionDelay: `${reveal.revealDelay * j}s` }"
+            :style="reveal.transitionDelay(j)"
           />
           <ComponentFade
             v-else-if="isVideo(medium)"
@@ -24,7 +24,7 @@
             :is-unrevealed="!reveal.isRevealed"
             :src="medium"
             :class="$style.medium"
-            :style="{ transitionDelay: `${reveal.revealDelay * j}s` }"
+            :style="reveal.transitionDelay(j)"
             autoplay
             loop
             muted

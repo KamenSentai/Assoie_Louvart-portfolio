@@ -7,7 +7,7 @@
   >
     <slot
       :isRevealed="isRevealed"
-      :revealDelay="revealDelay"
+      :transitionDelay="transitionDelay"
     />
   </component>
 </template>
@@ -34,9 +34,14 @@ export default {
   data() {
     return {
       ComponentFade,
+      delay: 0.25,
       isRevealed: false,
-      revealDelay: 0.25,
     }
+  },
+  computed: {
+    transitionDelay() {
+      return (factor = 1) => ({ transitionDelay: `${this.delay * factor}s` })
+    },
   },
   watch: {
     $route() {
@@ -54,7 +59,7 @@ export default {
     observe() {
       Object.assign(this.$data, this.$options.data())
 
-      const { $el: element, threshold } = this
+      const { $el, threshold } = this
 
       new IntersectionObserver((entries, self) => {
         entries.forEach((entry) => {
@@ -68,7 +73,7 @@ export default {
         root: null,
         rootMargin: '0px',
         threshold,
-      }).observe(element.$el || element)
+      }).observe($el)
     },
   },
 }

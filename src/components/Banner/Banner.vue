@@ -14,7 +14,7 @@
         :is-unrevealed="!reveal.isRevealed"
         :text="text"
         :class="$style.paragraph"
-        :style="{ transitionDelay: `${reveal.revealDelay}s` }"
+        :style="reveal.transitionDelay()"
       />
     </template>
   </ComponentReveal>
