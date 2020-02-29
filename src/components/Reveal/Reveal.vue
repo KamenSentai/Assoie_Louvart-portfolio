@@ -6,7 +6,7 @@
     :is-unrevealed="self && !isRevealed"
   >
     <slot
-      :isRevealed="isRevealed"
+      :isRevealed="$isMobile || isRevealed"
       :transitionDelay="transitionDelay"
     />
   </component>
@@ -45,15 +45,19 @@ export default {
   },
   watch: {
     $route() {
-      this.$nextTick(() => {
-        this.observe()
-      })
+      if (!this.$isMobile) {
+        this.$nextTick(() => {
+          this.observe()
+        })
+      }
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.observe()
-    })
+    if (!this.$isMobile) {
+      this.$nextTick(() => {
+        this.observe()
+      })
+    }
   },
   methods: {
     observe() {

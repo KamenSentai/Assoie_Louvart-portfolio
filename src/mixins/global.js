@@ -14,6 +14,9 @@ Vue.mixin({
     $isMobile() {
       return this.$mq === 'xs'
     },
+    $isTouchDevice() {
+      return 'ontouchstart' in window || !!navigator.MaxTouchPoints || !!navigator.msMaxTouchPoints
+    },
     $isHome() {
       return this.$route.name === 'home'
     },

@@ -22,8 +22,8 @@
       :class="[
         $style.link,
         {
-          ['link']: $isAbout,
-          [$style.isLightable]: $isHome,
+          ['link']: !$isTouchDevice && $isAbout,
+          [$style.isLightable]: !$isTouchDevice && $isHome,
         }
       ]"
       :title="$isAbout ? NAME : 'About'"
