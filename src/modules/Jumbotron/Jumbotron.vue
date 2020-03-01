@@ -102,12 +102,14 @@ export default {
 <style lang="scss" module>
 .container {
   z-index: 10;
+  min-height: 0;
 }
 
 .isFull {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
+  transition: min-height $smooth-slower;
 }
 
 .isInactive {

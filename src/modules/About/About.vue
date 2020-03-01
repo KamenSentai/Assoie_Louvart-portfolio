@@ -121,25 +121,28 @@ export default {
     grid-gap: 4rem;
   }
 
-  &::before,
-  &::after {
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    height: 4rem;
-    content: "";
-    pointer-events: none;
-  }
+  @include bp(sm up) {
 
-  &::before {
-    top: 0;
-    background: linear-gradient(to top, gradient(dark));
-  }
+    &::before,
+    &::after {
+      position: absolute;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      height: 4rem;
+      content: "";
+      pointer-events: none;
+    }
 
-  &::after {
-    bottom: 0;
-    background: linear-gradient(to bottom, gradient(dark));
+    &::before {
+      top: 0;
+      background: linear-gradient(to top, gradient(dark));
+    }
+
+    &::after {
+      bottom: 0;
+      background: linear-gradient(to bottom, gradient(dark));
+    }
   }
 }
 
