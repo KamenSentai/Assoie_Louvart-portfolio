@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     :class="[
       $style.container,
       {
@@ -33,7 +33,7 @@
       <!-- Raw text -->
       {{ $isAbout ? 'All projects' : 'About' }}
     </router-link>
-  </div>
+  </header>
 </template>
 
 <script>
