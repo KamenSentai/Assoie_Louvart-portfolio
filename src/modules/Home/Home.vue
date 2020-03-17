@@ -2,7 +2,7 @@
   <ComponentHero
     :class="$style.container"
     @touchstart="touchStart"
-    @touchmove="toucheMove"
+    @touchmove="touchMove"
   >
     <HomeSidebar
       v-if="!$isMobile"
@@ -103,7 +103,7 @@ export default {
     resize() {
       document.documentElement.style.overflow = this.isLoaded && this.$isMobile ? 'auto' : 'hidden'
     },
-    toucheMove({ touches }) {
+    touchMove({ touches }) {
       const [{ clientY: y }] = touches
       const movementY = y - this.touchPosition
       this.touchPosition = y
