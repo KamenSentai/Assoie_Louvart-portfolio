@@ -1,5 +1,19 @@
 <template>
-  <p :class="$style.container">
+  <div
+    v-if="typeof text === 'object'"
+    :class="$style.container"
+  >
+    <p
+      v-for="(line, i) in text"
+      :key="`line-${i}`"
+    >
+      {{ line }}
+    </p>
+  </div>
+  <p
+    v-else
+    :class="$style.container"
+  >
     {{ text }}
   </p>
 </template>
@@ -9,7 +23,7 @@ export default {
   name: 'Paragraph',
   props: {
     text: {
-      type: [Number, String],
+      type: [Array, Number, String],
       required: true,
     },
   },
