@@ -38,7 +38,7 @@ export default {
     {
       contents: {
         title: 'Taking care of yourself',
-        text: 'The idea was to create an endearing and cute avatar who would replace a pet so that the user would want to take care of it. I avoided a very "human" avatar because I believe that subjects such as weight gain, weight loss and everything related to the body can be sensitive subjects: I did not want to fall into the trap of moralizing and judging our user\'s state of health. The avatar does not represent us but what we eat. Before starting you will be asked some questions about your eating habits and your goals to create your personal “mealthie”.',
+        text: 'The idea was to create an endearing and cute avatar who would replace a pet so that the user would want to take care of it. I avoided a very "human" avatar because I believe that subjects such as weight gain, weight loss and everything related to the body can be sensitive subjects: I did not want to fall into the trap of moralizing and judging our user’s state of health. The avatar does not represent us but what we eat. Before starting you will be asked some questions about your eating habits and your goals to create your personal “mealthie”.',
       },
       media: [
         [

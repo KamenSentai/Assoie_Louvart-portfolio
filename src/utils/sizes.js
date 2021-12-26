@@ -1,4 +1,2 @@
-export default {
-  desktop: 1080,
-  mobile: 375,
-}
+export const desktop = 1080
+export const mobile = 375

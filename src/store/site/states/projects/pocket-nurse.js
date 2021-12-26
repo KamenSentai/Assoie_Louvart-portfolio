@@ -4,7 +4,7 @@ export default {
   name: 'Pocket Nurse',
   slug: 'pocket-nurse',
   description: 'How to facilitated communication in the hospital.',
-  subject: 'Patient\'s care',
+  subject: 'Patient’s care',
   year: 2019,
   cover: resources.PocketNurseCover,
   hero: [
@@ -36,7 +36,7 @@ export default {
   sections: [
     {
       contents: {
-        title: 'Improving the patient\'s situation',
+        title: 'Improving the patient’s situation',
         text: 'When the patient arrives at the hospital, the screen available at his room is linked to his medical file. He can see notifications showing him choice of meals, next appointment, time of visits etc. The patient can also send a request using the interface in writing or by voice command.',
       },
       media: [
