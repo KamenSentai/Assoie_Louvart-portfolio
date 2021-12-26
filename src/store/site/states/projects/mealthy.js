@@ -1,4 +1,4 @@
-import resources from '@/utils/resources'
+import { Mealthy as resource } from '@/utils/resources'
 
 export default {
   name: 'Mealthy',
@@ -6,11 +6,11 @@ export default {
   description: 'Reinventing the experience of diet application.',
   subject: 'Eat better',
   year: 2019,
-  cover: resources.MealthyCover,
+  cover: resource.Cover,
   hero: [
-    resources.MealthyHero1,
-    resources.MealthyHero2,
-    resources.MealthyHero3,
+    resource.Hero1,
+    resource.Hero2,
+    resource.Hero3,
   ],
   intro: {
     tag: 'Intro',
@@ -42,38 +42,38 @@ export default {
       },
       media: [
         [
-          resources.MealthyMedia1,
-          resources.MealthyMedia2,
-          resources.MealthyMedia3,
+          resource.Media1,
+          resource.Media2,
+          resource.Media3,
         ],
         [
-          resources.MealthyMedia4,
-          resources.MealthyMedia5,
-          resources.MealthyMedia6,
+          resource.Media4,
+          resource.Media5,
+          resource.Media6,
         ],
       ],
     },
     {
-      screen: resources.MealthyScreen1,
+      screen: resource.Screen1,
       contents: {
         title: 'Goals every day',
         text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calorie count and your health state. When you will scan your food, the app will tell you the value of the food and if it’s good or bad. If the food is not recommended, it will propose an alternative. Also, with the coins you gain, you will be able to personalize your mealthie so it will become special and unique for you !',
       },
       media: [
         [
-          resources.MealthyMedia7,
-          resources.MealthyMedia8,
-          resources.MealthyMedia9,
+          resource.Media7,
+          resource.Media8,
+          resource.Media9,
         ],
         [
-          resources.MealthyMedia10,
-          resources.MealthyMedia11,
-          resources.MealthyMedia12,
+          resource.Media10,
+          resource.Media11,
+          resource.Media12,
         ],
       ],
     },
     {
-      screen: resources.MealthyScreen2,
+      screen: resource.Screen2,
     },
   ],
 }

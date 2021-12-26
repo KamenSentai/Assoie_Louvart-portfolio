@@ -1,4 +1,4 @@
-import resources from '@/utils/resources'
+import { PocketNurse as resource } from '@/utils/resources'
 
 export default {
   name: 'Pocket Nurse',
@@ -6,11 +6,11 @@ export default {
   description: 'How to facilitated communication in the hospital.',
   subject: 'Patient’s care',
   year: 2019,
-  cover: resources.PocketNurseCover,
+  cover: resource.Cover,
   hero: [
-    resources.PocketNurseHero1,
-    resources.PocketNurseHero2,
-    resources.PocketNurseHero3,
+    resource.Hero1,
+    resource.Hero2,
+    resource.Hero3,
   ],
   intro: {
     tag: 'Intro',
@@ -41,39 +41,39 @@ export default {
       },
       media: [
         [
-          resources.PocketNurseMedia1,
+          resource.Media1,
         ],
         [
-          resources.PocketNurseMedia2,
+          resource.Media2,
         ],
         [
-          resources.PocketNurseMedia3,
+          resource.Media3,
         ],
       ],
     },
     {
-      screen: resources.PocketNurseScreen1,
+      screen: resource.Screen1,
       contents: {
         title: 'Having fun, passing time',
         text: 'With “Pocket Nurse,” the patient has access to all his favorite activities, films, music, games, series, etc. He can also talk with his friends using its chat group.',
       },
       media: [
         [
-          resources.PocketNurseMedia4,
+          resource.Media4,
         ],
       ],
     },
     {
-      screen: resources.PocketNurseScreen2,
+      screen: resource.Screen2,
       media: [
         [
-          resources.PocketNurseMedia5,
+          resource.Media5,
         ],
         [
-          resources.PocketNurseMedia6,
+          resource.Media6,
         ],
         [
-          resources.PocketNurseMedia7,
+          resource.Media7,
         ],
       ],
     },

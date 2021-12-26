@@ -1,4 +1,4 @@
-import resources from '@/utils/resources'
+import { AcneStudios as resource } from '@/utils/resources'
 
 export default {
   name: 'Acne Studios',
@@ -6,11 +6,11 @@ export default {
   description: 'Acne Studios new website design.',
   subject: 'E-commerce',
   year: 2019,
-  cover: resources.AcneStudiosCover,
+  cover: resource.Cover,
   hero: [
-    resources.AcneStudiosHero1,
-    resources.AcneStudiosHero2,
-    resources.AcneStudiosHero3,
+    resource.Hero1,
+    resource.Hero2,
+    resource.Hero3,
   ],
   intro: {
     tag: 'Intro',
@@ -42,29 +42,29 @@ export default {
       },
       media: [
         [
-          resources.AcneStudiosMedia1,
+          resource.Media1,
         ],
         [
-          resources.AcneStudiosMedia2,
-        ],
-      ],
-    },
-    {
-      screen: resources.AcneStudiosScreen1,
-      media: [
-        [
-          resources.AcneStudiosMedia3,
+          resource.Media2,
         ],
       ],
     },
     {
-      screen: resources.AcneStudiosScreen2,
+      screen: resource.Screen1,
       media: [
         [
-          resources.AcneStudiosMedia4,
+          resource.Media3,
+        ],
+      ],
+    },
+    {
+      screen: resource.Screen2,
+      media: [
+        [
+          resource.Media4,
         ],
         [
-          resources.AcneStudiosMedia5,
+          resource.Media5,
         ],
       ],
     },

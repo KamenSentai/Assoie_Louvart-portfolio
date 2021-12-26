@@ -1,4 +1,4 @@
-import resources from '@/utils/resources'
+import { Feedchi as resource } from '@/utils/resources'
 
 export default {
   name: 'Feedchi',
@@ -6,11 +6,11 @@ export default {
   description: 'Change the experience of buying food with others.',
   subject: 'Food order',
   year: 2019,
-  cover: resources.FeedchiCover,
+  cover: resource.Cover,
   hero: [
-    resources.FeedchiHero1,
-    resources.FeedchiHero2,
-    resources.FeedchiHero3,
+    resource.Hero1,
+    resource.Hero2,
+    resource.Hero3,
   ],
   intro: {
     tag: 'Intro',
@@ -42,42 +42,42 @@ export default {
       },
       media: [
         [
-          resources.FeedchiMedia1,
-          resources.FeedchiMedia2,
-          resources.FeedchiMedia3,
+          resource.Media1,
+          resource.Media2,
+          resource.Media3,
         ],
       ],
     },
     {
-      screen: resources.FeedchiScreen1,
+      screen: resource.Screen1,
       contents: {
         title: 'Make a group order',
         text: 'If you want to make a collective order with Feedchi, you no longer need to crowd around a screen, pass the phone from hand to hand or have to pay for everyone. Feedchi makes the process easy, so you can save time. You just need to select the people you want to order with, and everyone can choose what they want. Once all your friends have chosen, they pay their part and all you have to do is pay yours. Then, you can share the delivery tracking with your friends. The food will arrive soon — and at the same time — for everyone. Enjoy !',
       },
       media: [
         [
-          resources.FeedchiMedia4,
-          resources.FeedchiMedia5,
+          resource.Media4,
+          resource.Media5,
         ],
         [
-          resources.FeedchiMedia6,
-          resources.FeedchiMedia7,
-          resources.FeedchiMedia8,
+          resource.Media6,
+          resource.Media7,
+          resource.Media8,
         ],
       ],
     },
     {
-      screen: resources.FeedchiScreen2,
+      screen: resource.Screen2,
       media: [
         [
-          resources.FeedchiMedia9,
-          resources.FeedchiMedia10,
-          resources.FeedchiMedia11,
+          resource.Media9,
+          resource.Media10,
+          resource.Media11,
         ],
         [
-          resources.FeedchiMedia12,
-          resources.FeedchiMedia13,
-          resources.FeedchiMedia14,
+          resource.Media12,
+          resource.Media13,
+          resource.Media14,
         ],
       ],
     },

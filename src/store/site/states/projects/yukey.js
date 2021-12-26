@@ -1,4 +1,4 @@
-import resources from '@/utils/resources'
+import { Yukey as resource } from '@/utils/resources'
 
 export default {
   name: 'Yukey',
@@ -6,11 +6,11 @@ export default {
   description: 'Reinventing the experience of bringing together sellers and buyers of real estate in France.',
   subject: 'Real estate',
   year: 2019,
-  cover: resources.YukeyCover,
+  cover: resource.Cover,
   hero: [
-    resources.YukeyHero1,
-    resources.YukeyHero2,
-    resources.YukeyHero3,
+    resource.Hero1,
+    resource.Hero2,
+    resource.Hero3,
   ],
   intro: {
     tag: 'Intro',
@@ -42,46 +42,46 @@ export default {
       },
       media: [
         [
-          resources.YukeyMedia1,
-          resources.YukeyMedia2,
+          resource.Media1,
+          resource.Media2,
         ],
         [
-          resources.YukeyMedia3,
-          resources.YukeyMedia4,
-          resources.YukeyMedia5,
+          resource.Media3,
+          resource.Media4,
+          resource.Media5,
         ],
         [
-          resources.YukeyMedia6,
-          resources.YukeyMedia7,
-          resources.YukeyMedia8,
+          resource.Media6,
+          resource.Media7,
+          resource.Media8,
         ],
       ],
     },
     {
-      screen: resources.YukeyScreen1,
+      screen: resource.Screen1,
       contents: {
         title: 'Less than 20 min to seel your house',
         text: 'As sellers, we all know how long and stressful it can be to post a real estate advertisement. That is why, with this application, we made it easier. With Yukey, the seller can post his ad in less than 20 minutes. Then, through the chat system, he can also answer buyer’s questions and schedule visits, while being guided through the different stages of sale.',
       },
       media: [
         [
-          resources.YukeyMedia9,
-          resources.YukeyMedia10,
+          resource.Media9,
+          resource.Media10,
         ],
         [
-          resources.YukeyMedia11,
-          resources.YukeyMedia12,
-          resources.YukeyMedia13,
+          resource.Media11,
+          resource.Media12,
+          resource.Media13,
         ],
         [
-          resources.YukeyMedia14,
-          resources.YukeyMedia15,
-          resources.YukeyMedia16,
+          resource.Media14,
+          resource.Media15,
+          resource.Media16,
         ],
       ],
     },
     {
-      screen: resources.YukeyScreen2,
+      screen: resource.Screen2,
     },
   ],
 }

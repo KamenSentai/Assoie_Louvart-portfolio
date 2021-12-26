@@ -43,7 +43,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import resources from '@/utils/resources'
+import * as resources from '@/utils/resources'
 
 export default {
   name: 'Loading',
@@ -104,7 +104,7 @@ export default {
   },
   mounted() {
     document.documentElement.style.overflow = 'hidden'
-    this.load(Object.values(resources))
+    this.load(Object.values(resources).map(scope => Object.values(scope)).flat())
   },
   methods: mapActions('loading', ['complete', 'load']),
 }
