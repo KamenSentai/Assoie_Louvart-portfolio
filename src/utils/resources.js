@@ -1,5 +1,0 @@
-export { default as AcneStudios } from './images/acne-studios'
-export { default as Feedchi } from './images/feedchi'
-export { default as Mealthy } from './images/mealthy'
-export { default as PocketNurse } from './images/pocket-nurse'
-export { default as Yukey } from './images/yukey'
