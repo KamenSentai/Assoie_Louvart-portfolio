@@ -25,7 +25,6 @@ export default {
   },
   projects(state) {
     return state.projects
-      .sort((a, b) => a.position - b.position)
       .map((project, index) => ({ ...project, index }))
   },
   savedIndex(state) {

@@ -6,9 +6,9 @@ import PocketNurse from './projects/pocket-nurse'
 import Yukey from './projects/yukey'
 
 export default [
-  { ...AcneStudios, position: 5, size: desktop },
-  { ...Feedchi, position: 2, size: mobile },
-  { ...Mealthy, position: 4, size: mobile },
-  { ...PocketNurse, position: 3, size: desktop },
-  { ...Yukey, position: 1, size: mobile },
+  { ...Yukey, size: mobile },
+  { ...Feedchi, size: mobile },
+  { ...PocketNurse, size: desktop },
+  { ...Mealthy, size: mobile },
+  { ...AcneStudios, size: desktop },
 ]
