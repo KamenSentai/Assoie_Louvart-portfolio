@@ -25,7 +25,6 @@
         />
         <ComponentGallery
           v-if="section.media && section.media.length"
-          :size="project.size"
           :media="section.media"
         />
       </section>

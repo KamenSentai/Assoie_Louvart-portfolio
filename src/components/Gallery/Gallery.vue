@@ -4,7 +4,7 @@
       v-for="(row, i) in media"
       :key="`row-${i}`"
       :class="$style.line"
-      :style="{ gridAutoColumns: `minmax(auto, ${size}px)` }"
+      :style="{ gridAutoColumns: `minmax(auto, ${row.length > 1 ? 375 : 1080}px)` }"
     >
       <template v-slot:default="reveal">
         <template v-for="(medium, j) in row">
@@ -47,10 +47,6 @@ export default {
     ComponentReveal,
   },
   props: {
-    size: {
-      type: Number,
-      required: true,
-    },
     media: {
       type: Array,
       default: () => [],
