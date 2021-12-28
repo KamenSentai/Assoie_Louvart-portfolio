@@ -27,7 +27,7 @@ export default {
         title: 'What',
         items: [
           'Tablet',
-          2019,
+          { key: 'year' },
         ],
       },
     ],

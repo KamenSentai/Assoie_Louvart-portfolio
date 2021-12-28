@@ -28,7 +28,7 @@ export default {
         title: 'What',
         items: [
           'Application',
-          2019,
+          { key: 'year' },
         ],
       },
     ],
