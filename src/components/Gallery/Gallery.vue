@@ -5,12 +5,13 @@
       :key="`row-${i}`"
       :class="$style.line"
       :style="{ gridAutoColumns: `minmax(auto, ${row.length > 1 ? 375 : 1080}px)` }"
+      @reveal="forceVideoPlaying"
     >
       <template v-slot:default="{ isRevealed, transitionDelay }">
         <template v-for="(medium, j) in row">
           <ComponentFade
             v-if="isImage(medium)"
-            :key="`image-${j}`"
+            :key="`image-${i}-${j}`"
             component="img"
             :is-unrevealed="!isRevealed"
             :src="medium"
@@ -19,7 +20,8 @@
           />
           <ComponentFade
             v-else-if="isVideo(medium)"
-            :key="`video-${j}`"
+            :ref="`video-${i}-${j}`"
+            :key="`video-${i}-${j}`"
             component="video"
             :is-unrevealed="!isRevealed"
             :src="medium"
@@ -58,6 +60,18 @@ export default {
     },
     isVideo() {
       return medium => Object.keys(videoTypes).includes(`.${medium.split('.').splice(-1)[0]}`)
+    },
+  },
+  methods: {
+    forceVideoPlaying() {
+      Object.entries(this.$refs)
+        .filter(([key]) => key.includes('video'))
+        .forEach(([, [{ $el }]]) => {
+          if ($el.paused) {
+            $el.muted = true
+            $el.play()
+          }
+        })
     },
   },
 }
