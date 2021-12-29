@@ -109,7 +109,6 @@ export default {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
-  transition: min-height $smooth-slower;
 }
 
 .isInactive {
