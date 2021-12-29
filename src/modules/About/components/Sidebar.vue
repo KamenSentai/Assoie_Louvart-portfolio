@@ -3,18 +3,18 @@
     component="aside"
     :class="$style.container"
   >
-    <template v-slot:default="reveal">
+    <template v-slot:default="{ isRevealed, transitionDelay }">
       <ComponentFade
         v-for="(social, i) in socials"
         :key="social.name"
         component="a"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         rel="noopener noreferrer"
         target="_blank"
         :href="social.link"
         :title="social.name"
         :class="$style.link"
-        :style="reveal.transitionDelay(i)"
+        :style="transitionDelay(i)"
       >
         <span
           class="link"

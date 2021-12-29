@@ -1,20 +1,20 @@
 <template>
   <ComponentReveal :class="$style.container">
-    <template v-slot:default="reveal">
+    <template v-slot:default="{ isRevealed, transitionDelay }">
       <ComponentFade
         v-if="title"
         :component="ComponentTitle"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         tag="h2"
         :text="title"
       />
       <ComponentFade
         v-if="text"
         :component="ComponentParagraph"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         :text="text"
         :class="$style.paragraph"
-        :style="reveal.transitionDelay()"
+        :style="transitionDelay()"
       />
     </template>
   </ComponentReveal>

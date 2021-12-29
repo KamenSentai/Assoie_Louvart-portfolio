@@ -3,10 +3,10 @@
     component="section"
     @reveal="index && $emit('reveal')"
   >
-    <template v-slot:default="reveal">
+    <template v-slot:default="{ isRevealed, transitionDelay }">
       <ComponentFade
         :component="ComponentTitle"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         :large="!index"
         :small="!!index"
         :tag="section.title.tag"
@@ -16,9 +16,9 @@
       <ComponentFade
         v-if="section.paragraph"
         :component="ComponentParagraph"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         :text="section.paragraph"
-        :style="reveal.transitionDelay()"
+        :style="transitionDelay()"
       />
       <div
         v-else-if="section.list"
@@ -40,8 +40,8 @@
               :key="`text-${index}-${j}-${k}`"
               component="span"
               is-lower
-              :is-unrevealed="!reveal.isRevealed"
-              :style="reveal.transitionDelay(j + k + 1)"
+              :is-unrevealed="!isRevealed"
+              :style="transitionDelay(j + k + 1)"
             >
               {{ text }}
             </ComponentFade>
@@ -53,15 +53,15 @@
               height="20px"
               :component="ComponentIcon"
               is-lower
-              :is-unrevealed="!reveal.isRevealed"
-              :style="reveal.transitionDelay(j + 1)"
+              :is-unrevealed="!isRevealed"
+              :style="transitionDelay(j + 1)"
             />
             <ComponentFade
               v-else
               component="span"
               is-lower
-              :is-unrevealed="!reveal.isRevealed"
-              :style="reveal.transitionDelay(j + 1)"
+              :is-unrevealed="!isRevealed"
+              :style="transitionDelay(j + 1)"
             >
               {{ item.name }}
             </ComponentFade>
@@ -72,8 +72,8 @@
               :title="item.title"
               component="a"
               is-lower
-              :is-unrevealed="!reveal.isRevealed"
-              :style="reveal.transitionDelay(j + 2)"
+              :is-unrevealed="!isRevealed"
+              :style="transitionDelay(j + 2)"
             >
               {{ item.title }}
             </ComponentFade>

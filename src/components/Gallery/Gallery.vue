@@ -6,25 +6,25 @@
       :class="$style.line"
       :style="{ gridAutoColumns: `minmax(auto, ${row.length > 1 ? 375 : 1080}px)` }"
     >
-      <template v-slot:default="reveal">
+      <template v-slot:default="{ isRevealed, transitionDelay }">
         <template v-for="(medium, j) in row">
           <ComponentFade
             v-if="isImage(medium)"
             :key="`image-${j}`"
             component="img"
-            :is-unrevealed="!reveal.isRevealed"
+            :is-unrevealed="!isRevealed"
             :src="medium"
             :class="$style.medium"
-            :style="reveal.transitionDelay(j)"
+            :style="transitionDelay(j)"
           />
           <ComponentFade
             v-else-if="isVideo(medium)"
             :key="`video-${j}`"
             component="video"
-            :is-unrevealed="!reveal.isRevealed"
+            :is-unrevealed="!isRevealed"
             :src="medium"
             :class="$style.medium"
-            :style="reveal.transitionDelay(j)"
+            :style="transitionDelay(j)"
             autoplay
             loop
             muted

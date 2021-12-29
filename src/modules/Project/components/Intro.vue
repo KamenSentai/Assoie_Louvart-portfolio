@@ -3,15 +3,15 @@
     component="section"
     :class="$style.container"
   >
-    <template v-slot:default="reveal">
+    <template v-slot:default="{ isRevealed, transitionDelay }">
       <ComponentFade
         :component="ComponentTag"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         :text="intro.tag"
       />
       <ComponentFade
         :component="ComponentTitle"
-        :is-unrevealed="!reveal.isRevealed"
+        :is-unrevealed="!isRevealed"
         small
         tag="h2"
         :class="$style.title"
@@ -22,16 +22,16 @@
           v-for="(list, index) in lists"
           :key="`list-${index}`"
           :component="ComponentList"
-          :is-unrevealed="!reveal.isRevealed"
+          :is-unrevealed="!isRevealed"
           :title="list.title"
           :items="list.items"
-          :style="reveal.transitionDelay(index)"
+          :style="transitionDelay(index)"
         />
         <ComponentFade
           :component="ComponentParagraph"
-          :is-unrevealed="!reveal.isRevealed"
+          :is-unrevealed="!isRevealed"
           :text="intro.text"
-          :style="reveal.transitionDelay(lists.length)"
+          :style="transitionDelay(lists.length)"
         />
       </div>
     </template>
