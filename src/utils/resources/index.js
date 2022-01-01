@@ -1,4 +1,5 @@
 export { default as AcneStudios } from './acne-studios'
+export { default as Diptyque } from './diptyque'
 export { default as Feedchi } from './feedchi'
 export { default as Mealthy } from './mealthy'
 export { default as PocketNurse } from './pocket-nurse'
