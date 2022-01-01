@@ -1,9 +1,11 @@
 import { Feedchi as resource } from '@/utils/resources'
 
+const description = 'Change the experience of buying food with others'
+
 export default {
   name: 'Feedchi',
   slug: 'feedchi',
-  description: 'Change the experience of buying food with others.',
+  description: `${description}.`,
   subject: 'Food order',
   year: 2019,
   cover: resource.Cover,
@@ -14,7 +16,7 @@ export default {
   ],
   intro: {
     tag: 'Intro',
-    title: 'Change the experience of buying food with others',
+    title: description,
     lists: [
       {
         title: 'Role',

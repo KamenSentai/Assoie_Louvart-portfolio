@@ -1,9 +1,11 @@
 import { Mealthy as resource } from '@/utils/resources'
 
+const description = 'Reinventing the experience of diet application'
+
 export default {
   name: 'Mealthy',
   slug: 'mealthy',
-  description: 'Reinventing the experience of diet application.',
+  description: `${description}.`,
   subject: 'Eat better',
   year: 2019,
   cover: resource.Cover,
@@ -14,7 +16,7 @@ export default {
   ],
   intro: {
     tag: 'Intro',
-    title: 'Reinventing the experience of diet application',
+    title: description,
     lists: [
       {
         title: 'Role',
@@ -38,7 +40,7 @@ export default {
     {
       contents: {
         title: 'Taking care of yourself',
-        text: 'The idea was to create an endearing and cute avatar who would replace a pet so that the user would want to take care of it. I avoided a very "human" avatar because I believe that subjects such as weight gain, weight loss and everything related to the body can be sensitive subjects: I did not want to fall into the trap of moralizing and judging our user’s state of health. The avatar does not represent us but what we eat. Before starting you will be asked some questions about your eating habits and your goals to create your personal “mealthie”.',
+        text: 'The idea was to create an endearing and cute avatar who would replace a pet so that the user would want to take care of it. I avoided a very "human" avatar because I believe that subjects such as weight gain, weight loss and everything related to the body can be sensitive subjects: I did not want to fall into the trap of moralizing and judging our user\'s state of health. The avatar does not represent us but what we eat. Before starting you will be asked some questions about your eating habits and your goals to create your personal “mealthie”.',
       },
       media: [
         [
@@ -57,7 +59,7 @@ export default {
       screen: resource.Screen1,
       contents: {
         title: 'Goals every day',
-        text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calorie count and your health state. When you will scan your food, the app will tell you the value of the food and if it’s good or bad. If the food is not recommended, it will propose an alternative. Also, with the coins you gain, you will be able to personalize your mealthie so it will become special and unique for you !',
+        text: 'Each day there are 3 goals to achieve in order to gain game coins. You will get information about your diet, your calorie count and your health state. When you will scan your food, the app will tell you the value of the food and if it\'s good or bad. If the food is not recommended, it will propose an alternative. Also, with the coins you gain, you will be able to personalize your mealthie so it will become special and unique for you !',
       },
       media: [
         [

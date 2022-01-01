@@ -1,7 +1,7 @@
 import env from '@/utils/env'
 import separator from '@/utils/separator'
 
-const description = 'I’m Assoïe, a French full time Freelance Product Designer. I am passionate about design and looking forward to work with talented people on interesting projects.'
+const description = 'I\'m Assoïe, a Paris based full-time Freelance Product Designer. I\'ve studied during the last 5 years at HETIC. That experience had let me discover the complexity of digital design. Now, the work I produce combines visual design and product design. I am passionate about design and looking forward to work with talented people on interesting projects.'
 
 export default {
   content: [
@@ -58,7 +58,7 @@ export default {
         tag: 'h2',
         text: 'And today ?',
       },
-      paragraph: 'I just finished my 1 year apprenticeship at ULTRANOIR where I had the chance to work for luxury brands. Actually, I am available for freelance. Please feel free to contact me for more informations. I’ll be more than happy to chat with you about any opportunities!',
+      paragraph: 'I just finished my 1 year apprenticeship at ULTRANOIR where I had the chance to work for luxury brands. Actually, I am available for freelance. Please feel free to contact me for more informations. I\'ll be more than happy to chat with you about any opportunities!',
     },
     {
       isSocial: true,

@@ -1,9 +1,11 @@
 import { AcneStudios as resource } from '@/utils/resources'
 
+const description = 'Acne Studios new design'
+
 export default {
   name: 'Acne Studios',
   slug: 'acne-studios',
-  description: 'Acne Studios new website design.',
+  description: `${description}.`,
   subject: 'E-commerce',
   year: 2019,
   cover: resource.Cover,
@@ -14,7 +16,7 @@ export default {
   ],
   intro: {
     tag: 'Intro',
-    title: 'Acne Studios new design',
+    title: description,
     lists: [
       {
         title: 'Role',
@@ -38,7 +40,7 @@ export default {
     {
       contents: {
         title: 'Minimalist, simplicity',
-        text: 'Acne Studios has a strong identity. Their website is very clear and shows their product’s quality. My goal was to fit with Acne Studios values while adding my own touch.',
+        text: 'Acne Studios has a strong identity. Their website is very clear and shows their product\'s quality. My goal was to fit with Acne Studios values while adding my own touch.',
       },
       media: [
         [

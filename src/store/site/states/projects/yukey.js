@@ -1,9 +1,11 @@
 import { Yukey as resource } from '@/utils/resources'
 
+const description = 'Reinventing the experience of bringing together sellers and buyers of real estate in France'
+
 export default {
   name: 'Yukey',
   slug: 'yukey',
-  description: 'Reinventing the experience of bringing together sellers and buyers of real estate in France.',
+  description: `${description}.`,
   subject: 'Real estate',
   year: 2019,
   cover: resource.Cover,
@@ -14,7 +16,7 @@ export default {
   ],
   intro: {
     tag: 'Intro',
-    title: 'Reinventing the experience of bringing together sellers and buyers of real estate in France',
+    title: description,
     lists: [
       {
         title: 'Role',
@@ -61,7 +63,7 @@ export default {
       screen: resource.Screen1,
       contents: {
         title: 'Less than 20 min to seel your house',
-        text: 'As sellers, we all know how long and stressful it can be to post a real estate advertisement. That is why, with this application, we made it easier. With Yukey, the seller can post his ad in less than 20 minutes. Then, through the chat system, he can also answer buyer’s questions and schedule visits, while being guided through the different stages of sale.',
+        text: 'As sellers, we all know how long and stressful it can be to post a real estate advertisement. That is why, with this application, we made it easier. With Yukey, the seller can post his ad in less than 20 minutes. Then, through the chat system, he can also answer buyer\'s questions and schedule visits, while being guided through the different stages of sale.',
       },
       media: [
         [
