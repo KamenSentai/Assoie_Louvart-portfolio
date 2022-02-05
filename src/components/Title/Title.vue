@@ -10,7 +10,13 @@
       }
     ]"
   >
-    {{ text }}
+    <template v-for="(line, i) in text.split('\n')">
+      <br
+        v-if="i"
+        :key="`line-${i}`"
+      >
+      {{ line }}
+    </template>
   </component>
 </template>
 
