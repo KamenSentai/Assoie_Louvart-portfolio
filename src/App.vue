@@ -48,7 +48,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: `${this.SPECIALIZATION} & ${this.STATUS}`,
+      title: this.STATUS,
       titleTemplate: `${this.NAME} — %s`,
     }
   },
