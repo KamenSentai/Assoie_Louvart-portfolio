@@ -1,7 +1,7 @@
 import env from '@/utils/env'
 import separator from '@/utils/separator'
 
-const description = 'I\'m Assoïe, a Paris based full-time Freelance Product Designer. I\'ve studied during the last 5 years at HETIC. That experience had let me discover the complexity of digital design. Now, the work I produce combines visual design and product design. I am passionate about design and looking forward to work with talented people on interesting projects.'
+const description = 'I\'m Assoïe, a Paris based full-time Freelance Product Designer and UX/UI Designer. Curious and invested designer, my goal is to design and improve the experiences you offer to your users. I intervene on the research phases, but also on the UX/UI design phases. Passinate about design, I like to work on the whole project. My numerous experiences in agencies and at the client\'s allow me to adapts to any situation and type of project.'
 
 export default {
   content: [
@@ -20,6 +20,24 @@ export default {
         class: 'grid',
         items: [
           [
+            'FREELANCE (+5 years)',
+            '2018 - 2023',
+            'Product Designer / UX/UI Designer',
+            '🌍',
+          ],
+          [
+            'USE ALL FIVE',
+            '2022 - 2023',
+            'UX/UI Designer',
+            'Los Angeles 🌇',
+          ],
+          [
+            'VO',
+            '2022',
+            'UX/UI Designer',
+            'Paris 🥐',
+          ],
+          [
             'ULTRANOIR',
             '2021',
             'Junior Visual Designer',
@@ -30,6 +48,12 @@ export default {
             '2020',
             'Visual Designer Intern',
             'New York 🗽',
+          ],
+          [
+            'YUKEY',
+            '2019',
+            'Product Designer',
+            'Paris 🥐',
           ],
           [
             'ET SI',
@@ -70,7 +94,7 @@ export default {
         class: 'link',
         items: [
           {
-            name: 'Email',
+            name: 'Mail',
             title: 'louvartassoie@gmail.com',
             link: 'mailto:louvartassoie@gmail.com',
           },

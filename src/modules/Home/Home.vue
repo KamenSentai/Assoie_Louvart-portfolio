@@ -38,13 +38,13 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { Hero as ComponentHero } from '@/components/Hero'
 import {
   Hero as HomeHero,
   Indicator as HomeIndicator,
   Navigation as HomeNavigation,
   Sidebar as HomeSidebar,
 } from './components'
-import { Hero as ComponentHero } from '@/components/Hero'
 
 export default {
   name: 'Home',

@@ -51,9 +51,9 @@
 </template>
 
 <script>
-import { Field as AboutField, Sidebar as AboutSidebar } from './components'
 import { Indicator as ComponentIndicator } from '@/components/Indicator'
 import { Reveal as ComponentReveal } from '@/components/Reveal'
+import { Field as AboutField, Sidebar as AboutSidebar } from './components'
 
 export default {
   name: 'About',

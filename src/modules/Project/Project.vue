@@ -34,10 +34,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Intro as ProjectIntro } from './components'
 import { Banner as ComponentBanner } from '@/components/Banner'
 import { Gallery as ComponentGallery } from '@/components/Gallery'
 import { Screen as ComponentScreen } from '@/components/Screen'
+import { Intro as ProjectIntro } from './components'
 
 export default {
   name: 'Project',
