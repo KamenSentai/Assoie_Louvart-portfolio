@@ -40,13 +40,13 @@ export default {
           [
             'ULTRANOIR',
             '2021',
-            'Junior Visual Designer',
+            'UX/UI Designer + Creative Designer',
             'Paris 🥐',
           ],
           [
             'FANTASY',
             '2020',
-            'Visual Designer Intern',
+            'UX/UI Designer',
             'New York 🗽',
           ],
           [
@@ -58,13 +58,13 @@ export default {
           [
             'ET SI',
             '2019',
-            'Design Intern',
+            'UX/UI Designer',
             'Paris 🥐',
           ],
           [
             'UNILOG',
             '2018',
-            'Design Intern',
+            'Product Designer',
             'Bangalore 🐘',
           ],
         ],
